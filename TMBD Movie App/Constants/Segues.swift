@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Segue Identifiers
 struct Segues{
     static let toSearchVC = "toSearchVC"
     static let toDetailVC = "toDetailVC"

@@ -8,5 +8,5 @@
 import Foundation
 
 struct MovieModel {
-    let movieTitle: String
+    let originalTitle : String
 }

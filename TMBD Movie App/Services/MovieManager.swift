@@ -15,13 +15,12 @@ protocol MovieManagerDelegate {
 
 // MARK: - MovieManager
 struct MovieManager {
+    let url = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.nowPlaying)?\(URLConstants.apiKey)&\(URLConstants.page)"
     
     var delegate: MovieManagerDelegate?
     
     func performRequest(){
-        let url = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.nowPlaying)?\(URLConstants.apiKey)&\(URLConstants.page)"
-        
-        if let urlString = URL(string: url){
+        if let urlString = URL(string: self.url){
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: urlString) { data, response, error in
                 if let error {
@@ -41,8 +40,8 @@ struct MovieManager {
     
     func parseJSON(data: Data) -> MovieModel? {
         do{
-            let result = try JSONDecoder().decode(Result.self, from: data)
-            let model = MovieModel(movieTitle: result.originalTitle)
+            let result = try JSONDecoder().decode(MovieData.self, from: data)
+            let model = MovieModel(originalTitle: result.results[0].originalTitle)
             return model
         }catch{
             self.delegate?.didFailWithError(error: error)

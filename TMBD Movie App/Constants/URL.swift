@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - URL Constants
 struct URLConstants {
     static let baseURL = "https://api.themoviedb.org/3"
     static let type = "movie"
