@@ -50,22 +50,18 @@ extension MovieTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
         
-        cell.posterImage.layer.cornerRadius = 15
-        
         cell.posterLabel.text = self.movieArray?[indexPath.row].title
-        
+        cell.posterImage.layer.cornerRadius = 15
+
         let posterPath = self.movieArray?[indexPath.row].poster_path
-        
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(posterPath ?? "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg")")!)) { data, _, error in
             do{
                 if let data {
-                    let datas = try data
+                    let datas =  data
                     DispatchQueue.main.async {
                         cell.posterImage.image = UIImage(data: datas)
                     }
                 }
-            }catch{
-                print(error)
             }
         }.resume()
         return cell

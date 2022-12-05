@@ -26,11 +26,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7jG-es-zDE">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="singleLineEtched" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7jG-es-zDE">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="separatorColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="320" id="U80-4s-i4Y" customClass="MovieTableViewCell" customModule="TMBD_Movie_App" customModuleProvider="target">
@@ -180,26 +180,33 @@
                                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-hC-brA">
-                                                        <rect key="frame" x="214.66666666666663" y="201" width="133.33333333333337" height="48"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="V0p-hC-brA">
+                                                        <rect key="frame" x="203" y="201" width="145" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="62E-J2-6ck"/>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="168" id="lGp-0x-wDe"/>
+                                                            <constraint firstAttribute="width" constant="145" id="lGp-0x-wDe"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="tinted" title="İzleme Listesi" imagePadding="9" cornerStyle="capsule">
+                                                        <buttonConfiguration key="configuration" style="filled" title="İzleme Listesi" imagePadding="9" cornerStyle="capsule">
                                                             <imageReference key="image" image="plus" catalog="system" symbolScale="medium" variableValue="0.0"/>
+                                                            <backgroundConfiguration key="background">
+                                                                <color key="strokeColor" systemColor="labelColor"/>
+                                                            </backgroundConfiguration>
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                                             <fontDescription key="titleFontDescription" name="Galvji-Bold" family="Galvji" pointSize="12"/>
+                                                            <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                                            <color key="baseForegroundColor" systemColor="labelColor"/>
+                                                            <color key="baseBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="addWatchListPressed:" destination="ll2-Nh-XKM" eventType="touchUpInside" id="BIO-2M-8m5"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjC-hU-LiD">
-                                                        <rect key="frame" x="15" y="201" width="143.66666666666666" height="48"/>
+                                                        <rect key="frame" x="15" y="201" width="145" height="48"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="168" id="F7c-mr-S7n"/>
+                                                            <constraint firstAttribute="width" constant="145" id="F7c-mr-S7n"/>
                                                             <constraint firstAttribute="height" constant="48" id="lLu-3b-8Gr"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.0039491755889999999" green="0.80212575200000003" blue="0.44187545779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -207,6 +214,8 @@
                                                         <buttonConfiguration key="configuration" style="filled" title="Fragmanı Oynat" imagePadding="9" cornerStyle="capsule">
                                                             <imageReference key="image" image="play.fill" catalog="system" symbolScale="medium" variableValue="0.0"/>
                                                             <fontDescription key="titleFontDescription" name="Galvji-Bold" family="Galvji" pointSize="12"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="baseBackgroundColor" red="0.0039215686269999999" green="0.80392156859999997" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </buttonConfiguration>
                                                         <connections>
                                                             <action selector="playTrailerPressed:" destination="ll2-Nh-XKM" eventType="touchUpInside" id="QXt-lv-bF2"/>
@@ -476,6 +485,9 @@
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tmdb_logo" width="273.42001342773438" height="35.520000457763672"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
