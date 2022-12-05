@@ -9,9 +9,8 @@ import UIKit
 
 class NowPlayingCollectionViewCell: UICollectionViewCell {
     
+    // Properties
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var posterLabel: UILabel!
-    
-    
     
 }

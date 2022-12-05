@@ -9,38 +9,23 @@ import Foundation
 
 // MARK: - MovieData
 struct MovieData: Codable {
-    let dates: Dates?
-    let page: Int?
     let results: [Result]?
-    let totalPages, totalResults: Int?
-}
-
-// MARK: - Dates
-struct Dates: Codable {
-    let maximum, minimum: String?
 }
 
 // MARK: - Result
 struct Result: Codable {
     let adult: Bool?
-    let backdropPath: String?
-    let genreIDS: [Int]?
+    let backdrop_path: String?
+    let genreids: [Int]?
     let id: Int?
-    let originalLanguage: OriginalLanguage?
-    let originalTitle, overview: String?
+    let original_title, overview: String?
     let popularity: Double?
-    let poster_path, releaseDate, title: String?
+    let poster_path, release_date, title: String?
     let video: Bool?
-    let voteAverage: Double?
-    let voteCount: Int?
+    let vote_average: Double?
+    let vote_count: Int?
 }
 
-enum OriginalLanguage: Codable {
-    case de
-    case en
-    case es
-    case vi
-}
 
 /*
  

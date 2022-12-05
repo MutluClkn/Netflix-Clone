@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF4293DDA0D00853472 /* DetailViewController.swift */; };
+		FA519EF8293E053C00853472 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF7293E053C00853472 /* StringExtensions.swift */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		FA519EF4293DDA0D00853472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FA519EF7293E053C00853472 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnekDevanagari-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
@@ -63,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA519EF6293E04F700853472 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FA519EF7293E053C00853472 /* StringExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		FAA4EF7A2939C7EE008650CE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +153,7 @@
 		FAA669A22938B7EE00E4CD73 /* TMBD Movie App */ = {
 			isa = PBXGroup;
 			children = (
+				FA519EF6293E04F700853472 /* Extensions */,
 				FAA4EF852939D111008650CE /* Constants */,
 				FAA4EF7A2939C7EE008650CE /* Fonts */,
 				FAA4EF802939D0CB008650CE /* Services */,
@@ -272,6 +283,7 @@
 				FAA4EF8F2939E09A008650CE /* Cells.swift in Sources */,
 				FAA669A62938B7EF00E4CD73 /* SceneDelegate.swift in Sources */,
 				FAA4EF872939D11B008650CE /* URL.swift in Sources */,
+				FA519EF8293E053C00853472 /* StringExtensions.swift in Sources */,
 				FAA4EFA2293A1FDB008650CE /* MovieTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

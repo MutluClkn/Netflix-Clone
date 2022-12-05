@@ -9,6 +9,7 @@ import UIKit
 
 class MovieTableViewCell: UITableViewCell {
 
+    //Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
     //Cell selection to performsegue
@@ -23,13 +24,13 @@ class MovieTableViewCell: UITableViewCell {
         }
     }
     
-    //Life cycle
+    //Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        movieManager.performRequest { [self] movies in
+        movieManager.performRequest(url: URLAddress().urlNowPlaying) { [self] movies in
             movieArray = movies.results
         }
     }
@@ -48,14 +49,17 @@ extension MovieTableViewCell: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.posterImage.layer.cornerRadius = 15
+        
         cell.posterLabel.text = self.movieArray?[indexPath.row].title
         
         let posterPath = self.movieArray?[indexPath.row].poster_path
         
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(posterPath ?? "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg")")!)) { data, _, error in
-            do {
+            do{
                 if let data {
-                    var datas = try data
+                    let datas = try data
                     DispatchQueue.main.async {
                         cell.posterImage.image = UIImage(data: datas)
                     }
@@ -64,7 +68,6 @@ extension MovieTableViewCell: UICollectionViewDataSource {
                 print(error)
             }
         }.resume()
-        
         return cell
     }
 }

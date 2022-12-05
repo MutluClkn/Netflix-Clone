@@ -9,9 +9,8 @@ import Foundation
 
 // MARK: - MovieManager
 struct MovieManager {
-    let url = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.nowPlaying)?\(URLConstants.apiKey)&\(URLConstants.page)"
 
-    func performRequest(completion: @escaping (MovieData) -> Void){
+    func performRequest(url: String, completion: @escaping (MovieData) -> Void){
         if let urlString = URL(string: url) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: urlString) { data, _, error in
@@ -34,5 +33,4 @@ struct MovieManager {
             task.resume()
         }
     }
-    
 }

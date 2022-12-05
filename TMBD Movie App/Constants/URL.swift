@@ -17,7 +17,16 @@ struct URLConstants {
     struct Category {
         static let nowPlaying = "now_playing"
         static let popular = "popular"
+        static let topRated = "top_rated"
+        static let upcoming = "upcoming"
     }
+}
+
+struct URLAddress {
+    let urlNowPlaying = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.nowPlaying)?\(URLConstants.apiKey)&\(URLConstants.page)"
+    let urlPopular = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.popular)?\(URLConstants.apiKey)&\(URLConstants.page)"
+    let urlTopRated = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.topRated)?\(URLConstants.apiKey)&\(URLConstants.page)"
+    let urlUpcoming = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.upcoming)?\(URLConstants.apiKey)&\(URLConstants.page)"
 }
 
 

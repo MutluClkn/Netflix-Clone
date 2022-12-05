@@ -9,18 +9,19 @@ import UIKit
 
 class DetailViewController: UIViewController {
     
-    
+    //Properties
     @IBOutlet weak var infoView: UIView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieType: UILabel!
-    @IBOutlet weak var overview: UITextView!
+    @IBOutlet weak var overviewLabel: UILabel!
     
-
+    // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        overviewLabel.translatesAutoresizingMaskIntoConstraints = false
+        overviewLabel.sizeToFit()
         infoView.layer.cornerRadius = infoView.frame.size.height * 0.08
     }
 
