@@ -31,58 +31,59 @@
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="196" id="U80-4s-i4Y" customClass="MovieTableViewCell" customModule="TMBD_Movie_App" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="196"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MovieTableViewCell" rowHeight="300" id="U80-4s-i4Y" customClass="MovieTableViewCell" customModule="TMBD_Movie_App" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U80-4s-i4Y" id="C3h-Av-kbc">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="196"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="300"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Du0-pY-CrT">
-                                                    <rect key="frame" x="20" y="11" width="353" height="174"/>
+                                                    <rect key="frame" x="20" y="11" width="353" height="278"/>
                                                     <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FFF-L7-wKL">
-                                                        <size key="itemSize" width="99" height="173"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="FFF-L7-wKL">
+                                                        <size key="itemSize" width="130" height="278"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="nowPlayingCell" id="6xi-Bd-xdn" customClass="NowPlayingCollectionViewCell" customModule="TMBD_Movie_App" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.66666666666666663" width="99" height="173"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="130" height="278"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3Wu-qY-zKh">
-                                                                <rect key="frame" x="0.0" y="0.0" width="99" height="173"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="130" height="278"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karayipkorsanlar" translatesAutoresizingMaskIntoConstraints="NO" id="l9E-KO-Fue">
-                                                                        <rect key="frame" x="5" y="5" width="89" height="130"/>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karayipkorsanlar" translatesAutoresizingMaskIntoConstraints="NO" id="l9E-KO-Fue">
+                                                                        <rect key="frame" x="5" y="5" width="120" height="180"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="height" constant="130" id="F7y-Bd-i5S"/>
+                                                                            <constraint firstAttribute="height" constant="180" id="F7y-Bd-i5S"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karayip Korsanları: Gizemli Denizlerde" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XaX-xA-ipX">
-                                                                        <rect key="frame" x="8" y="140" width="83" height="28"/>
-                                                                        <fontDescription key="fontDescription" name="NotoSans-SemiBold" family="Noto Sans" pointSize="7"/>
+                                                                        <rect key="frame" x="8" y="185" width="114" height="73"/>
+                                                                        <fontDescription key="fontDescription" name="NotoSans-SemiBold" family="Noto Sans" pointSize="12"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="bottom" secondItem="XaX-xA-ipX" secondAttribute="bottom" constant="5" id="8Ok-fQ-y38"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="XaX-xA-ipX" secondAttribute="bottom" constant="20" id="8Ok-fQ-y38"/>
                                                                     <constraint firstItem="l9E-KO-Fue" firstAttribute="leading" secondItem="3Wu-qY-zKh" secondAttribute="leading" constant="5" id="CWt-0Q-UFS"/>
                                                                     <constraint firstItem="l9E-KO-Fue" firstAttribute="top" secondItem="3Wu-qY-zKh" secondAttribute="top" constant="5" id="HYu-ZD-rST"/>
                                                                     <constraint firstAttribute="trailing" secondItem="XaX-xA-ipX" secondAttribute="trailing" constant="8" id="QZu-eu-UZA"/>
                                                                     <constraint firstAttribute="trailing" secondItem="l9E-KO-Fue" secondAttribute="trailing" constant="5" id="YcT-44-DLF"/>
-                                                                    <constraint firstItem="XaX-xA-ipX" firstAttribute="top" secondItem="l9E-KO-Fue" secondAttribute="bottom" constant="5" id="bxR-0Q-EvI"/>
+                                                                    <constraint firstItem="XaX-xA-ipX" firstAttribute="top" secondItem="l9E-KO-Fue" secondAttribute="bottom" id="bxR-0Q-EvI"/>
                                                                     <constraint firstItem="XaX-xA-ipX" firstAttribute="leading" secondItem="3Wu-qY-zKh" secondAttribute="leading" constant="8" id="qrU-JT-20k"/>
                                                                 </constraints>
                                                             </collectionViewCellContentView>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <size key="customSize" width="99" height="173"/>
+                                                            <size key="customSize" width="130" height="278"/>
                                                             <connections>
                                                                 <outlet property="posterImage" destination="l9E-KO-Fue" id="U0n-2N-P9i"/>
                                                                 <outlet property="posterLabel" destination="XaX-xA-ipX" id="2Bw-5Z-2Y0"/>
@@ -130,7 +131,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeTableView" destination="7jG-es-zDE" id="IpQ-qt-tmK"/>
-                        <segue destination="ll2-Nh-XKM" kind="show" identifier="toDetailVC" id="v0r-u6-I9E"/>
+                        <segue destination="ll2-Nh-XKM" kind="show" identifier="toDetailVC" id="Ce8-Q2-UR1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -140,7 +141,7 @@
         <!--Detay-->
         <scene sceneID="e5h-YP-Pic">
             <objects>
-                <viewController id="ll2-Nh-XKM" sceneMemberID="viewController">
+                <viewController id="ll2-Nh-XKM" customClass="DetailViewController" customModule="TMBD_Movie_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mAR-Op-uBb">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +185,7 @@
                                                         <rect key="frame" x="187" y="201" width="168" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="62E-J2-6ck"/>
-                                                            <constraint firstAttribute="width" constant="168" id="lGp-0x-wDe"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="lGp-0x-wDe"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
@@ -192,11 +193,14 @@
                                                             <imageReference key="image" image="plus" catalog="system" symbolScale="medium" variableValue="0.0"/>
                                                             <fontDescription key="titleFontDescription" name="Galvji-Bold" family="Galvji" pointSize="12"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="addWatchListPressed:" destination="ll2-Nh-XKM" eventType="touchUpInside" id="BIO-2M-8m5"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mjC-hU-LiD">
                                                         <rect key="frame" x="8" y="201" width="168" height="48"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="168" id="F7c-mr-S7n"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="168" id="F7c-mr-S7n"/>
                                                             <constraint firstAttribute="height" constant="48" id="lLu-3b-8Gr"/>
                                                         </constraints>
                                                         <color key="tintColor" red="0.0039491755889999999" green="0.80212575200000003" blue="0.44187545779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -205,6 +209,9 @@
                                                             <imageReference key="image" image="play.fill" catalog="system" symbolScale="medium" variableValue="0.0"/>
                                                             <fontDescription key="titleFontDescription" name="Galvji-Bold" family="Galvji" pointSize="12"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="playTrailerPressed:" destination="ll2-Nh-XKM" eventType="touchUpInside" id="QXt-lv-bF2"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -257,7 +264,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-4j-wMB">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQM-4j-wMB">
                                                 <rect key="frame" x="35" y="484" width="323" height="231"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -310,6 +317,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Detay" id="76V-jv-VpJ"/>
+                    <connections>
+                        <outlet property="infoView" destination="RUF-um-C5K" id="aGX-NQ-a8o"/>
+                        <outlet property="movieTitle" destination="msZ-Qv-qto" id="wBI-m6-gH3"/>
+                        <outlet property="movieType" destination="1m9-XW-zlu" id="aMb-mI-zpO"/>
+                        <outlet property="movieYear" destination="5Kf-OI-fDE" id="Bgs-ym-EQc"/>
+                        <outlet property="overview" destination="fQM-4j-wMB" id="Wbx-rU-Xei"/>
+                        <outlet property="posterImage" destination="ymm-tr-GxK" id="6az-Ls-aBS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qih-0Q-6Vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -381,7 +396,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gs-NO-lS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-37" y="-299"/>
+            <point key="canvasLocation" x="-156" y="-538"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="85B-y7-F67">
@@ -452,7 +467,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="v0r-u6-I9E"/>
+        <segue reference="Ce8-Q2-UR1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>

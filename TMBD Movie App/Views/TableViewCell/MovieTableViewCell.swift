@@ -11,36 +11,67 @@ class MovieTableViewCell: UITableViewCell {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    //Cell selection to performsegue
+    var didSelectItemAction: ((IndexPath) -> Void)? 
+    
+    //Movie Manager
+    let movieManager = MovieManager()
+    
+    var movieArray : [Result]? {
+        didSet{
+            collectionView.reloadData()
+        }
+    }
+    
+    //Life cycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.register(UINib(nibName: CollectionViewCells.nowPlayingCellNibName, bundle: nil), forCellWithReuseIdentifier: CollectionViewCells.nowPlayingCell)
-
+        
+        movieManager.performRequest { [self] movies in
+            movieArray = movies.results
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
-
 }
 
 // MARK: - Collection View DataSource
 extension MovieTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return movieArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
+        cell.posterLabel.text = self.movieArray?[indexPath.row].title
+        
+        let posterPath = self.movieArray?[indexPath.row].poster_path
+        
+        URLSession.shared.dataTask(with: URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(posterPath ?? "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg")")!)) { data, _, error in
+            do {
+                if let data {
+                    var datas = try data
+                    DispatchQueue.main.async {
+                        cell.posterImage.image = UIImage(data: datas)
+                    }
+                }
+            }catch{
+                print(error)
+            }
+        }.resume()
+        
         return cell
     }
-    
 }
 
 // MARK: - Collection View Delegate
-extension MovieTableViewCell: UICollectionViewDelegateFlowLayout {
-
+extension MovieTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didSelectItemAction?(indexPath)
+    }
 }

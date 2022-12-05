@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF4293DDA0D00853472 /* DetailViewController.swift */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -14,14 +15,10 @@
 		FAA4EF822939D0DB008650CE /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF812939D0DB008650CE /* MovieManager.swift */; };
 		FAA4EF842939D0E7008650CE /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF832939D0E7008650CE /* MovieData.swift */; };
 		FAA4EF872939D11B008650CE /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF862939D11B008650CE /* URL.swift */; };
-		FAA4EF892939D5CD008650CE /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF882939D5CD008650CE /* MovieModel.swift */; };
 		FAA4EF8B2939DB4D008650CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */; };
 		FAA4EF8D2939DBB6008650CE /* Segues.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF8C2939DBB6008650CE /* Segues.swift */; };
 		FAA4EF8F2939E09A008650CE /* Cells.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF8E2939E09A008650CE /* Cells.swift */; };
-		FAA4EF9F293A1F19008650CE /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EF9D293A1F19008650CE /* BannerCollectionViewCell.swift */; };
-		FAA4EFA0293A1F19008650CE /* BannerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF9E293A1F19008650CE /* BannerCollectionViewCell.xib */; };
 		FAA4EFA2293A1FDB008650CE /* MovieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EFA1293A1FDB008650CE /* MovieTableViewCell.swift */; };
-		FAA4EFA4293A21EC008650CE /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EFA3293A21EC008650CE /* BannerView.swift */; };
 		FAA4EFA6293A3F31008650CE /* NowPlayingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA4EFA5293A3F31008650CE /* NowPlayingCollectionViewCell.swift */; };
 		FAA669A42938B7EF00E4CD73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA669A32938B7EF00E4CD73 /* AppDelegate.swift */; };
 		FAA669A62938B7EF00E4CD73 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA669A52938B7EF00E4CD73 /* SceneDelegate.swift */; };
@@ -32,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA519EF4293DDA0D00853472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnekDevanagari-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
@@ -39,14 +37,10 @@
 		FAA4EF812939D0DB008650CE /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 		FAA4EF832939D0E7008650CE /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		FAA4EF862939D11B008650CE /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
-		FAA4EF882939D5CD008650CE /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		FAA4EF8C2939DBB6008650CE /* Segues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Segues.swift; sourceTree = "<group>"; };
 		FAA4EF8E2939E09A008650CE /* Cells.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cells.swift; sourceTree = "<group>"; };
-		FAA4EF9D293A1F19008650CE /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
-		FAA4EF9E293A1F19008650CE /* BannerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCollectionViewCell.xib; sourceTree = "<group>"; };
 		FAA4EFA1293A1FDB008650CE /* MovieTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCell.swift; sourceTree = "<group>"; };
-		FAA4EFA3293A21EC008650CE /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		FAA4EFA5293A3F31008650CE /* NowPlayingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA669A02938B7EE00E4CD73 /* TMBD Movie App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TMBD Movie App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA669A32938B7EF00E4CD73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -84,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				FAA4EF832939D0E7008650CE /* MovieData.swift */,
-				FAA4EF882939D5CD008650CE /* MovieModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -118,8 +111,7 @@
 		FAA4EF91293A153A008650CE /* CollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
-				FAA4EF9C293A1EE9008650CE /* MovieCell */,
-				FAA4EF9B293A1EB9008650CE /* BannerCell */,
+				FAA4EFA5293A3F31008650CE /* NowPlayingCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -128,26 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				FAA669A92938B7EF00E4CD73 /* Main.storyboard */,
-				FAA4EFA3293A21EC008650CE /* BannerView.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		FAA4EF9B293A1EB9008650CE /* BannerCell */ = {
-			isa = PBXGroup;
-			children = (
-				FAA4EF9D293A1F19008650CE /* BannerCollectionViewCell.swift */,
-				FAA4EF9E293A1F19008650CE /* BannerCollectionViewCell.xib */,
-			);
-			path = BannerCell;
-			sourceTree = "<group>";
-		};
-		FAA4EF9C293A1EE9008650CE /* MovieCell */ = {
-			isa = PBXGroup;
-			children = (
-				FAA4EFA5293A3F31008650CE /* NowPlayingCollectionViewCell.swift */,
-			);
-			path = MovieCell;
 			sourceTree = "<group>";
 		};
 		FAA669972938B7EE00E4CD73 = {
@@ -197,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */,
+				FA519EF4293DDA0D00853472 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,7 +248,6 @@
 				FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */,
 				FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */,
 				FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */,
-				FAA4EFA0293A1F19008650CE /* BannerCollectionViewCell.xib in Resources */,
 				FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */,
 				FAA669AB2938B7EF00E4CD73 /* Main.storyboard in Resources */,
 				FAA4EF7E2939C90F008650CE /* FredokaOne-Regular.ttf in Resources */,
@@ -288,12 +262,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA4EFA6293A3F31008650CE /* NowPlayingCollectionViewCell.swift in Sources */,
-				FAA4EFA4293A21EC008650CE /* BannerView.swift in Sources */,
-				FAA4EF892939D5CD008650CE /* MovieModel.swift in Sources */,
 				FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */,
 				FAA4EF842939D0E7008650CE /* MovieData.swift in Sources */,
+				FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */,
 				FAA669A42938B7EF00E4CD73 /* AppDelegate.swift in Sources */,
-				FAA4EF9F293A1F19008650CE /* BannerCollectionViewCell.swift in Sources */,
 				FAA4EF8B2939DB4D008650CE /* HomeViewController.swift in Sources */,
 				FAA4EF822939D0DB008650CE /* MovieManager.swift in Sources */,
 				FAA4EF8D2939DBB6008650CE /* Segues.swift in Sources */,
@@ -450,7 +422,6 @@
 				DEVELOPMENT_TEAM = T8B4RZKP3U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TMBD Movie App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TMDB;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -479,7 +450,6 @@
 				DEVELOPMENT_TEAM = T8B4RZKP3U;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "TMBD Movie App/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = TMDB;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

@@ -13,4 +13,5 @@ class NowPlayingCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var posterLabel: UILabel!
     
     
+    
 }

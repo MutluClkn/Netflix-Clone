@@ -7,29 +7,27 @@
 
 import Foundation
 
-// MARK: - Movie Manager Delegate
-protocol MovieManagerDelegate {
-    func didUpdateWeather(_ movieManager: MovieManager, model : MovieModel)
-    func didFailWithError(error: Error)
-}
-
 // MARK: - MovieManager
 struct MovieManager {
     let url = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.nowPlaying)?\(URLConstants.apiKey)&\(URLConstants.page)"
-    
-    var delegate: MovieManagerDelegate?
-    
-    func performRequest(){
-        if let urlString = URL(string: self.url){
+
+    func performRequest(completion: @escaping (MovieData) -> Void){
+        if let urlString = URL(string: url) {
             let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, response, error in
+            let task = session.dataTask(with: urlString) { data, _, error in
                 if let error {
-                    self.delegate?.didFailWithError(error: error)
+                    print(error)
                     return
                 }
                 if let data {
-                    if let movieResult = self.parseJSON(data: data){
-                        self.delegate?.didUpdateWeather(self, model: movieResult)
+                    do{
+                        let decoder = JSONDecoder()
+                        let movies = try decoder.decode(MovieData.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(movies)
+                        }
+                    }catch{
+                        print(error)
                     }
                 }
             }
@@ -37,15 +35,4 @@ struct MovieManager {
         }
     }
     
-    
-    func parseJSON(data: Data) -> MovieModel? {
-        do{
-            let result = try JSONDecoder().decode(MovieData.self, from: data)
-            let model = MovieModel(originalTitle: result.results[0].originalTitle)
-            return model
-        }catch{
-            self.delegate?.didFailWithError(error: error)
-            return nil
-        }
-    }
 }
