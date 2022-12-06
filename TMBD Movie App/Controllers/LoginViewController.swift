@@ -23,4 +23,6 @@ class LoginViewController: UIViewController {
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
     }
+    @IBAction func hideAndShowPasswordButtonPressed(_ sender: UIButton) {
+    }
 }
