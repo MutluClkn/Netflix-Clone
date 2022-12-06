@@ -12,4 +12,5 @@ struct Segues{
     static let toSearchVC = "toSearchVC"
     static let toDetailVC = "toDetailVC"
     static let searchToDetail = "searchToDetail"
+    static let toRegisterVC = "toRegisterVC"
 }
