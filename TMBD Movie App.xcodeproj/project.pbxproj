@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF4293DDA0D00853472 /* DetailViewController.swift */; };
 		FA519EF8293E053C00853472 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF7293E053C00853472 /* StringExtensions.swift */; };
+		FA542B34293F237400CC63AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B33293F237400CC63AA /* LoginViewController.swift */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -32,6 +33,7 @@
 /* Begin PBXFileReference section */
 		FA519EF4293DDA0D00853472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA519EF7293E053C00853472 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		FA542B33293F237400CC63AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnekDevanagari-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */,
 				FA519EF4293DDA0D00853472 /* DetailViewController.swift */,
+				FA542B33293F237400CC63AA /* LoginViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA542B34293F237400CC63AA /* LoginViewController.swift in Sources */,
 				FAA4EFA6293A3F31008650CE /* NowPlayingCollectionViewCell.swift in Sources */,
 				FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */,
 				FAA4EF842939D0E7008650CE /* MovieData.swift in Sources */,
