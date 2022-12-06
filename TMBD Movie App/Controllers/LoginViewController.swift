@@ -20,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
     }
     @IBAction func loginButtonPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: Segues.loginToTabBarVC, sender: nil)
     }
     @IBAction func registerButtonPressed(_ sender: UIButton) {
         
