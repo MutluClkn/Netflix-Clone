@@ -8,16 +8,19 @@
 import UIKit
 import Kingfisher
 
+// MARK: - MovieTableViewCellDelegate
+protocol MovieTableViewCellDelegate: AnyObject {
+    func updateViewController(_ cell: MovieTableViewCell, model: MovieModel)
+}
+
+// MARK: - MovieTableViewCell
 class MovieTableViewCell: UITableViewCell {
 
     //Properties
     @IBOutlet weak var collectionView: UICollectionView!
     
-    //Cell selection to performsegue
-    var didSelectItemAction: ((IndexPath) -> Void)? 
-    
     //Objects
-    let movieManager = MovieManager()
+    weak var delegate : MovieTableViewCellDelegate?
     private var movieArray : [Movie]? = [Movie]()
     
     //Lifecycle
@@ -42,12 +45,13 @@ class MovieTableViewCell: UITableViewCell {
 
 // MARK: - Collection View DataSource
 extension MovieTableViewCell: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieArray?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? HomeCollectionViewCell
         else {
             return UICollectionViewCell() }
         
@@ -55,7 +59,7 @@ extension MovieTableViewCell: UICollectionViewDataSource {
         cell.posterImage.layer.cornerRadius = cell.posterImage.frame.size.height * 0.08
 
         if let posterPath = self.movieArray?[indexPath.row].poster_path{
-            let downloadPosterImage = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+            let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(posterPath)")
             cell.posterImage.kf.setImage(with: downloadPosterImage)
         }
         return cell
@@ -64,7 +68,19 @@ extension MovieTableViewCell: UICollectionViewDataSource {
 
 // MARK: - Collection View Delegate
 extension MovieTableViewCell: UICollectionViewDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        didSelectItemAction?(indexPath)
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let movie = movieArray?[indexPath.row]
+        guard let title = movie?.title else { return }
+        guard let posterURL = movie?.poster_path else { return }
+        guard let overview = movie?.overview else { return }
+        guard let releaseDate = movie?.release_date else { return }
+        guard let voteAvarage = movie?.vote_average else { return }
+        guard let voteCount = movie?.vote_count else { return }
+        
+        let model = MovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, voteAvarage: voteAvarage, voteCount: voteCount)
+        
+        self.delegate?.updateViewController(self, model: model)
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class DetailViewController: UIViewController {
     
@@ -25,10 +26,21 @@ class DetailViewController: UIViewController {
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
         
     }
-
+    
     @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
     }
     @IBAction func watchListButtonPressed(_ sender: UIButton) {
+    }
+    
+    
+    func configure(with model: MovieModel){
+        movieTitle.text = model.movieTitle
+        movieYear.text = model.releaseDate
+        movieOverview.text = model.overview
+        movieScore.text = model.score
+
+        let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(String(describing: model.posterURL))")
+        posterImage.kf.setImage(with: downloadPosterImage)
     }
     
 }

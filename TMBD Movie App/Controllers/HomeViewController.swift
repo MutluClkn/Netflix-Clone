@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.dataSource = self
-        homeTableView.delegate = self 
+        homeTableView.delegate = self
     }
     
     @IBAction func searchButtonDidPress(_ sender: UIBarButtonItem) {
@@ -55,37 +55,33 @@ extension HomeViewController: UITableViewDataSource {
         return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = homeTableView.dequeueReusableCell(withIdentifier: TableViewCells.movieTableViewCell, for: indexPath)
-        guard let movieCell = cell as? MovieTableViewCell else { return cell }
+        guard let cell = homeTableView.dequeueReusableCell(withIdentifier: TableViewCells.movieTableViewCell, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
+        cell.delegate = self
         
         switch indexPath.section {
         case Sections.nowPlaying.rawValue:
             self.movieManager.performRequest(url: URLAddress().urlNowPlaying) { movie in
-                movieCell.configure(with: movie.results)
+                cell.configure(with: movie.results)
             }
         case Sections.popular.rawValue:
             self.movieManager.performRequest(url: URLAddress().urlPopular) { movie in
-                movieCell.configure(with: movie.results)
+                cell.configure(with: movie.results)
             }
         case Sections.topRated.rawValue:
             self.movieManager.performRequest(url: URLAddress().urlTopRated) { movie in
-                movieCell.configure(with: movie.results)
+                cell.configure(with: movie.results)
             }
         case Sections.upcoming.rawValue:
             self.movieManager.performRequest(url: URLAddress().urlUpcoming) { movie in
-                movieCell.configure(with: movie.results)
+                cell.configure(with: movie.results)
             }
         default:
             return UITableViewCell()
         }
         
         
-        
-        movieCell.didSelectItemAction = { [weak self] indexPath in
-            self?.performSegue(withIdentifier: Segues.toDetailVC, sender: self)
-        }
-        return movieCell
+        return cell
     }
 }
 
@@ -100,7 +96,7 @@ extension HomeViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 25
+        return 27
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
@@ -108,6 +104,16 @@ extension HomeViewController: UITableViewDelegate{
         header.textLabel?.font = .systemFont(ofSize: 19, weight: .bold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
-        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
+    }
+}
+
+// MARK: - MovieTableViewCellDelegate
+extension HomeViewController: MovieTableViewCellDelegate {
+    func updateViewController(_ cell: MovieTableViewCell, model: MovieModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = DetailViewController()
+            vc.configure(with: model)
+            self?.performSegue(withIdentifier: Segues.toDetailVC, sender: nil)
+        }
     }
 }
