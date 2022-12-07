@@ -28,7 +28,11 @@ class ResetPasswordViewController: UIViewController {
     
     
     @IBAction func ResetButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
     
-
+    @IBAction func signInButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
+    }
+    
 }

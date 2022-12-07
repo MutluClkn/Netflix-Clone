@@ -137,7 +137,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4061.8320610687019" y="76.760563380281695"/>
+            <point key="canvasLocation" x="4076" y="39"/>
         </scene>
         <!--Details-->
         <scene sceneID="e5h-YP-Pic">
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qih-0Q-6Vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6034" y="-889"/>
+            <point key="canvasLocation" x="5569" y="-134"/>
         </scene>
         <!--Search-->
         <scene sceneID="K5R-ux-W7g">
@@ -419,7 +419,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gu7-Aj-gCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5272.5190839694651" y="76.760563380281695"/>
+            <point key="canvasLocation" x="4796" y="773"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="ffk-jm-3XV">
@@ -745,7 +745,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H2r-LR-XCO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="215" y="286"/>
+            <point key="canvasLocation" x="561" y="199"/>
         </scene>
         <!--Reset Password View Controller-->
         <scene sceneID="pYL-j0-4Ng">
@@ -990,15 +990,43 @@
                                     <action selector="registerButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="llV-xM-HKQ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZa-7k-2qe">
+                                <rect key="frame" x="100.33333333333333" y="577" width="192.66666666666669" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAJ-AY-ABm">
+                                        <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-Tz-OlO">
+                                        <rect key="frame" x="122" y="0.0" width="70.666666666666686" height="34"/>
+                                        <color key="tintColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign In">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="signInButtonPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="4Kp-E1-yZJ"/>
+                                            <action selector="signInButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="YDt-be-BaI"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="wUl-N6-P9e"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="kj6-l7-pWb"/>
                         <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="UZa-7k-2qe" firstAttribute="centerX" secondItem="OP4-eG-Mru" secondAttribute="centerX" id="9PB-CN-Rgc"/>
                             <constraint firstItem="XiV-TY-8FB" firstAttribute="centerX" secondItem="OP4-eG-Mru" secondAttribute="centerX" id="Eix-Cu-fg7"/>
                             <constraint firstItem="kj6-l7-pWb" firstAttribute="trailing" secondItem="4cM-a4-kHp" secondAttribute="trailing" constant="20" id="O0d-3b-bRT"/>
                             <constraint firstItem="4cM-a4-kHp" firstAttribute="top" secondItem="kj6-l7-pWb" secondAttribute="top" id="YKF-Cr-x1e"/>
                             <constraint firstItem="XiV-TY-8FB" firstAttribute="top" secondItem="4cM-a4-kHp" secondAttribute="bottom" constant="35" id="cKI-Cd-qQF"/>
                             <constraint firstItem="4cM-a4-kHp" firstAttribute="leading" secondItem="kj6-l7-pWb" secondAttribute="leading" constant="20" id="dIb-VH-6yh"/>
+                            <constraint firstItem="UZa-7k-2qe" firstAttribute="top" secondItem="XiV-TY-8FB" secondAttribute="bottom" constant="40" id="dcm-Yb-gDV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MZA-Hq-mHp"/>
@@ -1010,7 +1038,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeN-F7-hmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216" y="-1346"/>
+            <point key="canvasLocation" x="898" y="-1287"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="loJ-qS-Gpo">
@@ -1270,7 +1298,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEC-fH-LOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216.03053435114504" y="-538.02816901408448"/>
+            <point key="canvasLocation" x="112" y="-538"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Adm-0C-gfa">
@@ -1351,11 +1379,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZY-Vb-A5Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3135" y="77"/>
+            <point key="canvasLocation" x="3095" y="39"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1QC-WL-doC"/>
+        <segue reference="CDx-jT-jGO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>

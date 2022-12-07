@@ -30,6 +30,7 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: UIButton) {
     }
     @IBAction func signInButtonPressed(_ sender: UIButton) {
+        self.dismiss(animated: true)
     }
 
 }

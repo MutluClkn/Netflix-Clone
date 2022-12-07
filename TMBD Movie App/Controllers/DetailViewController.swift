@@ -18,12 +18,18 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     
+    var newTitle, newDate, newOverview, newScore : String?
     
     // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         infoView.layer.cornerRadius = infoView.frame.size.height * 0.05
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
+        
+        movieTitle.text = newTitle
+        movieYear.text = newDate
+        movieOverview.text = newOverview
+        movieScore.text = newScore
         
     }
     
@@ -34,13 +40,16 @@ class DetailViewController: UIViewController {
     
     
     func configure(with model: MovieModel){
-        movieTitle.text = model.movieTitle
-        movieYear.text = model.releaseDate
-        movieOverview.text = model.overview
-        movieScore.text = model.score
+        print(model)
+        /*
+        newTitle = model.movieTitle
+        newDate = model.releaseDate
+        newOverview = model.overview
+        newScore = model.score
 
         let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(String(describing: model.posterURL))")
         posterImage.kf.setImage(with: downloadPosterImage)
+         */
     }
     
 }
