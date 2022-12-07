@@ -9,12 +9,11 @@ import Foundation
 
 //MARK: - Collection View Cell Identifiers
 struct CollectionViewCells {
-    static let nowPlayingCellNibName = "NowPlayingCollectionViewCell"
     static let nowPlayingCell = "nowPlayingCell"
-    static let bannerCell = "bannerCell"
 }
 
 //MARK: - Table View Cell Identifiers
 struct TableViewCells {
-    static let movieTableViewCell = "MovieTableViewCell"
+    static let movieTableViewCell = "movieTableViewCell"
+    static let searchTableViewCell = "searchTableViewCell"
 }

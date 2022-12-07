@@ -15,33 +15,22 @@ class MovieTableViewCell: UITableViewCell {
     //Cell selection to performsegue
     var didSelectItemAction: ((IndexPath) -> Void)? 
     
-    //Movie Manager
+    //Objects
     let movieManager = MovieManager()
-    
     private var movieArray : [Movie]? = [Movie]()
-    /*{
-        didSet{
-            collectionView.reloadData()
-        }
-    }*/
     
     //Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
-       /*
-        movieManager.performRequest(url: URLAddress().urlTopRated) { [self] movies in
-            movieArray = movies.results
-        }
-        */
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
+    // Methods
     public func configure(with movie: [Movie]?){
         self.movieArray = movie
         DispatchQueue.main.async { [weak self] in
@@ -62,7 +51,7 @@ extension MovieTableViewCell: UICollectionViewDataSource {
             return UICollectionViewCell() }
         
         cell.posterLabel.text = self.movieArray?[indexPath.row].title ?? self.movieArray?[indexPath.row].original_title
-        cell.posterImage.layer.cornerRadius = 15
+        cell.posterImage.layer.cornerRadius = cell.posterImage.frame.size.height * 0.08
 
         let posterPath = self.movieArray?[indexPath.row].poster_path
         URLSession.shared.dataTask(with: URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(posterPath ?? "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg")")!)) { data, _, error in
