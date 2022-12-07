@@ -18,6 +18,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func forgotPasswordPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: Segues.toResetPasswordVC, sender: nil)
     }
     @IBAction func loginButtonPressed(_ sender: UIButton) {
         performSegue(withIdentifier: Segues.loginToTabBarVC, sender: nil)

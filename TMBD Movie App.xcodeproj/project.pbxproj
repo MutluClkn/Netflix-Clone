@@ -222,6 +222,8 @@
 			dependencies = (
 			);
 			name = "TMBD Movie App";
+			packageProductDependencies = (
+			);
 			productName = "TMBD Movie App";
 			productReference = FAA669A02938B7EE00E4CD73 /* TMBD Movie App.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +252,8 @@
 				Base,
 			);
 			mainGroup = FAA669972938B7EE00E4CD73;
+			packageReferences = (
+			);
 			productRefGroup = FAA669A12938B7EE00E4CD73 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -14,23 +14,21 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieYear: UILabel!
-    @IBOutlet weak var movieType: UILabel!
-    @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var movieScore: UILabel!
+    @IBOutlet weak var movieOverview: UILabel!
+    
     
     // Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        overviewLabel.translatesAutoresizingMaskIntoConstraints = false
-        overviewLabel.sizeToFit()
-        infoView.layer.cornerRadius = infoView.frame.size.height * 0.08
+        infoView.layer.cornerRadius = infoView.frame.size.height * 0.05
+        posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
+        
     }
 
-    
-    @IBAction func playTrailerPressed(_ sender: UIButton) {
+    @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
     }
-    
-    @IBAction func addWatchListPressed(_ sender: UIButton) {
+    @IBAction func watchListButtonPressed(_ sender: UIButton) {
     }
-    
     
 }
