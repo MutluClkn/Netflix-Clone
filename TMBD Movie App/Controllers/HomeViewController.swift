@@ -34,15 +34,6 @@ class HomeViewController: UIViewController {
     @IBAction func searchButtonDidPress(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segues.toSearchVC, sender: nil)
     }
-    /*
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == Segues.toDetailVC {
-            let destinationVC = segue.destination as! DetailViewController
-            if let index = tableViewCell.collectionView.indexPathsForSelectedItems?.first{
-                destinationVC.movieTitle.text = tableViewCell.movieArray?[index.row].title
-            }
-        }
-    }*/
 }
 
 // MARK: - Table View DataSource
@@ -111,10 +102,10 @@ extension HomeViewController: UITableViewDelegate{
 extension HomeViewController: MovieTableViewCellDelegate {
     func updateViewController(_ cell: MovieTableViewCell, model: MovieModel) {
         DispatchQueue.main.async {
-            let vc = TestVC()
+            let vc = DetailViewController()
             vc.configure(with: model)
             //print(model)
-            self.performSegue(withIdentifier: "test", sender: nil)
+            self.performSegue(withIdentifier: Segues.toDetailVC, sender: nil)
         }
     }
 }
