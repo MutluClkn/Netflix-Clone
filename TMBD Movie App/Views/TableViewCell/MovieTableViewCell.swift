@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class MovieTableViewCell: UITableViewCell {
 
@@ -53,17 +54,10 @@ extension MovieTableViewCell: UICollectionViewDataSource {
         cell.posterLabel.text = self.movieArray?[indexPath.row].title ?? self.movieArray?[indexPath.row].original_title
         cell.posterImage.layer.cornerRadius = cell.posterImage.frame.size.height * 0.08
 
-        let posterPath = self.movieArray?[indexPath.row].poster_path
-        URLSession.shared.dataTask(with: URLRequest(url: URL(string: "https://image.tmdb.org/t/p/w342\(posterPath ?? "/ps2oKfhY6DL3alynlSqY97gHSsg.jpg")")!)) { data, _, error in
-            do{
-                if let data {
-                    let datas =  data
-                    DispatchQueue.main.async {
-                        cell.posterImage.image = UIImage(data: datas)
-                    }
-                }
-            }
-        }.resume()
+        if let posterPath = self.movieArray?[indexPath.row].poster_path{
+            let downloadPosterImage = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)")
+            cell.posterImage.kf.setImage(with: downloadPosterImage)
+        }
         return cell
     }
 }

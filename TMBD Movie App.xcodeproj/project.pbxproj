@@ -14,6 +14,7 @@
 		FA542B38293F622A00CC63AA /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B37293F622A00CC63AA /* ResetPasswordViewController.swift */; };
 		FA570044294081BC00E6786F /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570043294081BC00E6786F /* SearchTableViewCell.swift */; };
 		FA570046294081F700E6786F /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA570045294081F700E6786F /* SearchViewController.swift */; };
+		FA5700492940A78400E6786F /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = FA5700482940A78400E6786F /* Kingfisher */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA5700492940A78400E6786F /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +231,7 @@
 			);
 			name = "TMBD Movie App";
 			packageProductDependencies = (
+				FA5700482940A78400E6786F /* Kingfisher */,
 			);
 			productName = "TMBD Movie App";
 			productReference = FAA669A02938B7EE00E4CD73 /* TMBD Movie App.app */;
@@ -259,6 +262,7 @@
 			);
 			mainGroup = FAA669972938B7EE00E4CD73;
 			packageReferences = (
+				FA5700472940A78400E6786F /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = FAA669A12938B7EE00E4CD73 /* Products */;
 			projectDirPath = "";
@@ -526,6 +530,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA5700472940A78400E6786F /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA5700482940A78400E6786F /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA5700472940A78400E6786F /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */ = {
