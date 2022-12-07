@@ -92,7 +92,7 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - Table View Delegate
 extension HomeViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 295
+        return 285
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
