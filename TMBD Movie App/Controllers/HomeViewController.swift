@@ -6,15 +6,23 @@
 //
 
 import UIKit
+// MARK: - TableView Sections
+enum Sections : Int {
+    case nowPlaying = 0
+    case popular = 1
+    case topRated = 2
+    case upcoming = 3
+}
 
 // MARK: - ViewController
 class HomeViewController: UIViewController {
-    //Properties
+    // Properties
     @IBOutlet weak var homeTableView: UITableView!
 
+    // Objects
     let sectionTitles = ["Now Playing", "Popular", "Top Rated", "Upcoming"]
-    
     var tableViewCell = MovieTableViewCell()
+    var movieManager = MovieManager()
     
     // Lifecycle
     override func viewDidLoad() {
@@ -50,6 +58,30 @@ extension HomeViewController: UITableViewDataSource {
         let cell = homeTableView.dequeueReusableCell(withIdentifier: TableViewCells.movieTableViewCell, for: indexPath)
         guard let movieCell = cell as? MovieTableViewCell else { return cell }
         
+        
+        switch indexPath.section {
+        case Sections.nowPlaying.rawValue:
+            self.movieManager.performRequest(url: URLAddress().urlNowPlaying) { movie in
+                movieCell.configure(with: movie.results)
+            }
+        case Sections.popular.rawValue:
+            self.movieManager.performRequest(url: URLAddress().urlPopular) { movie in
+                movieCell.configure(with: movie.results)
+            }
+        case Sections.topRated.rawValue:
+            self.movieManager.performRequest(url: URLAddress().urlTopRated) { movie in
+                movieCell.configure(with: movie.results)
+            }
+        case Sections.upcoming.rawValue:
+            self.movieManager.performRequest(url: URLAddress().urlUpcoming) { movie in
+                movieCell.configure(with: movie.results)
+            }
+        default:
+            return UITableViewCell()
+        }
+        
+        
+        
         movieCell.didSelectItemAction = { [weak self] indexPath in
             self?.performSegue(withIdentifier: Segues.toDetailVC, sender: self)
         }
@@ -68,7 +100,7 @@ extension HomeViewController: UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 25
     }
     
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {

@@ -9,11 +9,11 @@ import Foundation
 
 // MARK: - MovieData
 struct MovieData: Codable {
-    let results: [Result]?
+    let results: [Movie]?
 }
 
 // MARK: - Result
-struct Result: Codable {
+struct Movie: Codable {
     let adult: Bool?
     let backdrop_path: String?
     let genreids: [Int]?

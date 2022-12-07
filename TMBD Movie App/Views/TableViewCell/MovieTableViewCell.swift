@@ -18,26 +18,35 @@ class MovieTableViewCell: UITableViewCell {
     //Movie Manager
     let movieManager = MovieManager()
     
-    var movieArray : [Result]? {
+    private var movieArray : [Movie]? = [Movie]()
+    /*{
         didSet{
             collectionView.reloadData()
         }
-    }
+    }*/
     
     //Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
-        
-        movieManager.performRequest(url: URLAddress().urlNowPlaying) { [self] movies in
+       /*
+        movieManager.performRequest(url: URLAddress().urlTopRated) { [self] movies in
             movieArray = movies.results
         }
+        */
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    
+    public func configure(with movie: [Movie]?){
+        self.movieArray = movie
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
 }
 
@@ -48,9 +57,11 @@ extension MovieTableViewCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? NowPlayingCollectionViewCell
+        else {
+            return UICollectionViewCell() }
         
-        cell.posterLabel.text = self.movieArray?[indexPath.row].title
+        cell.posterLabel.text = self.movieArray?[indexPath.row].title ?? self.movieArray?[indexPath.row].original_title
         cell.posterImage.layer.cornerRadius = 15
 
         let posterPath = self.movieArray?[indexPath.row].poster_path
