@@ -15,4 +15,5 @@ struct Segues{
     static let toRegisterVC = "toRegisterVC"
     static let loginToTabBarVC = "loginToTabBarVC"
     static let toResetPasswordVC = "toResetPasswordVC"
+    static let logOutToLoginVC = "logOutToLoginVC"
 }

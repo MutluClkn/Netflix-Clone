@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0198D32941A73300DBA079 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0198D22941A73300DBA079 /* SettingsViewController.swift */; };
 		FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF4293DDA0D00853472 /* DetailViewController.swift */; };
 		FA542B34293F237400CC63AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B33293F237400CC63AA /* LoginViewController.swift */; };
 		FA542B36293F3B2200CC63AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B35293F3B2200CC63AA /* RegisterViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0198D22941A73300DBA079 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		FA519EF4293DDA0D00853472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA542B33293F237400CC63AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA542B35293F3B2200CC63AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA0198D02941A6E100DBA079 /* User-Auth */ = {
+			isa = PBXGroup;
+			children = (
+				FA0198D22941A73300DBA079 /* SettingsViewController.swift */,
+				FA542B33293F237400CC63AA /* LoginViewController.swift */,
+				FA542B35293F3B2200CC63AA /* RegisterViewController.swift */,
+				FA542B37293F622A00CC63AA /* ResetPasswordViewController.swift */,
+			);
+			path = "User-Auth";
+			sourceTree = "<group>";
+		};
+		FA0198D12941A6F400DBA079 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */,
+				FA519EF4293DDA0D00853472 /* DetailViewController.swift */,
+				FA570045294081F700E6786F /* SearchViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		FAA4EF7A2939C7EE008650CE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,12 +209,8 @@
 		FAA669BB2938B84100E4CD73 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */,
-				FA519EF4293DDA0D00853472 /* DetailViewController.swift */,
-				FA542B33293F237400CC63AA /* LoginViewController.swift */,
-				FA542B35293F3B2200CC63AA /* RegisterViewController.swift */,
-				FA542B37293F622A00CC63AA /* ResetPasswordViewController.swift */,
-				FA570045294081F700E6786F /* SearchViewController.swift */,
+				FA0198D12941A6F400DBA079 /* Core */,
+				FA0198D02941A6E100DBA079 /* User-Auth */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -292,6 +311,7 @@
 				FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */,
 				FA542B38293F622A00CC63AA /* ResetPasswordViewController.swift in Sources */,
 				FAA4EF842939D0E7008650CE /* MovieData.swift in Sources */,
+				FA0198D32941A73300DBA079 /* SettingsViewController.swift in Sources */,
 				FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */,
 				FAA669A42938B7EF00E4CD73 /* AppDelegate.swift in Sources */,
 				FA542B36293F3B2200CC63AA /* RegisterViewController.swift in Sources */,

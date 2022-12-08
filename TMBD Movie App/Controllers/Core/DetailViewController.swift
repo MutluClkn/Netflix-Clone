@@ -25,12 +25,20 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         infoView.layer.cornerRadius = infoView.frame.size.height * 0.05
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
-        
+        /*
         movieTitle.text = newTitle
         movieYear.text = newDate
         movieOverview.text = newOverview
         movieScore.text = newScore
-        
+        */
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        movieTitle.text = newTitle
+        movieYear.text = newDate
+        movieOverview.text = newOverview
+        movieScore.text = newScore
     }
     
     @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
@@ -41,15 +49,15 @@ class DetailViewController: UIViewController {
     
     func configure(with model: MovieModel){
         print(model)
-        /*
+        
         newTitle = model.movieTitle
         newDate = model.releaseDate
         newOverview = model.overview
         newScore = model.score
 
-        let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(String(describing: model.posterURL))")
-        posterImage.kf.setImage(with: downloadPosterImage)
-         */
+        //let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(String(describing: model.posterURL))")
+        //posterImage.kf.setImage(with: downloadPosterImage)
+         
     }
     
 }

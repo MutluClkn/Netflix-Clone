@@ -1038,7 +1038,56 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeN-F7-hmH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="-1287"/>
+            <point key="canvasLocation" x="485" y="-1286"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="3eV-AW-15g">
+            <objects>
+                <viewController id="jQE-Uy-Xqv" customClass="SettingsViewController" customModule="TMBD_Movie_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nqy-Su-anY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UWc-lO-X2D">
+                                <rect key="frame" x="141.66666666666666" y="406" width="110" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="DdK-7W-eBq"/>
+                                    <constraint firstAttribute="width" constant="110" id="I9f-HO-ymb"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Log Out">
+                                    <backgroundConfiguration key="background" cornerRadius="10" strokeWidth="2.2999999999999998" strokeOutset="0.0">
+                                        <color key="backgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="strokeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ResetButtonPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="Dq0-5c-wa6"/>
+                                    <action selector="logOutButtonPressed:" destination="jQE-Uy-Xqv" eventType="touchUpInside" id="omD-1i-Qdf"/>
+                                    <action selector="loginButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="7X1-vZ-d8s"/>
+                                    <action selector="registerButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="SuS-Q1-oUn"/>
+                                    <segue destination="ycA-hN-rQ9" kind="presentation" identifier="logOutToLoginVC" modalPresentationStyle="fullScreen" id="ram-A3-Rdm"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lee-0g-vbo"/>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="UWc-lO-X2D" firstAttribute="centerX" secondItem="nqy-Su-anY" secondAttribute="centerX" id="T3f-Ge-yAK"/>
+                            <constraint firstItem="UWc-lO-X2D" firstAttribute="centerY" secondItem="nqy-Su-anY" secondAttribute="centerY" id="Wzq-mm-IvS"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="xg2-NV-cfh">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5V-cB-g01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2459" y="-1540"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="loJ-qS-Gpo">
@@ -1298,7 +1347,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEC-fH-LOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="112" y="-538"/>
+            <point key="canvasLocation" x="-346" y="-538"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Adm-0C-gfa">
@@ -1316,6 +1365,7 @@
                     <connections>
                         <segue destination="cFx-kS-0XK" kind="relationship" relationship="viewControllers" id="wOp-qk-LSC"/>
                         <segue destination="SLH-LS-XEj" kind="relationship" relationship="viewControllers" id="2t5-eA-ZQY"/>
+                        <segue destination="jQE-Uy-Xqv" kind="relationship" relationship="viewControllers" id="ddL-lP-IPJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gs-NO-lS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1357,9 +1407,7 @@
         <scene sceneID="t6W-jn-1ji">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cFx-kS-0XK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="tzy-sg-bmr">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="tzy-sg-bmr"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="eHM-ms-TBw">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
@@ -1388,6 +1436,7 @@
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="eye" catalog="system" width="128" height="79"/>
+        <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="karayipkorsanlar" width="1280" height="1920"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
