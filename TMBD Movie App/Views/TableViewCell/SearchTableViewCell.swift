@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchTableViewCell: UITableViewCell {
     
@@ -14,14 +15,15 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
 
+    
     //Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.08
+
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
 }

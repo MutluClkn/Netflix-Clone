@@ -30,7 +30,8 @@ struct URLAddress {
     let urlPopular = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.popular)?\(URLConstants.apiKey)&\(URLConstants.page)"
     let urlTopRated = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.topRated)?\(URLConstants.apiKey)&\(URLConstants.page)"
     let urlUpcoming = "\(URLConstants.baseURL)/\(URLConstants.type)/\(URLConstants.Category.upcoming)?\(URLConstants.apiKey)&\(URLConstants.page)"
-
+    
+    let discoverURL = "\(URLConstants.baseURL)/discover/\(URLConstants.type)?\(URLConstants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate"
 }
 
 

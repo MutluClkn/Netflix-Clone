@@ -7,16 +7,19 @@
 
 import Foundation
 
-struct MovieModel {
+struct DetailMovieModel {
     let movieTitle: String
     let posterURL: String
     let overview: String
     let releaseDate: String
-    let voteAvarage: Double
+    let voteAverage: Double
     let voteCount: Int
     
     var score : String {
-        return "Score: " + String(format:"%.1f", voteAvarage) + " (\(String(voteCount)))"
+        return "Score: " + String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
     }
-
+    
+    var posterImage : URL? {
+        return URL(string: "\(URLConstants.baseImageURL)\(String(describing: posterURL))")
+    }
 }

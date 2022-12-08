@@ -10,7 +10,7 @@ import Kingfisher
 
 // MARK: - MovieTableViewCellDelegate
 protocol MovieTableViewCellDelegate: AnyObject {
-    func updateViewController(_ cell: MovieTableViewCell, model: MovieModel)
+    func updateViewController(_ cell: MovieTableViewCell, model: DetailMovieModel)
 }
 
 // MARK: - MovieTableViewCell
@@ -76,10 +76,10 @@ extension MovieTableViewCell: UICollectionViewDelegate {
         guard let posterURL = movie?.poster_path else { return }
         guard let overview = movie?.overview else { return }
         guard let releaseDate = movie?.release_date else { return }
-        guard let voteAvarage = movie?.vote_average else { return }
+        guard let voteAverage = movie?.vote_average else { return }
         guard let voteCount = movie?.vote_count else { return }
         
-        let model = MovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, voteAvarage: voteAvarage, voteCount: voteCount)
+        let model = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, voteAverage: voteAverage, voteCount: voteCount)
         
         self.delegate?.updateViewController(self, model: model)
     }

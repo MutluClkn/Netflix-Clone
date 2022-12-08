@@ -100,7 +100,7 @@ extension HomeViewController: UITableViewDelegate{
 
 // MARK: - MovieTableViewCellDelegate
 extension HomeViewController: MovieTableViewCellDelegate {
-    func updateViewController(_ cell: MovieTableViewCell, model: MovieModel) {
+    func updateViewController(_ cell: MovieTableViewCell, model: DetailMovieModel) {
         DispatchQueue.main.async {
             let vc = DetailViewController()
             vc.configure(with: model)

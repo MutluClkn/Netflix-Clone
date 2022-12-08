@@ -35,10 +35,12 @@ class DetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        /*
         movieTitle.text = newTitle
         movieYear.text = newDate
         movieOverview.text = newOverview
         movieScore.text = newScore
+         */
     }
     
     @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
@@ -47,17 +49,15 @@ class DetailViewController: UIViewController {
     }
     
     
-    func configure(with model: MovieModel){
+    func configure(with model: DetailMovieModel){
         print(model)
-        
+        /*
         newTitle = model.movieTitle
         newDate = model.releaseDate
         newOverview = model.overview
         newScore = model.score
-
-        //let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(String(describing: model.posterURL))")
-        //posterImage.kf.setImage(with: downloadPosterImage)
-         
+        posterImage.kf.setImage(with: model.posterImage)
+         */
     }
     
 }
