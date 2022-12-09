@@ -92,14 +92,14 @@
 			path = "User-Auth";
 			sourceTree = "<group>";
 		};
-		FA0198D12941A6F400DBA079 /* Core */ = {
+		FA0198D12941A6F400DBA079 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
 				FAA4EF8A2939DB4D008650CE /* HomeViewController.swift */,
 				FA519EF4293DDA0D00853472 /* DetailViewController.swift */,
 				FA570045294081F700E6786F /* SearchViewController.swift */,
 			);
-			path = Core;
+			path = Movie;
 			sourceTree = "<group>";
 		};
 		FAA4EF7A2939C7EE008650CE /* Fonts */ = {
@@ -212,7 +212,7 @@
 		FAA669BB2938B84100E4CD73 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FA0198D12941A6F400DBA079 /* Core */,
+				FA0198D12941A6F400DBA079 /* Movie */,
 				FA0198D02941A6E100DBA079 /* User-Auth */,
 			);
 			path = Controllers;

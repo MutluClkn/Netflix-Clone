@@ -23,6 +23,8 @@ class SearchViewController: UIViewController {
         searchTableView.dataSource = self
         searchTableView.delegate = self
         
+        searchBar.delegate = self
+        
         fetchDiscoverMovies()
     }
     
@@ -66,5 +68,21 @@ extension SearchViewController: UITableViewDataSource{
 extension SearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
+    }
+}
+
+//MARK: - SearchBarDelegate
+extension SearchViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText != "" {
+            self.movieArray = []
+            let query = searchText
+            MovieManager().fetchSearchQuery(with: query, url: URLAddress().searchQueryURL) { movie in
+                DispatchQueue.main.async { [weak self] in
+                    self?.movieArray = movie.results
+                    self?.searchTableView.reloadData()
+                }
+            }
+        }
     }
 }
