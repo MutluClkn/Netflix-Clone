@@ -14,7 +14,6 @@ class RegisterViewController: UIViewController {
     //MARK: - Outlets
     //Properties
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var passwordHideAndShowButton: UIButton!
@@ -39,13 +38,13 @@ class RegisterViewController: UIViewController {
     }
     //Register Button
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        if emailTextField.text != "" && usernameTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != "" {
+        if emailTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != "" {
             if passwordTextField.text == confirmPasswordTextField.text {
                 Auth.auth().createUser(withEmail: emailTextField.text!, password: confirmPasswordTextField.text!){_, error in
                     if let error {
                         self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
                     }else{
-                        self.alertMessage(alertTitle: "Succes", alertMesssage: "Registered!")
+                        self.alertMessage(alertTitle: "Succes", alertMesssage: "Registration successed! You can return to the login screen by pressing the 'Sign In' button below.")
                     }
                 }
             }else{
