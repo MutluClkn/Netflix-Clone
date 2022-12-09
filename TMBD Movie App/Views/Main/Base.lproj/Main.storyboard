@@ -477,7 +477,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="LLl-Au-mI7">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="58"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-DD-J2m">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQn-DD-J2m">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -565,8 +565,7 @@
                                                                     <color key="baseBackgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </buttonConfiguration>
                                                                 <connections>
-                                                                    <action selector="confirmPasswordHideAndShowPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="Lf2-EV-AlG"/>
-                                                                    <action selector="hideAndShowPasswordButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="RpF-m0-pHT"/>
+                                                                    <action selector="passwordHideAndShowPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="MQR-Pb-E6Z"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -623,7 +622,6 @@
                                                                 </buttonConfiguration>
                                                                 <connections>
                                                                     <action selector="confirmPasswordHideAndShowPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="1uC-do-Sz9"/>
-                                                                    <action selector="hideAndShowPasswordButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="yS3-uv-9Xd"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -686,7 +684,6 @@
                                             <color key="baseBackgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="loginButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="1Ny-33-gmc"/>
                                             <action selector="registerButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="VI1-uI-4Mm"/>
                                         </connections>
                                     </button>
@@ -738,8 +735,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="FAo-x7-cIx"/>
                     <connections>
+                        <outlet property="confirmPassHideAndShowButton" destination="1rD-Ul-wow" id="45v-oe-GjP"/>
                         <outlet property="confirmPasswordTextField" destination="FOC-k9-Kg9" id="kSk-JU-pA3"/>
                         <outlet property="emailTextField" destination="mmq-9y-3Et" id="j9A-lq-AL1"/>
+                        <outlet property="passwordHideAndShowButton" destination="YD3-kr-HID" id="RcV-Rr-Uew"/>
+                        <outlet property="passwordTextField" destination="6EK-Lc-RDN" id="11n-eW-qFF"/>
                         <outlet property="usernameTextField" destination="DHf-lA-gIY" id="MPK-OM-AZ9"/>
                     </connections>
                 </viewController>
@@ -800,7 +800,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="UwH-6d-yJl">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="58"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="E-mail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6P-E9-cWW">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6P-E9-cWW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -858,8 +858,6 @@
                                                                             <color key="baseBackgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
-                                                                            <action selector="confirmPasswordHideAndShowPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="Bjf-Me-Amo"/>
-                                                                            <action selector="hideAndShowPasswordButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="DRn-4O-4nB"/>
                                                                             <action selector="securePasswordPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="V7P-c3-FlX"/>
                                                                         </connections>
                                                                     </button>
@@ -916,8 +914,6 @@
                                                                             <color key="baseBackgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         </buttonConfiguration>
                                                                         <connections>
-                                                                            <action selector="confirmPasswordHideAndShowPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="eql-bg-syy"/>
-                                                                            <action selector="hideAndShowPasswordButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="FJ5-oR-vzP"/>
                                                                             <action selector="secureConfirmPasswordPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="77y-6Q-J9U"/>
                                                                         </connections>
                                                                     </button>
@@ -986,8 +982,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ResetButtonPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="CEg-GC-zTX"/>
-                                    <action selector="loginButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="Rqu-zo-ED7"/>
-                                    <action selector="registerButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="llV-xM-HKQ"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UZa-7k-2qe">
@@ -1008,7 +1002,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="signInButtonPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="4Kp-E1-yZJ"/>
-                                            <action selector="signInButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="YDt-be-BaI"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1065,10 +1058,7 @@
                                     <color key="baseBackgroundColor" red="0.0039215686269999999" green="0.70588235290000001" blue="0.89411764709999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="ResetButtonPressed:" destination="SID-yF-ZDH" eventType="touchUpInside" id="Dq0-5c-wa6"/>
                                     <action selector="logOutButtonPressed:" destination="jQE-Uy-Xqv" eventType="touchUpInside" id="omD-1i-Qdf"/>
-                                    <action selector="loginButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="7X1-vZ-d8s"/>
-                                    <action selector="registerButtonPressed:" destination="kSh-cn-VXu" eventType="touchUpInside" id="SuS-Q1-oUn"/>
                                     <segue destination="ycA-hN-rQ9" kind="presentation" identifier="logOutToLoginVC" modalPresentationStyle="fullScreen" id="ram-A3-Rdm"/>
                                 </connections>
                             </button>
@@ -1151,7 +1141,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="oI3-Z9-Bed">
                                                         <rect key="frame" x="0.0" y="0.0" width="353" height="58"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-uE-GLW">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IG-uE-GLW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="26"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1341,8 +1331,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="IfU-Hi-BaK"/>
                     <connections>
+                        <outlet property="emailTextField" destination="5uf-KD-zb6" id="9Ie-Zl-qz3"/>
                         <outlet property="passwordTextField" destination="ZwT-aw-FGQ" id="dKb-c1-diz"/>
-                        <outlet property="usernameTextField" destination="5uf-KD-zb6" id="bk4-BM-IzS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEC-fH-LOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

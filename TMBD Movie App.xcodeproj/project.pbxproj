@@ -35,6 +35,12 @@
 		FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */; };
 		FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA669AF2938B7F200E4CD73 /* Assets.xcassets */; };
 		FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA669B12938B7F200E4CD73 /* LaunchScreen.storyboard */; };
+		FAB9193B29430F6700E68A11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */; };
+		FAB9193E294314C600E68A11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193D294314C600E68A11 /* FirebaseAuth */; };
+		FAB91940294314C600E68A11 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193F294314C600E68A11 /* FirebaseDatabase */; };
+		FAB91942294314C600E68A11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91941294314C600E68A11 /* FirebaseFirestore */; };
+		FAB91944294314C600E68A11 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91943294314C600E68A11 /* FirebaseStorage */; };
+		FAB919472943222500E68A11 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB919462943222500E68A11 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +73,8 @@
 		FAA669AF2938B7F200E4CD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA669B22938B7F200E4CD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA669B42938B7F200E4CD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FAB919462943222500E68A11 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +82,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB91940294314C600E68A11 /* FirebaseDatabase in Frameworks */,
+				FAB91942294314C600E68A11 /* FirebaseFirestore in Frameworks */,
 				FA5700492940A78400E6786F /* Kingfisher in Frameworks */,
+				FAB91944294314C600E68A11 /* FirebaseStorage in Frameworks */,
+				FAB9193E294314C600E68A11 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +197,7 @@
 		FAA669A22938B7EE00E4CD73 /* TMBD Movie App */ = {
 			isa = PBXGroup;
 			children = (
+				FAB919452943220D00E68A11 /* Extensions */,
 				FAA4EF852939D111008650CE /* Constants */,
 				FAA4EF7A2939C7EE008650CE /* Fonts */,
 				FAA4EF802939D0CB008650CE /* Services */,
@@ -193,6 +206,7 @@
 				FAA669BB2938B84100E4CD73 /* Controllers */,
 				FAA669BA2938B82F00E4CD73 /* Misc */,
 				FAA669B42938B7F200E4CD73 /* Info.plist */,
+				FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */,
 				FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */,
 			);
 			path = "TMBD Movie App";
@@ -228,6 +242,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		FAB919452943220D00E68A11 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FAB919462943222500E68A11 /* UIViewController.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -246,6 +268,10 @@
 			name = "TMBD Movie App";
 			packageProductDependencies = (
 				FA5700482940A78400E6786F /* Kingfisher */,
+				FAB9193D294314C600E68A11 /* FirebaseAuth */,
+				FAB9193F294314C600E68A11 /* FirebaseDatabase */,
+				FAB91941294314C600E68A11 /* FirebaseFirestore */,
+				FAB91943294314C600E68A11 /* FirebaseStorage */,
 			);
 			productName = "TMBD Movie App";
 			productReference = FAA669A02938B7EE00E4CD73 /* TMBD Movie App.app */;
@@ -277,6 +303,7 @@
 			mainGroup = FAA669972938B7EE00E4CD73;
 			packageReferences = (
 				FA5700472940A78400E6786F /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = FAA669A12938B7EE00E4CD73 /* Products */;
 			projectDirPath = "";
@@ -293,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */,
+				FAB9193B29430F6700E68A11 /* GoogleService-Info.plist in Resources */,
 				FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */,
 				FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */,
 				FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */,
@@ -327,6 +355,7 @@
 				FA570046294081F700E6786F /* SearchViewController.swift in Sources */,
 				FAA4EF8F2939E09A008650CE /* Cells.swift in Sources */,
 				FAA669A62938B7EF00E4CD73 /* SceneDelegate.swift in Sources */,
+				FAB919472943222500E68A11 /* UIViewController.swift in Sources */,
 				FAA4EF872939D11B008650CE /* URLs.swift in Sources */,
 				FAA4EFA2293A1FDB008650CE /* MovieTableViewCell.swift in Sources */,
 			);
@@ -556,6 +585,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -563,6 +600,26 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FA5700472940A78400E6786F /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		FAB9193D294314C600E68A11 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FAB9193F294314C600E68A11 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FAB91941294314C600E68A11 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FAB91943294314C600E68A11 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAB9193C294314C600E68A11 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
