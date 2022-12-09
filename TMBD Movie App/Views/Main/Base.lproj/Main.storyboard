@@ -171,7 +171,7 @@
                                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Kf-OI-fDE">
-                                                        <rect key="frame" x="140" y="73.666666666666657" width="213" height="15.666666666666671"/>
+                                                        <rect key="frame" x="140" y="73.666666666666657" width="213" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -218,7 +218,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0.0 (Vote)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eut-OE-tUR">
-                                                        <rect key="frame" x="140" y="99.333333333333343" width="213" height="17"/>
+                                                        <rect key="frame" x="140" y="99.666666666666657" width="213" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -348,7 +348,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 0.0 (Vote)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjW-AV-fvX">
-                                                    <rect key="frame" x="145" y="113.66666666666667" width="198" height="14.333333333333329"/>
+                                                    <rect key="frame" x="145" y="113.66666666666667" width="198" height="14"/>
                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1214,13 +1214,47 @@
                                                     <segue destination="SID-yF-ZDH" kind="presentation" identifier="toResetPasswordVC" modalPresentationStyle="fullScreen" id="4Yy-6E-raH"/>
                                                 </connections>
                                             </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="NM2-I0-lmu">
+                                                <rect key="frame" x="20" y="150" width="127" height="23"/>
+                                                <subviews>
+                                                    <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOh-vV-mPb">
+                                                        <rect key="frame" x="0.0" y="0.0" width="23" height="23"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="23" id="7UB-L8-u3b"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="tinted" image="tickbox"/>
+                                                        <connections>
+                                                            <action selector="rememberMeButtonPressed:" destination="ycA-hN-rQ9" eventType="touchUpInside" id="Frx-Rm-0zS"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hk0-zO-J2F">
+                                                        <rect key="frame" x="33" y="0.0" width="94" height="23"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="hk0-zO-J2F" secondAttribute="trailing" id="BPZ-yg-x6w"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QOh-vV-mPb" secondAttribute="bottom" id="D8m-7U-9J0"/>
+                                                    <constraint firstItem="QOh-vV-mPb" firstAttribute="top" secondItem="NM2-I0-lmu" secondAttribute="top" id="DGD-Cg-ZPC"/>
+                                                    <constraint firstItem="QOh-vV-mPb" firstAttribute="leading" secondItem="NM2-I0-lmu" secondAttribute="leading" id="HFi-U6-8Wb"/>
+                                                    <constraint firstItem="hk0-zO-J2F" firstAttribute="top" secondItem="NM2-I0-lmu" secondAttribute="top" id="PPi-Eh-gEv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hk0-zO-J2F" secondAttribute="bottom" id="Qrx-PA-hSP"/>
+                                                    <constraint firstAttribute="height" constant="23" id="icg-Oz-csk"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstItem="NM2-I0-lmu" firstAttribute="top" secondItem="CWc-gX-ceO" secondAttribute="bottom" constant="14" id="2gg-af-osP"/>
                                             <constraint firstAttribute="trailing" secondItem="CWc-gX-ceO" secondAttribute="trailing" constant="20" id="4LG-aN-u2r"/>
                                             <constraint firstItem="CWc-gX-ceO" firstAttribute="top" secondItem="ii7-G6-SID" secondAttribute="top" constant="5" id="Ed4-q5-RH2"/>
                                             <constraint firstItem="CWc-gX-ceO" firstAttribute="centerX" secondItem="ii7-G6-SID" secondAttribute="centerX" id="W0q-Xi-KzW"/>
                                             <constraint firstItem="xSh-NF-cpr" firstAttribute="top" secondItem="CWc-gX-ceO" secondAttribute="bottom" constant="10" id="c2m-3F-20e"/>
+                                            <constraint firstItem="NM2-I0-lmu" firstAttribute="leading" secondItem="ii7-G6-SID" secondAttribute="leading" constant="20" id="idV-Gm-SXU"/>
                                             <constraint firstAttribute="trailing" secondItem="xSh-NF-cpr" secondAttribute="trailing" constant="20" id="p0S-5s-LYp"/>
                                             <constraint firstItem="CWc-gX-ceO" firstAttribute="leading" secondItem="ii7-G6-SID" secondAttribute="leading" constant="20" id="zYb-cF-t6l"/>
                                         </constraints>
@@ -1299,12 +1333,14 @@
                     <navigationItem key="navigationItem" id="IfU-Hi-BaK"/>
                     <connections>
                         <outlet property="emailTextField" destination="5uf-KD-zb6" id="9Ie-Zl-qz3"/>
+                        <outlet property="hideAndShowButton" destination="Oyb-hZ-cve" id="3yi-PY-qGC"/>
                         <outlet property="passwordTextField" destination="ZwT-aw-FGQ" id="dKb-c1-diz"/>
+                        <outlet property="rememberMeButton" destination="QOh-vV-mPb" id="J5h-NC-sS1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEC-fH-LOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-346" y="-538"/>
+            <point key="canvasLocation" x="-347.32824427480915" y="-538.02816901408448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Adm-0C-gfa">
@@ -1400,6 +1436,7 @@
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
+        <image name="tickbox" width="25" height="25"/>
         <image name="tmdb_logo" width="273.42001342773438" height="35.520000457763672"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

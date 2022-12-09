@@ -38,13 +38,13 @@ class RegisterViewController: UIViewController {
     }
     //Register Button
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        if emailTextField.text != "" && passwordTextField.text != "" && confirmPasswordTextField.text != "" {
-            if passwordTextField.text == confirmPasswordTextField.text {
-                Auth.auth().createUser(withEmail: emailTextField.text!, password: confirmPasswordTextField.text!){_, error in
+        if let email = emailTextField.text, let password = passwordTextField.text, let confirmPass = confirmPasswordTextField.text {
+            if password == confirmPass {
+                Auth.auth().createUser(withEmail: email, password: password){_, error in
                     if let error {
                         self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
                     }else{
-                        self.alertMessage(alertTitle: "Succes", alertMesssage: "Registration successed! You can return to the login screen by pressing the 'Sign In' button below.")
+                        self.alertMessage(alertTitle: "Success", alertMesssage: "Registration successed! You can return to the login screen by pressing the 'Sign In' button below.")
                     }
                 }
             }else{
@@ -57,19 +57,6 @@ class RegisterViewController: UIViewController {
     //Sign In Button
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true)
-    }
-    
-    
-    //MARK: - Methods
-    //Hide and Show Button Configuration
-    private func hideAndShowButtonConfiguration(textField: UITextField, button: UIButton){
-        if textField.isSecureTextEntry == true {
-            textField.isSecureTextEntry = false
-            button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-        }else{
-            textField.isSecureTextEntry = true
-            button.setImage(UIImage(systemName: "eye"), for: .normal)
-        }
     }
 }
 

@@ -15,4 +15,15 @@ extension UIViewController{
         alertController.addAction(alertAction)
         self.present(alertController, animated: true)
     }
+    
+    //MARK: - Hide and Show Button Configuration
+    func hideAndShowButtonConfiguration(textField: UITextField, button: UIButton){
+        if textField.isSecureTextEntry == true {
+            textField.isSecureTextEntry = false
+            button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }else{
+            textField.isSecureTextEntry = true
+            button.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
+    }
 }
