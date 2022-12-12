@@ -104,7 +104,9 @@ extension HomeViewController: MovieTableViewCellDelegate {
         DispatchQueue.main.async {
             let vc = DetailViewController()
             vc.configure(with: model)
-            //print(model)
+            print("-----")
+            print(model)
+            print("-----")
             self.performSegue(withIdentifier: Segues.toDetailVC, sender: nil)
         }
     }

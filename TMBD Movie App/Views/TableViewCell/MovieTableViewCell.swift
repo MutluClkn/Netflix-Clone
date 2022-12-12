@@ -70,14 +70,17 @@ extension MovieTableViewCell: UICollectionViewDataSource {
 extension MovieTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
         collectionView.deselectItem(at: indexPath, animated: true)
+        
         let movie = movieArray?[indexPath.row]
-        guard let title = movie?.title else { return }
+        let title = movie?.original_title
         guard let posterURL = movie?.poster_path else { return }
-        guard let overview = movie?.overview else { return }
-        guard let releaseDate = movie?.release_date else { return }
+        let overview = movie?.overview
+        let releaseDate = movie?.release_date
         guard let voteAverage = movie?.vote_average else { return }
         guard let voteCount = movie?.vote_count else { return }
+        
         
         let model = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, voteAverage: voteAverage, voteCount: voteCount)
         

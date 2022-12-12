@@ -75,7 +75,6 @@ extension SearchViewController: UITableViewDelegate {
 extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
-            self.movieArray = []
             let query = searchText
             MovieManager().fetchSearchQuery(with: query, url: URLAddress().searchQueryURL) { movie in
                 DispatchQueue.main.async { [weak self] in

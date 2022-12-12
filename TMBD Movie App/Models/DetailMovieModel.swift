@@ -8,10 +8,10 @@
 import Foundation
 
 struct DetailMovieModel {
-    let movieTitle: String
+    let movieTitle: String?
     let posterURL: String
-    let overview: String
-    let releaseDate: String
+    let overview: String?
+    let releaseDate: String?
     let voteAverage: Double
     let voteCount: Int
     
