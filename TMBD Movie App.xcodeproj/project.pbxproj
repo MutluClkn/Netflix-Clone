@@ -35,12 +35,12 @@
 		FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */; };
 		FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA669AF2938B7F200E4CD73 /* Assets.xcassets */; };
 		FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA669B12938B7F200E4CD73 /* LaunchScreen.storyboard */; };
-		FAB9193B29430F6700E68A11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */; };
 		FAB9193E294314C600E68A11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193D294314C600E68A11 /* FirebaseAuth */; };
 		FAB91940294314C600E68A11 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193F294314C600E68A11 /* FirebaseDatabase */; };
 		FAB91942294314C600E68A11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91941294314C600E68A11 /* FirebaseFirestore */; };
 		FAB91944294314C600E68A11 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91943294314C600E68A11 /* FirebaseStorage */; };
 		FAB919472943222500E68A11 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB919462943222500E68A11 /* UIViewController.swift */; };
+		FAB9197129437CAC00E68A11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,8 +73,8 @@
 		FAA669AF2938B7F200E4CD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA669B22938B7F200E4CD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA669B42938B7F200E4CD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAB919462943222500E68A11 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +206,7 @@
 				FAA669BB2938B84100E4CD73 /* Controllers */,
 				FAA669BA2938B82F00E4CD73 /* Misc */,
 				FAA669B42938B7F200E4CD73 /* Info.plist */,
-				FAB9193A29430F6700E68A11 /* GoogleService-Info.plist */,
+				FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */,
 				FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */,
 			);
 			path = "TMBD Movie App";
@@ -320,7 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */,
-				FAB9193B29430F6700E68A11 /* GoogleService-Info.plist in Resources */,
+				FAB9197129437CAC00E68A11 /* GoogleService-Info.plist in Resources */,
 				FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */,
 				FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */,
 				FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */,

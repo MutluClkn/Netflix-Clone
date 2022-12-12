@@ -6,31 +6,34 @@
 //
 
 import UIKit
+import FirebaseAuth
 
+//MARK: - ResetPasswordViewController
 class ResetPasswordViewController: UIViewController {
 
+    //MARK: - Outlets
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var confirmNewPasswordTextField: UITextField!
     
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-    }
-    
-
-    @IBAction func securePasswordPressed(_ sender: UIButton) {
-    }
-    @IBAction func secureConfirmPasswordPressed(_ sender: UIButton) {
     }
     
     
+    //MARK: - Actions
     @IBAction func ResetButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true)
+        if let email = emailTextField.text{
+            Auth.auth().sendPasswordReset(withEmail: email) { error in
+                if let error {
+                    self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
+                }else {
+                    self.alertMessage(alertTitle: "Success", alertMesssage: "We sent you a recovery email. Check you mailbox!")
+                }
+            }
+        }
     }
-    
     @IBAction func signInButtonPressed(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
