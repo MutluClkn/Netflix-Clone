@@ -16,4 +16,5 @@ struct Segues{
     static let loginToTabBarVC = "loginToTabBarVC"
     static let toResetPasswordVC = "toResetPasswordVC"
     static let logOutToLoginVC = "logOutToLoginVC"
+    static let watchlistToDetail = "watchlistToDetail"
 }

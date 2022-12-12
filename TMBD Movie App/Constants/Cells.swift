@@ -17,4 +17,5 @@ struct TableViewCells {
     static let movieTableViewCell = "movieTableViewCell"
     static let searchTableViewCell = "searchTableViewCell"
     static let settingsCell = "settingsCell"
+    static let watchlistTableViewCell = "watchlistTableViewCell"
 }
