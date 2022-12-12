@@ -8,11 +8,6 @@
 import UIKit
 import Kingfisher
 
-// MARK: - MovieTableViewCellDelegate
-protocol MovieTableViewCellDelegate: AnyObject {
-    func updateViewController(_ cell: MovieTableViewCell, model: DetailMovieModel)
-}
-
 // MARK: - MovieTableViewCell
 class MovieTableViewCell: UITableViewCell {
 
@@ -78,11 +73,12 @@ extension MovieTableViewCell: UICollectionViewDelegate {
         guard let posterURL = movie?.poster_path else { return }
         let overview = movie?.overview
         let releaseDate = movie?.release_date
+        guard let id = movie?.id else { return }
         guard let voteAverage = movie?.vote_average else { return }
         guard let voteCount = movie?.vote_count else { return }
         
         
-        let model = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, voteAverage: voteAverage, voteCount: voteCount)
+        let model = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: id, voteAverage: voteAverage, voteCount: voteCount)
         
         self.delegate?.updateViewController(self, model: model)
     }

@@ -12,6 +12,7 @@ struct DetailMovieModel {
     let posterURL: String
     let overview: String?
     let releaseDate: String?
+    let id : Int?
     let voteAverage: Double
     let voteCount: Int
     

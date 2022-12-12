@@ -132,7 +132,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="homeTableView" destination="7jG-es-zDE" id="IpQ-qt-tmK"/>
-                        <segue destination="ll2-Nh-XKM" kind="show" identifier="toDetailVC" id="1QC-WL-doC"/>
+                        <segue destination="ll2-Nh-XKM" kind="show" identifier="toDetailVC" id="tIb-GI-Nr8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -888,7 +888,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4h8-am-mtC">
-                                <rect key="frame" x="0.0" y="59" width="393" height="710"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -995,9 +995,7 @@
                             <constraint firstItem="4h8-am-mtC" firstAttribute="leading" secondItem="Lee-0g-vbo" secondAttribute="leading" id="oWK-dl-KuI"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="xg2-NV-cfh">
-                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Settings" id="3xB-Py-Jbc"/>
                     <connections>
                         <outlet property="tableView" destination="4h8-am-mtC" id="Cid-kc-5KD"/>
                         <outlet property="userDisplayName" destination="WNK-eN-3tl" id="jax-hz-T6L"/>
@@ -1007,7 +1005,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5V-cB-g01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2424" y="-1801"/>
+            <point key="canvasLocation" x="3350.3816793893129" y="-1801.4084507042255"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="loJ-qS-Gpo">
@@ -1321,14 +1319,14 @@
                     <connections>
                         <segue destination="cFx-kS-0XK" kind="relationship" relationship="viewControllers" id="wOp-qk-LSC"/>
                         <segue destination="pG5-2W-iGz" kind="relationship" relationship="viewControllers" id="2t5-eA-ZQY"/>
-                        <segue destination="jQE-Uy-Xqv" kind="relationship" relationship="viewControllers" id="ddL-lP-IPJ"/>
+                        <segue destination="BXc-zK-rIb" kind="relationship" relationship="viewControllers" id="ddL-lP-IPJ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1gs-NO-lS0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1643.5114503816794" y="-538.02816901408448"/>
         </scene>
-        <!--Watchlist View Controller-->
+        <!--Watchlist-->
         <scene sceneID="85B-y7-F67">
             <objects>
                 <viewController id="SLH-LS-XEj" customClass="WatchlistViewController" customModule="TMBD_Movie_App" customModuleProvider="target" sceneMemberID="viewController">
@@ -1409,7 +1407,7 @@
                             <constraint firstItem="3Un-PD-e7V" firstAttribute="leading" secondItem="Pfc-wa-FRf" secondAttribute="leading" id="xv1-yL-doN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="lx8-wz-xSv"/>
+                    <navigationItem key="navigationItem" title="Watchlist" id="lx8-wz-xSv"/>
                     <connections>
                         <outlet property="watchlistTableView" destination="3Un-PD-e7V" id="VZn-BX-60p"/>
                         <segue destination="ll2-Nh-XKM" kind="show" identifier="watchlistToDetail" id="6xE-3Z-zXa"/>
@@ -1473,9 +1471,37 @@
             </objects>
             <point key="canvasLocation" x="3397.709923664122" y="-977.46478873239437"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="vS5-Tw-t1Z">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BXc-zK-rIb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Settings" image="gearshape.fill" catalog="system" id="xg2-NV-cfh">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="TbU-cO-sdO">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="jQE-Uy-Xqv" kind="relationship" relationship="rootViewController" id="XBe-ad-S9K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bqu-lt-mc8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2423.6641221374043" y="-1801.4084507042255"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6xE-3Z-zXa"/>
+        <segue reference="tIb-GI-Nr8"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>

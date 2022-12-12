@@ -12,6 +12,8 @@
 		FA09BE5B29470FA50045D228 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09BE5A29470FA50045D228 /* SettingsTableViewCell.swift */; };
 		FA09BE5D294726E60045D228 /* WatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09BE5C294726E60045D228 /* WatchlistTableViewCell.swift */; };
 		FA09BE5F294727030045D228 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09BE5E294727030045D228 /* WatchlistViewController.swift */; };
+		FA09BE6229472CA40045D228 /* MovieTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09BE6129472CA40045D228 /* MovieTableViewCellDelegate.swift */; };
+		FA09BE64294754870045D228 /* Firestore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09BE63294754870045D228 /* Firestore.swift */; };
 		FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA519EF4293DDA0D00853472 /* DetailViewController.swift */; };
 		FA542B34293F237400CC63AA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B33293F237400CC63AA /* LoginViewController.swift */; };
 		FA542B36293F3B2200CC63AA /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA542B35293F3B2200CC63AA /* RegisterViewController.swift */; };
@@ -52,6 +54,8 @@
 		FA09BE5A29470FA50045D228 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		FA09BE5C294726E60045D228 /* WatchlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistTableViewCell.swift; sourceTree = "<group>"; };
 		FA09BE5E294727030045D228 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
+		FA09BE6129472CA40045D228 /* MovieTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		FA09BE63294754870045D228 /* Firestore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firestore.swift; sourceTree = "<group>"; };
 		FA519EF4293DDA0D00853472 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FA542B33293F237400CC63AA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		FA542B35293F3B2200CC63AA /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 			path = Movie;
 			sourceTree = "<group>";
 		};
+		FA09BE6029472C900045D228 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FA09BE6129472CA40045D228 /* MovieTableViewCellDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		FAA4EF7A2939C7EE008650CE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +168,7 @@
 				FAA4EF862939D11B008650CE /* URLs.swift */,
 				FAA4EF8C2939DBB6008650CE /* Segues.swift */,
 				FAA4EF8E2939E09A008650CE /* Cells.swift */,
+				FA09BE63294754870045D228 /* Firestore.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -206,9 +219,10 @@
 		FAA669A22938B7EE00E4CD73 /* TMBD Movie App */ = {
 			isa = PBXGroup;
 			children = (
+				FAA4EF7A2939C7EE008650CE /* Fonts */,
+				FA09BE6029472C900045D228 /* Protocols */,
 				FAB919452943220D00E68A11 /* Extensions */,
 				FAA4EF852939D111008650CE /* Constants */,
-				FAA4EF7A2939C7EE008650CE /* Fonts */,
 				FAA4EF802939D0CB008650CE /* Services */,
 				FAA4EF7F2939D0C4008650CE /* Models */,
 				FAA669BC2938B84E00E4CD73 /* Views */,
@@ -351,6 +365,7 @@
 				FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */,
 				FA542B38293F622A00CC63AA /* ResetPasswordViewController.swift in Sources */,
 				FAA4EF842939D0E7008650CE /* MovieData.swift in Sources */,
+				FA09BE64294754870045D228 /* Firestore.swift in Sources */,
 				FA0198D32941A73300DBA079 /* SettingsViewController.swift in Sources */,
 				FA09BE5B29470FA50045D228 /* SettingsTableViewCell.swift in Sources */,
 				FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */,
@@ -364,6 +379,7 @@
 				FAA4EF8D2939DBB6008650CE /* Segues.swift in Sources */,
 				FA570044294081BC00E6786F /* SearchTableViewCell.swift in Sources */,
 				FA570046294081F700E6786F /* SearchViewController.swift in Sources */,
+				FA09BE6229472CA40045D228 /* MovieTableViewCellDelegate.swift in Sources */,
 				FA09BE5F294727030045D228 /* WatchlistViewController.swift in Sources */,
 				FAA4EF8F2939E09A008650CE /* Cells.swift in Sources */,
 				FAA669A62938B7EF00E4CD73 /* SceneDelegate.swift in Sources */,
