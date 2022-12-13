@@ -5,8 +5,10 @@
 //  Created by Mutlu Çalkan on 13.12.2022.
 //
 
+//MARK: - Frameworks
 import Foundation
 
+//MARK: - MovieDetailsData
 struct MovieDetailsData : Codable{
     let id: Int?
     let imdb_id, homepage: String?

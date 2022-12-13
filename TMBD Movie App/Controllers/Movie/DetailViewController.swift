@@ -5,6 +5,7 @@
 //  Created by Mutlu Çalkan on 5.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import Kingfisher
 import Firebase
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     
+    //MARK: - Objects
     var movieManager = MovieManager()
     var movieID : String?
     var id : Int?
@@ -40,7 +42,7 @@ class DetailViewController: UIViewController {
         movieScore.text = viewModel?.score
         movieOverview.text = viewModel?.overview
         posterImage.kf.setImage(with: viewModel?.posterImage)
-        posterString = "\(URLConstants.baseImageURL)\(String(describing: viewModel?.posterURL))"
+        posterString = "\(URLConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
         
         movieManager.fetchMovieDetails(movieID: viewModel!.id) { results in
             switch results{
@@ -83,6 +85,7 @@ class DetailViewController: UIViewController {
                 print("Error writing document: \(err)")
             } else {
                 print("Document successfully written!")
+                print(self.posterString)
             }
         }
     }

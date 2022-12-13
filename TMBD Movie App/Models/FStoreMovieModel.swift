@@ -5,8 +5,10 @@
 //  Created by Mutlu Çalkan on 12.12.2022.
 //
 
+//MARK: - Frameworks
 import Foundation
 
+//MARK: - FireStoreMovieModel
 struct FStoreMovieModel {
     var id : Int?
     var movieID : String
@@ -26,7 +28,3 @@ struct FStoreMovieModel {
         self.score = score
     }
 }
-
-/*
- let docData : [String: Any] = [FirestoreConstants.id : ID as Any, FirestoreConstants.posterPath : posterURL as Any, FirestoreConstants.title : movieTitle.text!, FirestoreConstants.date : movieYear.text!, FirestoreConstants.overview : movieOverview.text!, FirestoreConstants.score : movieScore.text!, FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
- */

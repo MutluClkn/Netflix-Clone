@@ -5,8 +5,10 @@
 //  Created by Mutlu Çalkan on 9.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 
+//MARK: - UIViewController
 extension UIViewController{
     //MARK: - UIAlertController
     func alertMessage(alertTitle: String, alertMesssage: String) {

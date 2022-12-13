@@ -5,9 +5,11 @@
 //  Created by Mutlu Çalkan on 8.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import FirebaseAuth
 
+//MARK: - SettingSections
 enum SettingSections : Int {
     case account = 0
     case help = 1
@@ -60,9 +62,11 @@ class SettingsViewController: UIViewController {
 
 //MARK: - SettingsVC TableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
+    //MARK: - Number of Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
+    //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case SettingSections.account.rawValue:
@@ -74,9 +78,9 @@ extension SettingsViewController: UITableViewDataSource {
         }
         
     }
+    //MARK: - Cell For Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCells.settingsCell, for: indexPath) as? SettingsTableViewCell
-        else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCells.settingsCell, for: indexPath) as? SettingsTableViewCell else{
             return UITableViewCell() }
         
         switch indexPath.section{
@@ -95,17 +99,19 @@ extension SettingsViewController: UITableViewDataSource {
 
 //MARK: - SettingsVC TableViewDelegate
 extension SettingsViewController: UITableViewDelegate{
+    //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 90
     }
+    //MARK: - Title For Header in Section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
+    //MARK: - Height For Header in Section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 27
     }
-    
+    //MARK: - Will Display Header View
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 17, weight: .bold)

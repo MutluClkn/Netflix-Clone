@@ -5,18 +5,20 @@
 //  Created by Mutlu Çalkan on 7.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import Kingfisher
 
+//MARK: - SearchTableViewCell
 class SearchTableViewCell: UITableViewCell {
     
-    //Properties
+    //MARK: - Outlets
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
 
     
-    //Lifecycle
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.08

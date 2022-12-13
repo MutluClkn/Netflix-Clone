@@ -5,7 +5,9 @@
 //  Created by Mutlu Çalkan on 2.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
+
 // MARK: - TableView Sections
 enum Sections : Int {
     case nowPlaying = 0
@@ -16,21 +18,24 @@ enum Sections : Int {
 
 // MARK: - ViewController
 class HomeViewController: UIViewController {
-    // Properties
+    
+    //MARK: - Outlets
     @IBOutlet weak var homeTableView: UITableView!
 
-    // Objects
+    //MARK: - Objects
     let sectionTitles = ["Now Playing", "Popular", "Top Rated", "Upcoming"]
     var tableViewCell = MovieTableViewCell()
     var movieManager = MovieManager()
     var viewModel : DetailMovieModel?
     
-    // Lifecycle
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.dataSource = self
         homeTableView.delegate = self
     }
+    
+    //MARK: - Actions
     @IBAction func searchButtonDidPress(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segues.toSearchVC, sender: nil)
     }
@@ -38,16 +43,19 @@ class HomeViewController: UIViewController {
 
 // MARK: - Table View DataSource
 extension HomeViewController: UITableViewDataSource {
+    //MARK: - Number of Sections
     func numberOfSections(in tableView: UITableView) -> Int {
         return sectionTitles.count
     }
-    
+    //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
+    //MARK: - Cell for Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = homeTableView.dequeueReusableCell(withIdentifier: TableViewCells.movieTableViewCell, for: indexPath) as? MovieTableViewCell else { return UITableViewCell() }
         
+        //MovieTableViewCellDelegate
         cell.delegate = self
         
         switch indexPath.section {
@@ -96,15 +104,19 @@ extension HomeViewController: UITableViewDataSource {
 
 // MARK: - Table View Delegate
 extension HomeViewController: UITableViewDelegate{
+    //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 285
     }
+    //MARK: - Title For Header in Section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
+    //MARK: - Height For Header in Section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 27
     }
+    //MARK: - Will Display Header View
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 19, weight: .bold)
@@ -115,6 +127,7 @@ extension HomeViewController: UITableViewDelegate{
 
 // MARK: - MovieTableViewCellDelegate
 extension HomeViewController: MovieTableViewCellDelegate {
+    //MARK: - Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toDetailVC {
             let destinationVC = segue.destination as! DetailViewController
@@ -122,11 +135,10 @@ extension HomeViewController: MovieTableViewCellDelegate {
             destinationVC.viewModel = self.viewModel
         }
     }
-    
+    //MARK: - Update View Controller
     func updateViewController(_ cell: MovieTableViewCell, model: DetailMovieModel) {
         DispatchQueue.main.async {
             self.viewModel = model
-            //self.movieId = model.id ?? 0
             self.performSegue(withIdentifier: Segues.toDetailVC, sender: nil)
         }
     }

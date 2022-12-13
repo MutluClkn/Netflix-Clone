@@ -5,9 +5,10 @@
 //  Created by Mutlu Çalkan on 2.12.2022.
 //
 
+//MARK: - Frameworks
 import Foundation
 
-// MARK: - MovieManager
+//MARK: - MovieManager
 struct MovieManager {
 
     //MARK: - Fetch Movie
@@ -65,7 +66,8 @@ struct MovieManager {
 
     //MARK: - Fetch Specific Movie with External ID
     func fetchMovie(with externalId: String, completion: @escaping (Result<MovieData, Error>) -> Void){
-        if let urlString = URL(string: "\(URLConstants.baseURL)/find/\(externalId)?\(URLConstants.apiKey)&language=en-US&external_source=imdb_id") {
+        let url = "\(URLConstants.baseURL)/find/\(externalId)?\(URLConstants.apiKey)&language=en-US&external_source=imdb_id"
+        if let urlString = URL(string: url) {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: urlString) { data, _, error in
                 if let error {

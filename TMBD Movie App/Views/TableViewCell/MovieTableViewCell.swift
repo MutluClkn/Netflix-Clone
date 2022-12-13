@@ -5,21 +5,22 @@
 //  Created by Mutlu Çalkan on 2.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import Kingfisher
 
 // MARK: - MovieTableViewCell
 class MovieTableViewCell: UITableViewCell {
 
-    //Properties
+    //MARK: - Outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
-    //Objects
+    //MARK: - Objects
     weak var delegate : MovieTableViewCellDelegate?
     private var movieArray : [Movie]? = [Movie]()
     var viewModel : DetailMovieModel?
     
-    //Lifecycle
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
@@ -30,7 +31,7 @@ class MovieTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    // Methods
+    //MARK: - Methods
     public func configure(with movie: [Movie]?){
         self.movieArray = movie
         DispatchQueue.main.async { [weak self] in
@@ -41,11 +42,11 @@ class MovieTableViewCell: UITableViewCell {
 
 // MARK: - Collection View DataSource
 extension MovieTableViewCell: UICollectionViewDataSource {
-    
+    //MARK: - Number of Items in Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return movieArray?.count ?? 0
     }
-    
+    //MARK: - Cell For Item at
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.nowPlayingCell, for: indexPath) as? HomeCollectionViewCell
         else {
@@ -58,15 +59,13 @@ extension MovieTableViewCell: UICollectionViewDataSource {
             let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(posterPath)")
             cell.posterImage.kf.setImage(with: downloadPosterImage)
         }
-        
-        cell.id = self.movieArray?[indexPath.row].id
         return cell
     }
 }
 
 // MARK: - Collection View Delegate
 extension MovieTableViewCell: UICollectionViewDelegate {
-    
+    //MARK: - Did Select Item at
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
 

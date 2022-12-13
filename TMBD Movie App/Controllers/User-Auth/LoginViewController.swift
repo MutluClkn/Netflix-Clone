@@ -5,6 +5,7 @@
 //  Created by Mutlu Çalkan on 6.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import FirebaseAuth
 
@@ -17,6 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var hideAndShowButton: UIButton!
     @IBOutlet weak var rememberMeButton: UIButton!
     
+    //MARK: - Objects
     var rememberMe = false
     
     //MARK: - Lifecycle

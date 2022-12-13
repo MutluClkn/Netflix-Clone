@@ -5,6 +5,7 @@
 //  Created by Mutlu Çalkan on 12.12.2022.
 //
 
+//MARK: - Frameworks
 import UIKit
 import Kingfisher
 import Firebase
@@ -17,7 +18,7 @@ class WatchlistViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var watchlistTableView: UITableView!
     
-    //Objects
+    //MARK: - Objects
     var loadedMovies = [FStoreMovieModel]()
     
     //MARK: - Lifecycle
@@ -54,9 +55,11 @@ class WatchlistViewController: UIViewController {
 
 //MARK: - TableViewDataSource
 extension WatchlistViewController: UITableViewDataSource{
+    //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.loadedMovies.count
     }
+    //MARK: - Cell For Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = watchlistTableView.dequeueReusableCell(withIdentifier: TableViewCells.watchlistTableViewCell, for: indexPath) as? WatchlistTableViewCell else {
             return UITableViewCell()
@@ -72,9 +75,11 @@ extension WatchlistViewController: UITableViewDataSource{
 
 //MARK: - TableViewDelegate
 extension WatchlistViewController: UITableViewDelegate{
+    //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
     }
+    //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
     }

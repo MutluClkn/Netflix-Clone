@@ -5,11 +5,11 @@
 //  Created by Mutlu Çalkan on 7.12.2022.
 //
 
+//MARK: - Frameworks
 import Foundation
 
+//MARK: - DetailMovieModel
 struct DetailMovieModel {
-    //let id: Int?
-    
     let movieTitle: String
     let posterURL: String
     let overview: String

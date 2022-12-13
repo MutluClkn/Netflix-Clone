@@ -5,8 +5,10 @@
 //  Created by Mutlu Çalkan on 12.12.2022.
 //
 
+//MARK: - Frameworks
 import Foundation
 
+//MARK: - FirestoreConstants
 struct FirestoreConstants{
     static let collectionName = "Watchlist"
     static let movieId = "movieId"
