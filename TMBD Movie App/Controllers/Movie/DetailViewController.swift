@@ -21,8 +21,8 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     
-    var ID = 0
-    
+    var movieID : Int? = 436270
+    var posterURL = "\(URLConstants.baseImageURL)/pFlaoHTZeyNkG83vxsAJiGzfSsa.jpg"
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -46,13 +46,14 @@ class DetailViewController: UIViewController {
         print("-----")
         print(model)
         print("-----")
-        
+
         /*
          movieTitle.text = model.movieTitle
          movieYear.text = model.releaseDate
          movieOverview.text = model.overview
          movieScore.text = model.score
-         ID = model.id
+         movieID = model.id
+        posterURL = "\(URLConstants.baseImageURL)\(model.posterURL)"
          posterImage.kf.setImage(with: model.posterImage)
          */
     }
@@ -61,7 +62,7 @@ class DetailViewController: UIViewController {
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
     }
     private func addWatchlist(){
-        let docData : [String: Any] = [FirestoreConstants.id : ID, FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
+        let docData : [String: Any] = [FirestoreConstants.movieId : movieID as Any, FirestoreConstants.title : movieTitle.text!, FirestoreConstants.date : movieYear.text!, FirestoreConstants.overview : movieOverview.text!, FirestoreConstants.score : movieScore.text!, FirestoreConstants.posterPath : posterURL, FirestoreConstants.uploadDate : FieldValue.serverTimestamp(), FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
         Firestore.firestore().collection(FirestoreConstants.collectionName).addDocument(data: docData){ err in
             if let err = err {
                 print("Error writing document: \(err)")

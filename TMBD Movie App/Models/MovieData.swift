@@ -28,7 +28,6 @@ struct Movie: Codable {
 
 
 /*
- 
  "dates": {
  "maximum": "2022-12-03",
  "minimum": "2022-10-16"
