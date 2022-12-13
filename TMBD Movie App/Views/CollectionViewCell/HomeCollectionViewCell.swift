@@ -13,4 +13,5 @@ class HomeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var posterLabel: UILabel!
     
+    var id : Int?
 }

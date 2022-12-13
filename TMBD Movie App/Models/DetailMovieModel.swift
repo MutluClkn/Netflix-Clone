@@ -8,11 +8,13 @@
 import Foundation
 
 struct DetailMovieModel {
-    let movieTitle: String?
+    //let id: Int?
+    
+    let movieTitle: String
     let posterURL: String
-    let overview: String?
-    let releaseDate: String?
-    let id : Int?
+    let overview: String
+    let releaseDate: String
+    let id : Int
     let voteAverage: Double
     let voteCount: Int
     
@@ -23,4 +25,5 @@ struct DetailMovieModel {
     var posterImage : URL? {
         return URL(string: "\(URLConstants.baseImageURL)\(String(describing: posterURL))")
     }
+     
 }

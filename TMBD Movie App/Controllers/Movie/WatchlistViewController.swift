@@ -19,9 +19,6 @@ class WatchlistViewController: UIViewController {
     
     //Objects
     var loadedMovies = [FStoreMovieModel]()
-    var movieManager = MovieManager()
-    var externalIDs = [ExternalIDModel]()
-    var movies = [SearchMovieModel]()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,7 +31,6 @@ class WatchlistViewController: UIViewController {
     
     //MARK: - Methods
     func loadMovies(){
-        
         Firestore.firestore().collection(FirestoreConstants.collectionName).order(by: FirestoreConstants.uploadDate, descending: true).addSnapshotListener { querySnapshot, error in
             if let error {
                 print(error)
@@ -42,9 +38,9 @@ class WatchlistViewController: UIViewController {
                 if querySnapshot?.isEmpty != true && querySnapshot != nil {
                     self.loadedMovies.removeAll()
                     for doc in querySnapshot!.documents{
-                        if let email = doc.get(FirestoreConstants.email) as? String, let movieId = doc.get(FirestoreConstants.movieId) as? Int?, let title = doc.get(FirestoreConstants.title) as? String, let date = doc.get(FirestoreConstants.date) as? String, let score = doc.get(FirestoreConstants.score) as? String, let posterString = doc.get(FirestoreConstants.posterPath) as? String, let overview = doc.get(FirestoreConstants.overview) as? String{
+                        if let email = doc.get(FirestoreConstants.email) as? String,let id = doc.get(FirestoreConstants.id) as? Int?, let movieId = doc.get(FirestoreConstants.movieId) as? String, let title = doc.get(FirestoreConstants.title) as? String, let date = doc.get(FirestoreConstants.date) as? String, let score = doc.get(FirestoreConstants.score) as? String, let posterString = doc.get(FirestoreConstants.posterPath) as? String, let overview = doc.get(FirestoreConstants.overview) as? String{
                             if email == Auth.auth().currentUser?.email{
-                                self.loadedMovies.append(FStoreMovieModel(id: movieId, posterURL: posterString, title: title, date: date, overview: overview, score: score))
+                                self.loadedMovies.append(FStoreMovieModel(id: id, movieID: movieId, posterURL: posterString, title: title, date: date, overview: overview, score: score))
                             }
                         }
                     }

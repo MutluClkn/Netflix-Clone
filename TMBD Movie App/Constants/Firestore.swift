@@ -10,6 +10,7 @@ import Foundation
 struct FirestoreConstants{
     static let collectionName = "Watchlist"
     static let movieId = "movieId"
+    static let id = "id"
     static let title = "title"
     static let date = "date"
     static let score = "score"

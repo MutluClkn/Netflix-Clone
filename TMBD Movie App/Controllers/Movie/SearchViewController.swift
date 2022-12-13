@@ -30,9 +30,14 @@ class SearchViewController: UIViewController {
     
     //Methods
     private func fetchDiscoverMovies(){
-        MovieManager().performRequest(url: URLAddress().discoverURL) { movie in
+        MovieManager().performRequest(url: URLAddress().discoverURL) { results in
             DispatchQueue.main.async { [weak self] in
-                self?.movieArray = movie.results
+                switch results{
+                case.success(let movie):
+                    self?.movieArray = movie.results
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
                 self?.searchTableView.reloadData()
             }
         }
@@ -76,9 +81,14 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             let query = searchText
-            MovieManager().fetchSearchQuery(with: query, url: URLAddress().searchQueryURL) { movie in
+            MovieManager().fetchSearchQuery(with: query, url: URLAddress().searchQueryURL) { results in
                 DispatchQueue.main.async { [weak self] in
-                    self?.movieArray = movie.results
+                    switch results{
+                    case.success(let movie):
+                        self?.movieArray = movie.results
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
                     self?.searchTableView.reloadData()
                 }
             }

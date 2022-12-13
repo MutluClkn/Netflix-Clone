@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
     let accountSettings = ["Profile", "Account Settings", "Delete Account"]
     let cellImagesName = ["person", "gear", "minus.circle"]
     //Help Section
-    let policySettings = ["FAQ", "Terms & Privacy"]
+    let helpSettings = ["FAQ", "Terms & Privacy"]
     let helpImagesName = ["questionmark","doc.plaintext"]
     
     
@@ -37,7 +37,6 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
-        //currentUserInfo()
     }
     
     
@@ -62,14 +61,14 @@ class SettingsViewController: UIViewController {
 //MARK: - SettingsVC TableViewDataSource
 extension SettingsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return sectionTitles.count
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case SettingSections.account.rawValue:
-            return 3
+            return accountSettings.count
         case SettingSections.help.rawValue:
-            return 2
+            return helpSettings.count
         default:
             return 1
         }
@@ -86,7 +85,7 @@ extension SettingsViewController: UITableViewDataSource {
             cell.title.text = accountSettings[indexPath.row]
         case SettingSections.help.rawValue:
             cell.cellImage.image = UIImage(systemName: helpImagesName[indexPath.row])
-            cell.title.text = policySettings[indexPath.row]
+            cell.title.text = helpSettings[indexPath.row]
         default:
             return UITableViewCell()
         }

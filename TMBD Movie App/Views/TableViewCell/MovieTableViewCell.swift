@@ -17,6 +17,7 @@ class MovieTableViewCell: UITableViewCell {
     //Objects
     weak var delegate : MovieTableViewCellDelegate?
     private var movieArray : [Movie]? = [Movie]()
+    var viewModel : DetailMovieModel?
     
     //Lifecycle
     override func awakeFromNib() {
@@ -57,6 +58,8 @@ extension MovieTableViewCell: UICollectionViewDataSource {
             let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(posterPath)")
             cell.posterImage.kf.setImage(with: downloadPosterImage)
         }
+        
+        cell.id = self.movieArray?[indexPath.row].id
         return cell
     }
 }
@@ -65,21 +68,18 @@ extension MovieTableViewCell: UICollectionViewDataSource {
 extension MovieTableViewCell: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
         collectionView.deselectItem(at: indexPath, animated: true)
+
+        let title = movieArray?[indexPath.row].original_title ?? ""
+        let posterURL = movieArray?[indexPath.row].poster_path ?? ""
+        let overview = movieArray?[indexPath.row].overview ?? ""
+        let releaseDate = movieArray?[indexPath.row].release_date ?? ""
+        let movieId = movieArray?[indexPath.row].id ?? 0
+        let voteAverage = movieArray?[indexPath.row].vote_average ?? 0
+        let voteCount = movieArray?[indexPath.row].vote_count ?? 0
         
-        let movie = movieArray?[indexPath.row]
-        let title = movie?.original_title
-        guard let posterURL = movie?.poster_path else { return }
-        let overview = movie?.overview
-        let releaseDate = movie?.release_date
-        guard let id = movie?.id else { return }
-        guard let voteAverage = movie?.vote_average else { return }
-        guard let voteCount = movie?.vote_count else { return }
-        
-        
-        let model = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: id, voteAverage: voteAverage, voteCount: voteCount)
-        
-        self.delegate?.updateViewController(self, model: model)
+        self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount)
+
+        self.delegate?.updateViewController(self, model: self.viewModel!)
     }
 }

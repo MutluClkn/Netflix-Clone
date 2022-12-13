@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     let sectionTitles = ["Now Playing", "Popular", "Top Rated", "Upcoming"]
     var tableViewCell = MovieTableViewCell()
     var movieManager = MovieManager()
+    var viewModel : DetailMovieModel?
     
     // Lifecycle
     override func viewDidLoad() {
@@ -30,7 +31,6 @@ class HomeViewController: UIViewController {
         homeTableView.dataSource = self
         homeTableView.delegate = self
     }
-    
     @IBAction func searchButtonDidPress(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segues.toSearchVC, sender: nil)
     }
@@ -52,26 +52,44 @@ extension HomeViewController: UITableViewDataSource {
         
         switch indexPath.section {
         case Sections.nowPlaying.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlNowPlaying) { movie in
-                cell.configure(with: movie.results)
+            self.movieManager.performRequest(url: URLAddress().urlNowPlaying) { results in
+                switch results{
+                case.success(let movie):
+                    cell.configure(with: movie.results)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         case Sections.popular.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlPopular) { movie in
-                cell.configure(with: movie.results)
+            self.movieManager.performRequest(url: URLAddress().urlPopular) { results in
+                switch results{
+                case.success(let movie):
+                    cell.configure(with: movie.results)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         case Sections.topRated.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlTopRated) { movie in
-                cell.configure(with: movie.results)
+            self.movieManager.performRequest(url: URLAddress().urlTopRated) { results in
+                switch results{
+                case.success(let movie):
+                    cell.configure(with: movie.results)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         case Sections.upcoming.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlUpcoming) { movie in
-                cell.configure(with: movie.results)
+            self.movieManager.performRequest(url: URLAddress().urlUpcoming) { results in
+                switch results{
+                case.success(let movie):
+                    cell.configure(with: movie.results)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
             }
         default:
             return UITableViewCell()
         }
-        
-        
         return cell
     }
 }
@@ -81,15 +99,12 @@ extension HomeViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 285
     }
-    
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return sectionTitles[section]
     }
-    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 27
     }
-    
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
         header.textLabel?.font = .systemFont(ofSize: 19, weight: .bold)
@@ -100,13 +115,18 @@ extension HomeViewController: UITableViewDelegate{
 
 // MARK: - MovieTableViewCellDelegate
 extension HomeViewController: MovieTableViewCellDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.toDetailVC {
+            let destinationVC = segue.destination as! DetailViewController
+           // destinationVC.movieID = self.movieId
+            destinationVC.viewModel = self.viewModel
+        }
+    }
+    
     func updateViewController(_ cell: MovieTableViewCell, model: DetailMovieModel) {
         DispatchQueue.main.async {
-            let vc = DetailViewController()
-            vc.configure(with: model)
-            print("-----")
-            print(model)
-            print("-----")
+            self.viewModel = model
+            //self.movieId = model.id ?? 0
             self.performSegue(withIdentifier: Segues.toDetailVC, sender: nil)
         }
     }

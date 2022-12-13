@@ -306,7 +306,7 @@
                         <outlet property="infoView" destination="RUF-um-C5K" id="Txw-PD-vbS"/>
                         <outlet property="movieOverview" destination="1OS-V7-icM" id="gBF-8w-nxB"/>
                         <outlet property="movieScore" destination="Eut-OE-tUR" id="5Mr-eX-RyZ"/>
-                        <outlet property="movieTitle" destination="msZ-Qv-qto" id="LM9-fd-M6j"/>
+                        <outlet property="movieTitle" destination="msZ-Qv-qto" id="a5d-p8-hKa"/>
                         <outlet property="movieYear" destination="5Kf-OI-fDE" id="ccT-dc-uLi"/>
                         <outlet property="posterImage" destination="ymm-tr-GxK" id="CZN-IT-U35"/>
                     </connections>
