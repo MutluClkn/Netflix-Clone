@@ -131,7 +131,6 @@ extension HomeViewController: MovieTableViewCellDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.toDetailVC {
             let destinationVC = segue.destination as! DetailViewController
-           // destinationVC.movieID = self.movieId
             destinationVC.viewModel = self.viewModel
         }
     }

@@ -64,8 +64,8 @@ struct MovieManager {
     }
     
 
-    //MARK: - Fetch Specific Movie with External ID
-    func fetchMovie(with externalId: String, completion: @escaping (Result<MovieData, Error>) -> Void){
+    //MARK: - Fetch a Specific Movie Details with External ID
+    func fetchSpecificMovie(with externalId: String, completion: @escaping (Result<ExternalIDMovieData, Error>) -> Void){
         let url = "\(URLConstants.baseURL)/find/\(externalId)?\(URLConstants.apiKey)&language=en-US&external_source=imdb_id"
         if let urlString = URL(string: url) {
             let session = URLSession(configuration: .default)
@@ -77,7 +77,7 @@ struct MovieManager {
                 if let data {
                     do{
                         let decoder = JSONDecoder()
-                        let movies = try decoder.decode(MovieData.self, from: data)
+                        let movies = try decoder.decode(ExternalIDMovieData.self, from: data)
                         DispatchQueue.main.async {
                             completion(.success(movies))
                         }

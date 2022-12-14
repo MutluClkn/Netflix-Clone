@@ -19,6 +19,8 @@ class WatchlistViewController: UIViewController {
     @IBOutlet weak var watchlistTableView: UITableView!
     
     //MARK: - Objects
+    var movieManager = MovieManager()
+    var detailMovieModel : WatchlistDetailMovieModel?
     var loadedMovies = [FStoreMovieModel]()
     
     //MARK: - Lifecycle
@@ -48,6 +50,13 @@ class WatchlistViewController: UIViewController {
                     self.watchlistTableView.reloadData()
                 }
             }
+        }
+    }
+    //Prepare For Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.watchlistToDetail {
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.watchlistModel = self.detailMovieModel
         }
     }
 }
@@ -81,7 +90,17 @@ extension WatchlistViewController: UITableViewDelegate{
     }
     //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+        let title = loadedMovies[indexPath.row].title
+        let posterURL = loadedMovies[indexPath.row].posterURL
+        let overview = loadedMovies[indexPath.row].overview
+        let releaseDate = loadedMovies[indexPath.row].date
+        let score = loadedMovies[indexPath.row].score
+        
+        self.detailMovieModel = WatchlistDetailMovieModel(title: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, score: score)
+
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+        }
     }
 }
 
