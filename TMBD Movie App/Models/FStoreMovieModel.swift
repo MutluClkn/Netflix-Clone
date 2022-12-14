@@ -17,8 +17,9 @@ struct FStoreMovieModel {
     var date : String
     var overview : String
     var score : String
+    var uuid : String
     
-    init(id: Int? = nil, movieID:String, posterURL : String, title: String, date: String, overview: String, score: String) {
+    init(id: Int? = nil, movieID:String, posterURL : String, title: String, date: String, overview: String, score: String, uuid: String) {
         self.id = id
         self.movieID = movieID
         self.posterURL = posterURL
@@ -26,5 +27,6 @@ struct FStoreMovieModel {
         self.date = date
         self.overview = overview
         self.score = score
+        self.uuid = uuid
     }
 }

@@ -20,4 +20,5 @@ struct FirestoreConstants{
     static let posterPath = "poster_path"
     static let uploadDate = "upload_date"
     static let email = "email"
+    static let uuid = "UUID"
 }

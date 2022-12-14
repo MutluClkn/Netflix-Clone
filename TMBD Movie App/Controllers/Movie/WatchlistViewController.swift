@@ -43,9 +43,9 @@ class WatchlistViewController: UIViewController {
                 if querySnapshot?.isEmpty != true && querySnapshot != nil {
                     self.loadedMovies.removeAll()
                     for doc in querySnapshot!.documents{
-                        if let email = doc.get(FirestoreConstants.email) as? String,let id = doc.get(FirestoreConstants.id) as? Int?, let movieId = doc.get(FirestoreConstants.movieId) as? String, let title = doc.get(FirestoreConstants.title) as? String, let date = doc.get(FirestoreConstants.date) as? String, let score = doc.get(FirestoreConstants.score) as? String, let posterString = doc.get(FirestoreConstants.posterPath) as? String, let overview = doc.get(FirestoreConstants.overview) as? String{
+                        if let email = doc.get(FirestoreConstants.email) as? String,let id = doc.get(FirestoreConstants.id) as? Int?, let movieId = doc.get(FirestoreConstants.movieId) as? String, let title = doc.get(FirestoreConstants.title) as? String, let date = doc.get(FirestoreConstants.date) as? String, let score = doc.get(FirestoreConstants.score) as? String, let posterString = doc.get(FirestoreConstants.posterPath) as? String, let overview = doc.get(FirestoreConstants.overview) as? String, let uuid = doc.get(FirestoreConstants.uuid) as? String{
                             if email == Auth.auth().currentUser?.email{
-                                self.loadedMovies.append(FStoreMovieModel(id: id, movieID: movieId, posterURL: posterString, title: title, date: date, overview: overview, score: score))
+                                self.loadedMovies.append(FStoreMovieModel(id: id, movieID: movieId, posterURL: posterString, title: title, date: date, overview: overview, score: score, uuid: uuid))
                             }
                         }
                     }
@@ -82,6 +82,13 @@ extension WatchlistViewController: UITableViewDataSource{
 
         return cell
     }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            loadedMovies.remove(at: indexPath.row)
+            Firestore.firestore().collection(FirestoreConstants.collectionName).document(loadedMovies[indexPath.row].uuid).delete()
+            self.watchlistTableView.reloadData()
+        }
+    }
 }
 
 //MARK: - TableViewDelegate
@@ -107,5 +114,11 @@ extension WatchlistViewController: UITableViewDelegate{
             }
         }
     }
+    
 }
 
+
+/*
+ let filmRef = db.collection("films").whereField("name", isEqualTo: "Film Adı")
+filmRef.delete
+ */

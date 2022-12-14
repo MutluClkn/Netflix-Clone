@@ -89,6 +89,7 @@ class DetailViewController: UIViewController {
         posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
     }
     private func addWatchlist(){
+        let uuid = UUID().uuidString
         let docData : [String: Any] = [FirestoreConstants.id : id as Any,
                                        FirestoreConstants.movieId : movieID as Any,
                                        FirestoreConstants.title : movieTitle.text!,
@@ -97,6 +98,7 @@ class DetailViewController: UIViewController {
                                        FirestoreConstants.score : movieScore.text!,
                                        FirestoreConstants.posterPath : posterString as Any,
                                        FirestoreConstants.uploadDate : FieldValue.serverTimestamp(),
+                                       FirestoreConstants.uuid : uuid,
                                        FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
         
         Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).getDocuments { snapshot, error in
@@ -107,10 +109,9 @@ class DetailViewController: UIViewController {
                     self.alertMessage(alertTitle: "Failed", alertMesssage: "Current movie is in your watchlist already.")
                     print("Movie saved in the database already.")
                 }else{
-                    Firestore.firestore().collection(FirestoreConstants.collectionName).addDocument(data: docData){ err in
-
-                        if let err = err {
-                            print("Error writing document: \(err)")
+                    Firestore.firestore().collection(FirestoreConstants.collectionName).document(uuid).setData(docData){ error in
+                        if let error {
+                            print("Error writing document: \(error)")
                         } else {
                             self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.")
                             print("Document successfully written!")
@@ -124,3 +125,37 @@ class DetailViewController: UIViewController {
         self.movieArray = movie
     }
 }
+
+/*
+ 
+ addDocument(data: docData){ err in
+
+     if let err = err {
+         print("Error writing document: \(err)")
+     } else {
+         self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.")
+         print("Document successfully written!")
+     }
+ }
+ 
+ 
+ let db = Firestore.firestore()
+
+ // Collection oluştur
+ let users = db.collection("users")
+
+ // Döküman ismini "user_abc123" olarak ayarlayarak bir döküman ekler
+ users.document("user_abc123").setData([
+     "name": "John Doe",
+     "email": "johndoe@example.com"
+ ]) { (error) in
+     if let error = error {
+         // Hata olursa burada ele alınabilir
+         print("Error adding document: \(error)")
+     } else {
+         // Başarılı bir şekilde döküman eklendi
+         print("Document added successfully")
+     }
+ }
+
+ */
