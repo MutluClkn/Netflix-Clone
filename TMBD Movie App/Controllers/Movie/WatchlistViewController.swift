@@ -34,6 +34,7 @@ class WatchlistViewController: UIViewController {
 
     
     //MARK: - Methods
+    //Fetch Movies From Firestore
     func loadMovies(){
         Firestore.firestore().collection(FirestoreConstants.collectionName).order(by: FirestoreConstants.uploadDate, descending: true).addSnapshotListener { querySnapshot, error in
             if let error {
@@ -91,6 +92,7 @@ extension WatchlistViewController: UITableViewDelegate{
     }
     //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         let externalID = loadedMovies[indexPath.row].movieID
         
         movieManager.fetchSpecificMovie(with: externalID) { result in

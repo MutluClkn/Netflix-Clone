@@ -69,7 +69,7 @@ extension MovieTableViewCell: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
 
-        let title = movieArray?[indexPath.row].original_title ?? ""
+        let title = movieArray?[indexPath.row].title ?? movieArray?[indexPath.row].original_title ?? ""
         let posterURL = movieArray?[indexPath.row].poster_path ?? ""
         let overview = movieArray?[indexPath.row].overview ?? ""
         let releaseDate = movieArray?[indexPath.row].release_date ?? ""

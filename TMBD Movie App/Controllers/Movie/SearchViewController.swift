@@ -59,7 +59,7 @@ extension SearchViewController: UITableViewDataSource{
         }
         
         let movie = self.movieArray?[indexPath.row]
-        cell.movieTitle.text = movie?.title
+        cell.movieTitle.text = movie?.original_title
         
         if let posterPath = movie?.poster_path{
             let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(posterPath)")

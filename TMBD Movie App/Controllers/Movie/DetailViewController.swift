@@ -57,7 +57,7 @@ class DetailViewController: UIViewController {
     private func loadDetails(){
         if movieArray?.isEmpty == false {
             
-            let title = movieArray?[0].original_title ?? ""
+            let title = movieArray?[0].title ?? movieArray?[0].original_title ?? ""
             let posterURL = movieArray?[0].poster_path ?? ""
             let overview = movieArray?[0].overview ?? ""
             let releaseDate = movieArray?[0].release_date ?? ""
@@ -99,11 +99,24 @@ class DetailViewController: UIViewController {
                                        FirestoreConstants.uploadDate : FieldValue.serverTimestamp(),
                                        FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
         
-        Firestore.firestore().collection(FirestoreConstants.collectionName).addDocument(data: docData){ err in
-            if let err = err {
-                print("Error writing document: \(err)")
-            } else {
-                print("Document successfully written!")
+        Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).getDocuments { snapshot, error in
+            if let error{
+                print("Error getting documents: \(error)")
+            }else{
+                if !snapshot!.documents.isEmpty {
+                    self.alertMessage(alertTitle: "Failed", alertMesssage: "Current movie is in your watchlist already.")
+                    print("Movie saved in the database already.")
+                }else{
+                    Firestore.firestore().collection(FirestoreConstants.collectionName).addDocument(data: docData){ err in
+
+                        if let err = err {
+                            print("Error writing document: \(err)")
+                        } else {
+                            self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.")
+                            print("Document successfully written!")
+                        }
+                    }
+                }
             }
         }
     }
@@ -111,4 +124,3 @@ class DetailViewController: UIViewController {
         self.movieArray = movie
     }
 }
-

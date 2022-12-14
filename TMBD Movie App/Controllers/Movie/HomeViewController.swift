@@ -23,7 +23,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var homeTableView: UITableView!
 
     //MARK: - Objects
-    let sectionTitles = ["Now Playing", "Popular", "Top Rated", "Upcoming"]
+    let sectionTitles = ["NOW PLAYING", "POPULAR", "TOP RATED", "UPCOMING"]
     var tableViewCell = MovieTableViewCell()
     var movieManager = MovieManager()
     var viewModel : DetailMovieModel?
@@ -119,7 +119,7 @@ extension HomeViewController: UITableViewDelegate{
     //MARK: - Will Display Header View
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .systemFont(ofSize: 19, weight: .bold)
+        header.textLabel?.font = .systemFont(ofSize: 17, weight: .bold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
     }
