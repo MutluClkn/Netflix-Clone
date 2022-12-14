@@ -24,12 +24,11 @@ class DetailViewController: UIViewController {
     
     //MARK: - Objects
     var movieManager = MovieManager()
-    var watchlistVC = WatchlistViewController()
     var movieID : String?
     var id : Int?
     var posterString : String?
     var viewModel : DetailMovieModel?
-    var watchlistModel : WatchlistDetailMovieModel?
+    private var movieArray : [Movie]? = [Movie]()
     
     
     //MARK: - Lifecycle
@@ -56,29 +55,33 @@ class DetailViewController: UIViewController {
     
     //MARK: - Methods
     private func loadDetails(){
-        if self.viewModel != nil {
-            movieTitle.text = viewModel?.movieTitle
-            movieYear.text = viewModel?.releaseDate
-            movieScore.text = viewModel?.score
-            movieOverview.text = viewModel?.overview
-            posterImage.kf.setImage(with: viewModel?.posterImage)
-            posterString = "\(URLConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
+        if movieArray?.isEmpty == false {
             
-            movieManager.fetchMovieDetails(movieID: viewModel?.id ?? 0) { results in
-                switch results{
-                case .success(let details):
-                    self.id = details.id
-                    self.movieID = details.imdb_id
-                case .failure(let error):
-                    print(error)
-                }
+            let title = movieArray?[0].original_title ?? ""
+            let posterURL = movieArray?[0].poster_path ?? ""
+            let overview = movieArray?[0].overview ?? ""
+            let releaseDate = movieArray?[0].release_date ?? ""
+            let movieId = movieArray?[0].id ?? 0
+            let voteAverage = movieArray?[0].vote_average ?? 0
+            let voteCount = movieArray?[0].vote_count ?? 0
+            
+            self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount)
+        }
+        movieTitle.text = viewModel?.movieTitle
+        movieYear.text = viewModel?.releaseDate
+        movieScore.text = viewModel?.score
+        movieOverview.text = viewModel?.overview
+        posterImage.kf.setImage(with: viewModel?.posterImage)
+        posterString = "\(URLConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
+        
+        movieManager.fetchMovieDetails(movieID: viewModel?.id ?? 0) { results in
+            switch results{
+            case .success(let details):
+                self.id = details.id
+                self.movieID = details.imdb_id
+            case .failure(let error):
+                print(error)
             }
-        }else if watchlistModel != nil {
-            movieTitle.text = watchlistModel?.title
-            movieYear.text = watchlistModel?.releaseDate
-            movieScore.text = watchlistModel?.score
-            movieOverview.text = watchlistModel?.overview
-            posterImage.kf.setImage(with: URL(string: watchlistModel?.posterURL ?? ""))
         }
     }
     private func configureUI(){
@@ -103,6 +106,9 @@ class DetailViewController: UIViewController {
                 print("Document successfully written!")
             }
         }
+    }
+    public func configureFromWatchlist(with movie: [Movie]?){
+        self.movieArray = movie
     }
 }
 

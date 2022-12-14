@@ -20,8 +20,9 @@ class WatchlistViewController: UIViewController {
     
     //MARK: - Objects
     var movieManager = MovieManager()
-    var detailMovieModel : WatchlistDetailMovieModel?
     var loadedMovies = [FStoreMovieModel]()
+    var viewModel : DetailMovieModel?
+    private var movieArray : [Movie]? = [Movie]()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -56,7 +57,7 @@ class WatchlistViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.watchlistToDetail {
             let destinationVC = segue.destination as! DetailViewController
-            destinationVC.watchlistModel = self.detailMovieModel
+            destinationVC.configureFromWatchlist(with: movieArray)
         }
     }
 }
@@ -90,16 +91,18 @@ extension WatchlistViewController: UITableViewDelegate{
     }
     //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let title = loadedMovies[indexPath.row].title
-        let posterURL = loadedMovies[indexPath.row].posterURL
-        let overview = loadedMovies[indexPath.row].overview
-        let releaseDate = loadedMovies[indexPath.row].date
-        let score = loadedMovies[indexPath.row].score
+        let externalID = loadedMovies[indexPath.row].movieID
         
-        self.detailMovieModel = WatchlistDetailMovieModel(title: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, score: score)
-
-        DispatchQueue.main.async {
-            self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+        movieManager.fetchSpecificMovie(with: externalID) { result in
+            switch result{
+            case .success(let movie):
+                DispatchQueue.main.async {
+                    self.movieArray = movie.movie_results
+                    self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }
