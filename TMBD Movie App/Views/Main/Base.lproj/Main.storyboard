@@ -151,10 +151,10 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gU7-hM-f6Q" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="724.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="994.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUF-um-C5K">
-                                                <rect key="frame" x="22" y="50" width="349" height="290"/>
+                                                <rect key="frame" x="22" y="55" width="349" height="290"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="karayipkorsanlar" translatesAutoresizingMaskIntoConstraints="NO" id="ymm-tr-GxK">
                                                         <rect key="frame" x="15" y="-27" width="115" height="183"/>
@@ -185,7 +185,7 @@
                                                         <color key="tintColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="filled" title="Watchlist" imagePadding="9" cornerStyle="capsule">
-                                                            <imageReference key="image" image="bookmark" catalog="system" symbolScale="medium" variableValue="0.0"/>
+                                                            <imageReference key="image" image="plus" catalog="system" symbolScale="medium" variableValue="0.0"/>
                                                             <backgroundConfiguration key="background" strokeWidth="2" strokeOutset="1">
                                                                 <color key="strokeColor" systemColor="labelColor"/>
                                                             </backgroundConfiguration>
@@ -218,7 +218,7 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0.0 (Vote)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eut-OE-tUR">
-                                                        <rect key="frame" x="140" y="99.666666666666657" width="199" height="17"/>
+                                                        <rect key="frame" x="140" y="99.666666666666686" width="199" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
@@ -248,16 +248,37 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1OS-V7-icM">
-                                                <rect key="frame" x="35" y="420" width="323" height="304.33333333333326"/>
+                                                <rect key="frame" x="35" y="415" width="323" height="304.33333333333326"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usE-mM-INk">
-                                                <rect key="frame" x="35" y="380" width="323" height="25"/>
+                                                <rect key="frame" x="35" y="375" width="323" height="25"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="25" id="aDl-EE-81p"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VXE-Qa-xCX">
+                                                <rect key="frame" x="35" y="789.33333333333337" width="323" height="190"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="190" id="eKR-0e-Mb9"/>
+                                                </constraints>
+                                                <wkWebViewConfiguration key="configuration">
+                                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                    <wkPreferences key="preferences"/>
+                                                </wkWebViewConfiguration>
+                                            </wkWebView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trailer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bBV-EZ-ADI">
+                                                <rect key="frame" x="35" y="749.33333333333337" width="323" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="WhM-nW-ro0"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -266,16 +287,22 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.050980392159999999" green="0.1450980392" blue="0.2470588235" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="bBV-EZ-ADI" secondAttribute="trailing" constant="35" id="0KF-Cu-Xvy"/>
                                             <constraint firstAttribute="trailing" secondItem="usE-mM-INk" secondAttribute="trailing" constant="35" id="1KS-ST-vIF"/>
+                                            <constraint firstItem="bBV-EZ-ADI" firstAttribute="top" secondItem="1OS-V7-icM" secondAttribute="bottom" constant="30" id="5hF-vz-Shv"/>
                                             <constraint firstItem="1OS-V7-icM" firstAttribute="leading" secondItem="gU7-hM-f6Q" secondAttribute="leading" constant="35" id="Bkh-gY-efI"/>
                                             <constraint firstItem="RUF-um-C5K" firstAttribute="leading" secondItem="gU7-hM-f6Q" secondAttribute="leading" constant="22" id="Ez5-hk-Ea3"/>
-                                            <constraint firstItem="RUF-um-C5K" firstAttribute="top" secondItem="gU7-hM-f6Q" secondAttribute="top" constant="50" id="Qks-a5-7V2"/>
-                                            <constraint firstAttribute="bottom" secondItem="1OS-V7-icM" secondAttribute="bottom" id="Sct-3c-SMy"/>
+                                            <constraint firstItem="RUF-um-C5K" firstAttribute="top" secondItem="gU7-hM-f6Q" secondAttribute="top" constant="55" id="Qks-a5-7V2"/>
+                                            <constraint firstItem="VXE-Qa-xCX" firstAttribute="top" secondItem="bBV-EZ-ADI" secondAttribute="bottom" constant="15" id="Sct-3c-SMy"/>
                                             <constraint firstItem="usE-mM-INk" firstAttribute="leading" secondItem="gU7-hM-f6Q" secondAttribute="leading" constant="35" id="YYY-uB-rig"/>
                                             <constraint firstAttribute="trailing" secondItem="RUF-um-C5K" secondAttribute="trailing" constant="22" id="Zzb-6M-b1q"/>
                                             <constraint firstItem="1OS-V7-icM" firstAttribute="top" secondItem="usE-mM-INk" secondAttribute="bottom" constant="15" id="fUv-8K-0WK"/>
-                                            <constraint firstItem="usE-mM-INk" firstAttribute="top" secondItem="RUF-um-C5K" secondAttribute="bottom" constant="40" id="iOO-xa-1g1"/>
+                                            <constraint firstItem="usE-mM-INk" firstAttribute="top" secondItem="RUF-um-C5K" secondAttribute="bottom" constant="30" id="iOO-xa-1g1"/>
+                                            <constraint firstItem="VXE-Qa-xCX" firstAttribute="leading" secondItem="gU7-hM-f6Q" secondAttribute="leading" constant="35" id="qO2-yT-0Th"/>
                                             <constraint firstAttribute="trailing" secondItem="1OS-V7-icM" secondAttribute="trailing" constant="35" id="rZI-1J-yUf"/>
+                                            <constraint firstAttribute="bottom" secondItem="VXE-Qa-xCX" secondAttribute="bottom" constant="15" id="tgf-rc-mSe"/>
+                                            <constraint firstItem="bBV-EZ-ADI" firstAttribute="leading" secondItem="gU7-hM-f6Q" secondAttribute="leading" constant="35" id="vZF-7u-h66"/>
+                                            <constraint firstAttribute="trailing" secondItem="VXE-Qa-xCX" secondAttribute="trailing" constant="35" id="ygq-ZF-mBu"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -309,11 +336,12 @@
                         <outlet property="movieTitle" destination="msZ-Qv-qto" id="a5d-p8-hKa"/>
                         <outlet property="movieYear" destination="5Kf-OI-fDE" id="ccT-dc-uLi"/>
                         <outlet property="posterImage" destination="ymm-tr-GxK" id="CZN-IT-U35"/>
+                        <outlet property="webView" destination="VXE-Qa-xCX" id="WdF-UO-eXZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qih-0Q-6Vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5569" y="-134"/>
+            <point key="canvasLocation" x="5568.7022900763359" y="-134.50704225352112"/>
         </scene>
         <!--Search-->
         <scene sceneID="K5R-ux-W7g">
@@ -1504,7 +1532,6 @@
         <segue reference="6xE-3Z-zXa"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="bookmark" catalog="system" width="110" height="128"/>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="eye" catalog="system" width="128" height="79"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
@@ -1516,6 +1543,7 @@
         <image name="person.circle" catalog="system" width="128" height="123"/>
         <image name="play.circle.fill" catalog="system" width="128" height="123"/>
         <image name="play.fill" catalog="system" width="117" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="tickbox" width="25" height="25"/>
         <image name="tmdb_logo" width="273.42001342773438" height="35.520000457763672"/>
         <systemColor name="labelColor">

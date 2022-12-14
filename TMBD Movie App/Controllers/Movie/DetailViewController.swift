@@ -10,6 +10,7 @@ import UIKit
 import Kingfisher
 import Firebase
 import FirebaseStorage
+import WebKit
 
 //MARK: - Detail ViewController
 class DetailViewController: UIViewController {
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
+    @IBOutlet weak var webView: WKWebView!
     
     //MARK: - Objects
     var movieManager = MovieManager()
@@ -46,6 +48,7 @@ class DetailViewController: UIViewController {
     //MARK: - Actions
     @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
         print("Play Trailer button pressed.")
+        
     }
     @IBAction func watchListButtonPressed(_ sender: UIButton) {
         print("Watchlist button pressed.")
@@ -72,7 +75,7 @@ class DetailViewController: UIViewController {
         movieScore.text = viewModel?.score
         movieOverview.text = viewModel?.overview
         posterImage.kf.setImage(with: viewModel?.posterImage)
-        posterString = "\(URLConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
+        posterString = "\(MovieConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
         
         movieManager.fetchMovieDetails(movieID: viewModel?.id ?? 0) { results in
             switch results{
@@ -81,6 +84,18 @@ class DetailViewController: UIViewController {
                 self.movieID = details.imdb_id
             case .failure(let error):
                 print(error)
+            }
+        }
+        
+        movieManager.fetchYoutubeVideo(with: viewModel?.movieTitle ?? "" + " trailer") { result in
+            switch result{
+            case .success(let video):
+                
+                guard let url = URL(string: "https://www.youtube.com/embed/\(video.id.videoId)") else {return}
+                self.webView.load(URLRequest(url: url))
+                
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -125,37 +140,3 @@ class DetailViewController: UIViewController {
         self.movieArray = movie
     }
 }
-
-/*
- 
- addDocument(data: docData){ err in
-
-     if let err = err {
-         print("Error writing document: \(err)")
-     } else {
-         self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.")
-         print("Document successfully written!")
-     }
- }
- 
- 
- let db = Firestore.firestore()
-
- // Collection oluştur
- let users = db.collection("users")
-
- // Döküman ismini "user_abc123" olarak ayarlayarak bir döküman ekler
- users.document("user_abc123").setData([
-     "name": "John Doe",
-     "email": "johndoe@example.com"
- ]) { (error) in
-     if let error = error {
-         // Hata olursa burada ele alınabilir
-         print("Error adding document: \(error)")
-     } else {
-         // Başarılı bir şekilde döküman eklendi
-         print("Document added successfully")
-     }
- }
-
- */

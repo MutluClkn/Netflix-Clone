@@ -23,7 +23,7 @@ struct DetailMovieModel {
     }
     
     var posterImage : URL? {
-        return URL(string: "\(URLConstants.baseImageURL)\(String(describing: posterURL))")
+        return URL(string: "\(MovieConstants.baseImageURL)\(String(describing: posterURL))")
     }
      
 }

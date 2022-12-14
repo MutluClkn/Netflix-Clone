@@ -105,10 +105,10 @@ extension WatchlistViewController: UITableViewDelegate{
         movieManager.fetchSpecificMovie(with: externalID) { result in
             switch result{
             case .success(let movie):
-                DispatchQueue.main.async {
-                    self.movieArray = movie.movie_results
-                    self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
-                }
+                
+                self.movieArray = movie.movie_results
+                self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }

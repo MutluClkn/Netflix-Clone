@@ -56,7 +56,7 @@ extension MovieTableViewCell: UICollectionViewDataSource {
         cell.posterImage.layer.cornerRadius = cell.posterImage.frame.size.height * 0.08
 
         if let posterPath = self.movieArray?[indexPath.row].poster_path{
-            let downloadPosterImage = URL(string: "\(URLConstants.baseImageURL)\(posterPath)")
+            let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
             cell.posterImage.kf.setImage(with: downloadPosterImage)
         }
         return cell
