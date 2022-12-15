@@ -19,7 +19,7 @@ struct DetailMovieModel {
     let voteCount: Int
     
     var score : String {
-        return "Score: " + String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
+        return String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
     }
     
     var posterImage : URL? {

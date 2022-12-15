@@ -16,13 +16,14 @@ import WebKit
 class DetailViewController: UIViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var infoView: UIView!
+    @IBOutlet weak var posterView: UIView!
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var addWatchlistButton: UIButton!
     
     //MARK: - Objects
     var movieManager = MovieManager()
@@ -36,8 +37,7 @@ class DetailViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-        
+        addGradient(viewTest: posterView)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -46,10 +46,6 @@ class DetailViewController: UIViewController {
     
     
     //MARK: - Actions
-    @IBAction func playTrailerButtonPressed(_ sender: UIButton) {
-        print("Play Trailer button pressed.")
-        
-    }
     @IBAction func watchListButtonPressed(_ sender: UIButton) {
         print("Watchlist button pressed.")
         addWatchlist()
@@ -57,9 +53,10 @@ class DetailViewController: UIViewController {
     
     
     //MARK: - Methods
+    //Update View
     private func loadDetails(){
+        //Check If The Data Fetched From Watchlist or SearchVC
         if movieArray?.isEmpty == false {
-            
             let title = movieArray?[0].title ?? movieArray?[0].original_title ?? ""
             let posterURL = movieArray?[0].poster_path ?? ""
             let overview = movieArray?[0].overview ?? ""
@@ -70,6 +67,7 @@ class DetailViewController: UIViewController {
             
             self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount)
         }
+        //Load The Latest Data
         movieTitle.text = viewModel?.movieTitle
         movieYear.text = viewModel?.releaseDate
         movieScore.text = viewModel?.score
@@ -77,6 +75,7 @@ class DetailViewController: UIViewController {
         posterImage.kf.setImage(with: viewModel?.posterImage)
         posterString = "\(MovieConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
         
+        //Get External ID
         movieManager.fetchMovieDetails(movieID: viewModel?.id ?? 0) { results in
             switch results{
             case .success(let details):
@@ -86,7 +85,7 @@ class DetailViewController: UIViewController {
                 print(error)
             }
         }
-        
+        //Update Trailer Video
         movieManager.fetchYoutubeVideo(with: viewModel?.movieTitle ?? "" + " trailer") { result in
             switch result{
             case .success(let video):
@@ -99,10 +98,7 @@ class DetailViewController: UIViewController {
             }
         }
     }
-    private func configureUI(){
-        infoView.layer.cornerRadius = infoView.frame.size.height * 0.05
-        posterImage.layer.cornerRadius = posterImage.frame.size.height * 0.05
-    }
+    //Prepare For Watchlist Button
     private func addWatchlist(){
         let uuid = UUID().uuidString
         let docData : [String: Any] = [FirestoreConstants.id : id as Any,
@@ -121,7 +117,7 @@ class DetailViewController: UIViewController {
                 print("Error getting documents: \(error)")
             }else{
                 if !snapshot!.documents.isEmpty {
-                    self.alertMessage(alertTitle: "Failed", alertMesssage: "Current movie is in your watchlist already.")
+                    self.alertMessage(alertTitle: "", alertMesssage: "The movie is in your watchlist.")
                     print("Movie saved in the database already.")
                 }else{
                     Firestore.firestore().collection(FirestoreConstants.collectionName).document(uuid).setData(docData){ error in
@@ -136,9 +132,11 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    //Get Data From WatchlistVC
     public func configureFromWatchlist(with movie: [Movie]?){
         self.movieArray = movie
     }
+    //Get Data From SearchVC
     public func configureFromSearchVC(with movie : Movie?){
         if let movie{
             self.movieArray?.append(movie)

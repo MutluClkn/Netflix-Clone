@@ -106,7 +106,7 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate{
     //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 285
+        return 275
     }
     //MARK: - Title For Header in Section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -114,12 +114,12 @@ extension HomeViewController: UITableViewDelegate{
     }
     //MARK: - Height For Header in Section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 27
+        return 19
     }
     //MARK: - Will Display Header View
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         guard let header = view as? UITableViewHeaderFooterView else {return}
-        header.textLabel?.font = .systemFont(ofSize: 17, weight: .bold)
+        header.textLabel?.font = .systemFont(ofSize: 15, weight: .bold)
         header.textLabel?.frame = CGRect(x: header.bounds.origin.x + 20, y: header.bounds.origin.y, width: 100, height: header.bounds.height)
         header.textLabel?.textColor = .white
     }

@@ -44,6 +44,7 @@
 		FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */; };
 		FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAA669AF2938B7F200E4CD73 /* Assets.xcassets */; };
 		FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAA669B12938B7F200E4CD73 /* LaunchScreen.storyboard */; };
+		FAA768A8294B100C00C4C622 /* Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA768A7294B100C00C4C622 /* Gradient.swift */; };
 		FAB9193E294314C600E68A11 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193D294314C600E68A11 /* FirebaseAuth */; };
 		FAB91940294314C600E68A11 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FAB9193F294314C600E68A11 /* FirebaseDatabase */; };
 		FAB91942294314C600E68A11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91941294314C600E68A11 /* FirebaseFirestore */; };
@@ -91,6 +92,7 @@
 		FAA669AF2938B7F200E4CD73 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAA669B22938B7F200E4CD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA669B42938B7F200E4CD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAA768A7294B100C00C4C622 /* Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gradient.swift; sourceTree = "<group>"; };
 		FAB919462943222500E68A11 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -281,6 +283,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB919462943222500E68A11 /* UIViewController.swift */,
+				FAA768A7294B100C00C4C622 /* Gradient.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				FA09BE64294754870045D228 /* Firestore.swift in Sources */,
 				FA0198D32941A73300DBA079 /* SettingsViewController.swift in Sources */,
 				FA09BE5B29470FA50045D228 /* SettingsTableViewCell.swift in Sources */,
+				FAA768A8294B100C00C4C622 /* Gradient.swift in Sources */,
 				FA77BC232949AD5B00F61FAA /* ExternalIDMovieData.swift in Sources */,
 				FA519EF5293DDA0D00853472 /* DetailViewController.swift in Sources */,
 				FAA669A42938B7EF00E4CD73 /* AppDelegate.swift in Sources */,
