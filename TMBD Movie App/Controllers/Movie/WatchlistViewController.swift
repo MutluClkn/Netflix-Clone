@@ -23,6 +23,7 @@ class WatchlistViewController: UIViewController {
     var loadedMovies = [FStoreMovieModel]()
     var viewModel : DetailMovieModel?
     private var movieArray : [Movie]? = [Movie]()
+    var email : String?
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class WatchlistViewController: UIViewController {
                     for doc in querySnapshot!.documents{
                         if let email = doc.get(FirestoreConstants.email) as? String,let id = doc.get(FirestoreConstants.id) as? Int?, let movieId = doc.get(FirestoreConstants.movieId) as? String, let title = doc.get(FirestoreConstants.title) as? String, let date = doc.get(FirestoreConstants.date) as? String, let score = doc.get(FirestoreConstants.score) as? String, let posterString = doc.get(FirestoreConstants.posterPath) as? String, let overview = doc.get(FirestoreConstants.overview) as? String, let uuid = doc.get(FirestoreConstants.uuid) as? String{
                             if email == Auth.auth().currentUser?.email{
+                                self.email = email
                                 self.loadedMovies.append(FStoreMovieModel(id: id, movieID: movieId, posterURL: posterString, title: title, date: date, overview: overview, score: score, uuid: uuid))
                             }
                         }
@@ -84,9 +86,11 @@ extension WatchlistViewController: UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete{
-            loadedMovies.remove(at: indexPath.row)
-            Firestore.firestore().collection(FirestoreConstants.collectionName).document(loadedMovies[indexPath.row].uuid).delete()
-            self.watchlistTableView.reloadData()
+            if self.email == Auth.auth().currentUser?.email{
+                Firestore.firestore().collection(FirestoreConstants.collectionName).document(loadedMovies[indexPath.row].uuid).delete()
+                loadedMovies.remove(at: indexPath.row)
+                self.watchlistTableView.reloadData()
+            }
         }
     }
 }
@@ -101,6 +105,7 @@ extension WatchlistViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let externalID = loadedMovies[indexPath.row].movieID
+        print(loadedMovies[indexPath.row].uuid)
         
         movieManager.fetchSpecificMovie(with: externalID) { result in
             switch result{

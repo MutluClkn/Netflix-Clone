@@ -112,7 +112,7 @@ class DetailViewController: UIViewController {
                                        FirestoreConstants.uuid : uuid,
                                        FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
         
-        Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).getDocuments { snapshot, error in
+        Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).whereField(FirestoreConstants.email, isEqualTo: Auth.auth().currentUser?.email).getDocuments { snapshot, error in
             if let error{
                 print("Error getting documents: \(error)")
             }else{
