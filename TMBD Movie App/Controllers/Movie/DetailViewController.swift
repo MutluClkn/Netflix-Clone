@@ -139,4 +139,9 @@ class DetailViewController: UIViewController {
     public func configureFromWatchlist(with movie: [Movie]?){
         self.movieArray = movie
     }
+    public func configureFromSearchVC(with movie : Movie?){
+        if let movie{
+            self.movieArray?.append(movie)
+        }
+    }
 }

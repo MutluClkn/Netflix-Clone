@@ -18,19 +18,19 @@ class SearchViewController: UIViewController {
     
     //MARK: - Objects
     private var movieArray : [Movie]?
+    private var selectedMovie : Movie?
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         searchTableView.dataSource = self
         searchTableView.delegate = self
-        
         searchBar.delegate = self
-        
         fetchDiscoverMovies()
     }
     
     //MARK: - Methods
+    //Fetch Discovered Movie
     private func fetchDiscoverMovies(){
         MovieManager().performRequest(url: URLAddress().discoverURL) { results in
             DispatchQueue.main.async { [weak self] in
@@ -42,6 +42,13 @@ class SearchViewController: UIViewController {
                 }
                 self?.searchTableView.reloadData()
             }
+        }
+    }
+    //Prepare For Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.searchToDetail {
+            let destinationVC = segue.destination as! DetailViewController
+            destinationVC.configureFromSearchVC(with: selectedMovie)
         }
     }
 }
@@ -59,7 +66,7 @@ extension SearchViewController: UITableViewDataSource{
         }
         
         let movie = self.movieArray?[indexPath.row]
-        cell.movieTitle.text = movie?.original_title
+        cell.movieTitle.text = movie?.title
         
         if let posterPath = movie?.poster_path{
             let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
@@ -79,6 +86,13 @@ extension SearchViewController: UITableViewDelegate {
     //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
+    }
+    //MARK: - Did Select Row at
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.selectedMovie = self.movieArray?[indexPath.row].self
+        self.performSegue(withIdentifier: Segues.searchToDetail, sender: nil)
     }
 }
 
@@ -100,5 +114,13 @@ extension SearchViewController: UISearchBarDelegate{
                 }
             }
         }
+        else {
+            self.fetchDiscoverMovies()
+        }
+    }
+    //MARK: - SearchBar Cancel Button Clicked
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        self.fetchDiscoverMovies()
     }
 }

@@ -105,10 +105,10 @@ extension WatchlistViewController: UITableViewDelegate{
         movieManager.fetchSpecificMovie(with: externalID) { result in
             switch result{
             case .success(let movie):
-                
-                self.movieArray = movie.movie_results
-                self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
-                
+                DispatchQueue.main.async {
+                    self.movieArray = movie.movie_results
+                    self.performSegue(withIdentifier: Segues.watchlistToDetail, sender: nil)
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -116,9 +116,3 @@ extension WatchlistViewController: UITableViewDelegate{
     }
     
 }
-
-
-/*
- let filmRef = db.collection("films").whereField("name", isEqualTo: "Film Adı")
-filmRef.delete
- */
