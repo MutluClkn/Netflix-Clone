@@ -122,8 +122,10 @@ class DetailViewController: UIViewController {
         movieManager.fetchCredits(movieID: viewModel?.id ?? 0) { results in
             switch results{
             case.success(let cast):
-                self.casts = cast.cast
-                print("API CAST: \(cast.cast)")
+                DispatchQueue.main.async {
+                    self.casts = cast.cast
+                    self.castCollectionView.reloadData()
+                }
             case.failure(let error):
                 print(error.localizedDescription)
             }
@@ -143,7 +145,7 @@ class DetailViewController: UIViewController {
                                        FirestoreConstants.uuid : uuid,
                                        FirestoreConstants.email : Auth.auth().currentUser?.email as Any]
         
-        Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).whereField(FirestoreConstants.email, isEqualTo: Auth.auth().currentUser?.email).getDocuments { snapshot, error in
+        Firestore.firestore().collection(FirestoreConstants.collectionName).whereField(FirestoreConstants.id, isEqualTo: self.id as Any).whereField(FirestoreConstants.email, isEqualTo: Auth.auth().currentUser?.email as Any).getDocuments { snapshot, error in
             if let error{
                 print("Error getting documents: \(error)")
             }else{
@@ -180,23 +182,20 @@ class DetailViewController: UIViewController {
 //MARK: - CollectionViewDataSource
 extension DetailViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.casts?.count ?? 0
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.castCell, for: indexPath) as? CreditsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        print("COLLECTION CAST: \(self.casts)")
-        /*
         
         cell.castName.text = self.casts?[indexPath.row].name ?? self.casts?[indexPath.row].original_name
-        cell.castImage.layer.cornerRadius = cell.castImage.frame.size.height * 0.08
-
+        cell.castImage.layer.cornerRadius = cell.castImage.frame.size.height * 0.1
+        
         if let posterPath = self.casts?[indexPath.row].profile_path{
             let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
             cell.castImage.kf.setImage(with: downloadPosterImage)
         }
-        */
         return cell
     }
 }
