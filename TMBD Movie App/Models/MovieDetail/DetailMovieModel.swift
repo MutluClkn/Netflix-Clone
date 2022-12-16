@@ -17,6 +17,7 @@ struct DetailMovieModel {
     let id : Int
     let voteAverage: Double
     let voteCount: Int
+    let genre : String
     
     var score : String {
         return String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
@@ -24,6 +25,10 @@ struct DetailMovieModel {
     
     var posterImage : URL? {
         return URL(string: "\(MovieConstants.baseImageURL)\(String(describing: posterURL))")
+    }
+    
+    var dateAndGenre : String {
+        return "\(releaseDate.dropLast(6))" + " | " + "\(genre.dropLast(2))"
     }
      
 }

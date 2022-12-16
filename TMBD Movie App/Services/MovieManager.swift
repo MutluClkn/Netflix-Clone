@@ -143,4 +143,55 @@ struct MovieManager {
             task.resume()
         }
     }
+    
+    //MARK: - Fetch Genre Data
+    func fetchGenreData(completion: @escaping (Result<GenreData, Error>) -> Void){
+        if let urlString = URL(string: URLAddress().genreData) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: urlString) { data, _, error in
+                if let error {
+                    print(error)
+                    return
+                }
+                if let data {
+                    do{
+                        let decoder = JSONDecoder()
+                        let genres = try decoder.decode(GenreData.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(.success(genres))
+                        }
+                    }catch{
+                        completion(.failure(error))
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    //MARK: - Fetch Credits
+    func fetchCredits(movieID: Int, completion: @escaping (Result<CreditsData, Error>) -> Void){
+        let url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(movieID))/credits?\(MovieConstants.apiKey)&language=en-US"
+        if let urlString = URL(string: url) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: urlString) { data, _, error in
+                if let error {
+                    print(error)
+                    return
+                }
+                if let data {
+                    do{
+                        let decoder = JSONDecoder()
+                        let casts = try decoder.decode(CreditsData.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(.success(casts))
+                        }
+                    }catch{
+                        completion(.failure(error))
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
 }

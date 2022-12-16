@@ -19,6 +19,7 @@ class SearchViewController: UIViewController {
     //MARK: - Objects
     private var movieArray : [Movie]?
     private var selectedMovie : Movie?
+    private var genreData : [Genre]? = [Genre]()
 
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -27,6 +28,7 @@ class SearchViewController: UIViewController {
         searchTableView.delegate = self
         searchBar.delegate = self
         fetchDiscoverMovies()
+        fetchGenreData()
     }
     
     //MARK: - Methods
@@ -44,11 +46,22 @@ class SearchViewController: UIViewController {
             }
         }
     }
+    //Fetch Genre Data
+    private func fetchGenreData(){
+        MovieManager().fetchGenreData { results in
+            switch results{
+            case.success(let genres):
+                self.genreData = genres.genres
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     //Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.searchToDetail {
             let destinationVC = segue.destination as! DetailViewController
-            destinationVC.configureFromSearchVC(with: selectedMovie)
+            destinationVC.configureFromSearchVC(with: selectedMovie, and: self.genreData)
         }
     }
 }

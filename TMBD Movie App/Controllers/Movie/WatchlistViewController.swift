@@ -23,6 +23,7 @@ class WatchlistViewController: UIViewController {
     var loadedMovies = [FStoreMovieModel]()
     var viewModel : DetailMovieModel?
     private var movieArray : [Movie]? = [Movie]()
+    private var genreData : [Genre]? = [Genre]()
     var email : String?
     
     //MARK: - Lifecycle
@@ -31,6 +32,7 @@ class WatchlistViewController: UIViewController {
         watchlistTableView.dataSource = self
         watchlistTableView.delegate = self
         loadMovies()
+        fetchGenreData()
     }
 
     
@@ -56,11 +58,22 @@ class WatchlistViewController: UIViewController {
             }
         }
     }
+    //Fetch Genre Data
+    private func fetchGenreData(){
+        MovieManager().fetchGenreData { results in
+            switch results{
+            case.success(let genres):
+                self.genreData = genres.genres
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
     //Prepare For Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.watchlistToDetail {
             let destinationVC = segue.destination as! DetailViewController
-            destinationVC.configureFromWatchlist(with: movieArray)
+            destinationVC.configureFromWatchlist(with: movieArray, and: self.genreData)
         }
     }
 }

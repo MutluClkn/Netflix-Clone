@@ -19,12 +19,14 @@ class MovieTableViewCell: UITableViewCell {
     weak var delegate : MovieTableViewCellDelegate?
     private var movieArray : [Movie]? = [Movie]()
     var viewModel : DetailMovieModel?
+    private var genreData : [Genre]? = [Genre]()
     
     //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.dataSource = self
         collectionView.delegate = self
+        fetchGenreData()
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -36,6 +38,17 @@ class MovieTableViewCell: UITableViewCell {
         self.movieArray = movie
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
+        }
+    }
+    //Fetch Genre Data
+    private func fetchGenreData(){
+        MovieManager().fetchGenreData { results in
+            switch results{
+            case.success(let genres):
+                self.genreData = genres.genres
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }
@@ -77,7 +90,23 @@ extension MovieTableViewCell: UICollectionViewDelegate {
         let voteAverage = movieArray?[indexPath.row].vote_average ?? 0
         let voteCount = movieArray?[indexPath.row].vote_count ?? 0
         
-        self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount)
+        guard let movieGenreArray = movieArray?[indexPath.row].genre_ids else { return }
+        let movieGenreCount = movieGenreArray.count
+        
+        guard let genreDataCount = self.genreData?.count else { return }
+        
+        var genreResult : String = ""
+        
+        for movieGenreIndex in 0...movieGenreCount - 1{
+            for gDataIndex in 0...genreDataCount - 1 {
+                if movieGenreArray[movieGenreIndex] == self.genreData?[gDataIndex].id{
+                    guard let genreName = self.genreData?[gDataIndex].name else { return }
+                    genreResult = genreResult + genreName + ", "
+                }
+            }
+        }
+        
+        self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount, genre: genreResult)
 
         self.delegate?.updateViewController(self, model: self.viewModel!)
     }

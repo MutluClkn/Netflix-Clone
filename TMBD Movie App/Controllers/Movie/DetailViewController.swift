@@ -24,6 +24,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieOverview: UILabel!
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var addWatchlistButton: UIButton!
+    @IBOutlet weak var castCollectionView: UICollectionView!
     
     //MARK: - Objects
     var movieManager = MovieManager()
@@ -32,11 +33,15 @@ class DetailViewController: UIViewController {
     var posterString : String?
     var viewModel : DetailMovieModel?
     private var movieArray : [Movie]? = [Movie]()
+    private var casts : [Cast]? = [Cast]()
+    var genreData : [Genre]? = [Genre]()
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        castCollectionView.dataSource = self
+        castCollectionView.delegate = self
         addGradient(viewTest: posterView)
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -65,11 +70,27 @@ class DetailViewController: UIViewController {
             let voteAverage = movieArray?[0].vote_average ?? 0
             let voteCount = movieArray?[0].vote_count ?? 0
             
-            self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount)
+            guard let movieGenreArray = movieArray?[0].genre_ids else { return }
+            let movieGenreCount = movieGenreArray.count
+            
+            guard let genreDataCount = self.genreData?.count else { return }
+            
+            var genreResult : String = ""
+            
+            for movieGenreIndex in 0...movieGenreCount - 1{
+                for gDataIndex in 0...genreDataCount - 1 {
+                    if movieGenreArray[movieGenreIndex] == self.genreData?[gDataIndex].id{
+                        guard let genreName = self.genreData?[gDataIndex].name else { return }
+                        genreResult = genreResult + genreName + ", "
+                    }
+                }
+            }
+            
+            self.viewModel = DetailMovieModel(movieTitle: title, posterURL: posterURL, overview: overview, releaseDate: releaseDate, id: movieId, voteAverage: voteAverage, voteCount: voteCount, genre: genreResult)
         }
         //Load The Latest Data
         movieTitle.text = viewModel?.movieTitle
-        movieYear.text = viewModel?.releaseDate
+        movieYear.text = viewModel?.dateAndGenre
         movieScore.text = viewModel?.score
         movieOverview.text = viewModel?.overview
         posterImage.kf.setImage(with: viewModel?.posterImage)
@@ -94,6 +115,16 @@ class DetailViewController: UIViewController {
                 self.webView.load(URLRequest(url: url))
                 
             case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        //Fetch Casts
+        movieManager.fetchCredits(movieID: viewModel?.id ?? 0) { results in
+            switch results{
+            case.success(let cast):
+                self.casts = cast.cast
+                print("API CAST: \(cast.cast)")
+            case.failure(let error):
                 print(error.localizedDescription)
             }
         }
@@ -133,13 +164,44 @@ class DetailViewController: UIViewController {
         }
     }
     //Get Data From WatchlistVC
-    public func configureFromWatchlist(with movie: [Movie]?){
+    public func configureFromWatchlist(with movie: [Movie]?, and genre: [Genre]?){
         self.movieArray = movie
+        self.genreData = genre
     }
     //Get Data From SearchVC
-    public func configureFromSearchVC(with movie : Movie?){
+    public func configureFromSearchVC(with movie : Movie?, and genre: [Genre]?){
         if let movie{
             self.movieArray?.append(movie)
+            self.genreData = genre
         }
     }
+}
+
+//MARK: - CollectionViewDataSource
+extension DetailViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.castCell, for: indexPath) as? CreditsCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        print("COLLECTION CAST: \(self.casts)")
+        /*
+        
+        cell.castName.text = self.casts?[indexPath.row].name ?? self.casts?[indexPath.row].original_name
+        cell.castImage.layer.cornerRadius = cell.castImage.frame.size.height * 0.08
+
+        if let posterPath = self.casts?[indexPath.row].profile_path{
+            let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
+            cell.castImage.kf.setImage(with: downloadPosterImage)
+        }
+        */
+        return cell
+    }
+}
+
+//MARK: - CollectionViewDelegate
+extension DetailViewController: UICollectionViewDelegate {
+    
 }

@@ -37,6 +37,7 @@ struct URLAddress {
     let urlUpcoming = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(MovieConstants.Category.upcoming)?\(MovieConstants.apiKey)&\(MovieConstants.firstPage)"
     let discoverURL = "\(MovieConstants.baseURL)/discover/\(MovieConstants.type)?\(MovieConstants.apiKey)&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&\(MovieConstants.firstPage)&with_watch_monetization_types=flatrate"
     let searchQueryURL = "\(MovieConstants.baseURL)/search/\(MovieConstants.type)?\(MovieConstants.apiKey)&query="
+    let genreData = "\(MovieConstants.baseURL)/genre/\(MovieConstants.type)/list?\(MovieConstants.apiKey)&language=en-US"
 }
 
 

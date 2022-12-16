@@ -11,6 +11,7 @@ import Foundation
 //MARK: - Collection View Cell Identifiers
 struct CollectionViewCells {
     static let nowPlayingCell = "nowPlayingCell"
+    static let castCell = "castCell"
 }
 
 //MARK: - Table View Cell Identifiers

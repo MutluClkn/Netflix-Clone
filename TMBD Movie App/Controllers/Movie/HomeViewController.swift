@@ -27,17 +27,32 @@ class HomeViewController: UIViewController {
     var tableViewCell = MovieTableViewCell()
     var movieManager = MovieManager()
     var viewModel : DetailMovieModel?
+    private var genreData : [Genre]? = [Genre]()
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         homeTableView.dataSource = self
         homeTableView.delegate = self
+        fetchGenreData()
     }
     
     //MARK: - Actions
     @IBAction func searchButtonDidPress(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: Segues.toSearchVC, sender: nil)
+    }
+    
+    //MARK: - Methods
+    //Fetch Genre Data
+    private func fetchGenreData(){
+        MovieManager().fetchGenreData { results in
+            switch results{
+            case.success(let genres):
+                self.genreData = genres.genres
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -132,6 +147,7 @@ extension HomeViewController: MovieTableViewCellDelegate {
         if segue.identifier == Segues.toDetailVC {
             let destinationVC = segue.destination as! DetailViewController
             destinationVC.viewModel = self.viewModel
+            destinationVC.genreData = self.genreData
         }
     }
     //MARK: - Update View Controller
