@@ -24,7 +24,7 @@ A movie app where users can access the latest movies. The source of the data is 
 
 * Users can access to latest, top-rated, popular, and upcoming movies.
 
-<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/HomeScreen.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/SaveWatchlist.gif " width="250">
+<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/HomeScreen.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/SaveToTheWatchlist.gif " width="250">
 
 ##
 
