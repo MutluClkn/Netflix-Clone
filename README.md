@@ -34,6 +34,6 @@ A movie app where users can access the latest movies. The source of the data is 
 
 ##
 
-* Users can access the movie trailer, overview, release date, and user score.
+* Users can access the movie score, release date, genre, overview, cast and videos.
 
-<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/YoutubeTrailer.gif " width="250">
+<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/DetailScreen.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/DetailScreenn.gif " width="250">

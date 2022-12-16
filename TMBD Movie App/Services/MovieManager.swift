@@ -116,34 +116,6 @@ struct MovieManager {
         }
     }
     
-    //MARK: - Fetch Youtube Video
-    func fetchYoutubeVideo(with query: String, completion: @escaping (Result<YoutubeItems, Error>) -> Void){
-        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
-        let url = "\(YoutubeConstants.youtubeBaseURL)?q=\(query)&\(YoutubeConstants.youtubeApiKey)"
-        
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let movies = try decoder.decode(YoutubeData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(movies.items[0]))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
-    
     //MARK: - Fetch Genre Data
     func fetchGenreData(completion: @escaping (Result<GenreData, Error>) -> Void){
         if let urlString = URL(string: URLAddress().genreData) {
@@ -185,6 +157,32 @@ struct MovieManager {
                         let casts = try decoder.decode(CreditsData.self, from: data)
                         DispatchQueue.main.async {
                             completion(.success(casts))
+                        }
+                    }catch{
+                        completion(.failure(error))
+                    }
+                }
+            }
+            task.resume()
+        }
+    }
+    
+    //MARK: - Fetch Movie Videos
+    func fetchVideos(movieID: Int, completion: @escaping (Result<VideoData, Error>) -> Void){
+        let url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(movieID))/videos?\(MovieConstants.apiKey)&language=en-US"
+        if let urlString = URL(string: url) {
+            let session = URLSession(configuration: .default)
+            let task = session.dataTask(with: urlString) { data, _, error in
+                if let error {
+                    print(error)
+                    return
+                }
+                if let data {
+                    do{
+                        let decoder = JSONDecoder()
+                        let videos = try decoder.decode(VideoData.self, from: data)
+                        DispatchQueue.main.async {
+                            completion(.success(videos))
                         }
                     }catch{
                         completion(.failure(error))

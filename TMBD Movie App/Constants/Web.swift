@@ -24,11 +24,6 @@ struct MovieConstants {
     }
 }
 
-struct YoutubeConstants{
-    static let youtubeApiKey = "key=AIzaSyBpzqSb0bCKDAYqgB6jkEDsDAr4SN0f79w"
-    static let youtubeBaseURL = "https://youtube.googleapis.com/youtube/v3/search"
-}
-
 //MARK: - URL Address
 struct URLAddress {
     let urlNowPlaying = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(MovieConstants.Category.nowPlaying)?\(MovieConstants.apiKey)&\(MovieConstants.firstPage)"

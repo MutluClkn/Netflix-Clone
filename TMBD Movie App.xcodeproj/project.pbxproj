@@ -24,10 +24,11 @@
 		FA57004B2940A98200E6786F /* DetailMovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA57004A2940A98200E6786F /* DetailMovieModel.swift */; };
 		FA5B378D2948A260009945B1 /* MovieDetailsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5B378C2948A260009945B1 /* MovieDetailsData.swift */; };
 		FA77BC232949AD5B00F61FAA /* ExternalIDMovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77BC222949AD5A00F61FAA /* ExternalIDMovieData.swift */; };
-		FA77BC25294A044600F61FAA /* YoutubeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA77BC24294A044600F61FAA /* YoutubeData.swift */; };
 		FA866A3B294CA98B00FAF08D /* CreditsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A3A294CA98B00FAF08D /* CreditsData.swift */; };
 		FA866A3D294CAD4500FAF08D /* CreditsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A3C294CAD4500FAF08D /* CreditsCollectionViewCell.swift */; };
 		FA866A40294CB2BF00FAF08D /* GenreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A3F294CB2BF00FAF08D /* GenreData.swift */; };
+		FA866A42294CC95300FAF08D /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A41294CC95300FAF08D /* VideoData.swift */; };
+		FA866A44294CD90200FAF08D /* TrailerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A43294CD90200FAF08D /* TrailerCollectionViewCell.swift */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -72,10 +73,11 @@
 		FA57004A2940A98200E6786F /* DetailMovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieModel.swift; sourceTree = "<group>"; };
 		FA5B378C2948A260009945B1 /* MovieDetailsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsData.swift; sourceTree = "<group>"; };
 		FA77BC222949AD5A00F61FAA /* ExternalIDMovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalIDMovieData.swift; sourceTree = "<group>"; };
-		FA77BC24294A044600F61FAA /* YoutubeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeData.swift; sourceTree = "<group>"; };
 		FA866A3A294CA98B00FAF08D /* CreditsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsData.swift; sourceTree = "<group>"; };
 		FA866A3C294CAD4500FAF08D /* CreditsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA866A3F294CB2BF00FAF08D /* GenreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreData.swift; sourceTree = "<group>"; };
+		FA866A41294CC95300FAF08D /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
+		FA866A43294CD90200FAF08D /* TrailerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerCollectionViewCell.swift; sourceTree = "<group>"; };
 		FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnekDevanagari-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
@@ -164,12 +166,12 @@
 			path = MovieDetail;
 			sourceTree = "<group>";
 		};
-		FA866A37294CA93600FAF08D /* Youtube */ = {
+		FA866A37294CA93600FAF08D /* Video(Trailer) */ = {
 			isa = PBXGroup;
 			children = (
-				FA77BC24294A044600F61FAA /* YoutubeData.swift */,
+				FA866A41294CC95300FAF08D /* VideoData.swift */,
 			);
-			path = Youtube;
+			path = "Video(Trailer)";
 			sourceTree = "<group>";
 		};
 		FA866A38294CA94C00FAF08D /* Movie */ = {
@@ -214,7 +216,7 @@
 				FA866A3E294CB2B600FAF08D /* Genre */,
 				FA866A39294CA96E00FAF08D /* Cast */,
 				FA866A38294CA94C00FAF08D /* Movie */,
-				FA866A37294CA93600FAF08D /* Youtube */,
+				FA866A37294CA93600FAF08D /* Video(Trailer) */,
 				FA866A36294CA92500FAF08D /* MovieDetail */,
 				FA866A35294CA91A00FAF08D /* FireStore */,
 			);
@@ -256,6 +258,7 @@
 			children = (
 				FAA4EFA5293A3F31008650CE /* HomeCollectionViewCell.swift */,
 				FA866A3C294CAD4500FAF08D /* CreditsCollectionViewCell.swift */,
+				FA866A43294CD90200FAF08D /* TrailerCollectionViewCell.swift */,
 			);
 			path = CollectionViewCell;
 			sourceTree = "<group>";
@@ -430,7 +433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA542B34293F237400CC63AA /* LoginViewController.swift in Sources */,
-				FA77BC25294A044600F61FAA /* YoutubeData.swift in Sources */,
 				FA866A3B294CA98B00FAF08D /* CreditsData.swift in Sources */,
 				FAA4EFA6293A3F31008650CE /* HomeCollectionViewCell.swift in Sources */,
 				FAA669AE2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld in Sources */,
@@ -460,6 +462,8 @@
 				FAA4EF8F2939E09A008650CE /* Cells.swift in Sources */,
 				FAA669A62938B7EF00E4CD73 /* SceneDelegate.swift in Sources */,
 				FAB919472943222500E68A11 /* UIViewController.swift in Sources */,
+				FA866A42294CC95300FAF08D /* VideoData.swift in Sources */,
+				FA866A44294CD90200FAF08D /* TrailerCollectionViewCell.swift in Sources */,
 				FAA4EF872939D11B008650CE /* Web.swift in Sources */,
 				FAA4EFA2293A1FDB008650CE /* MovieTableViewCell.swift in Sources */,
 			);

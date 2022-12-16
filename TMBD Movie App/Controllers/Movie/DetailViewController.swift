@@ -22,31 +22,33 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var movieYear: UILabel!
     @IBOutlet weak var movieScore: UILabel!
     @IBOutlet weak var movieOverview: UILabel!
-    @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var addWatchlistButton: UIButton!
     @IBOutlet weak var castCollectionView: UICollectionView!
+    @IBOutlet weak var trailerCollectionView: UICollectionView!
     
     //MARK: - Objects
-    var movieManager = MovieManager()
-    var movieID : String?
-    var id : Int?
-    var posterString : String?
-    var viewModel : DetailMovieModel?
+    private var movieManager = MovieManager()
+    private var movieID : String?
+    private var id : Int?
+    private var posterString : String?
+    public var viewModel : DetailMovieModel?
     private var movieArray : [Movie]? = [Movie]()
     private var casts : [Cast]? = [Cast]()
-    var genreData : [Genre]? = [Genre]()
+    public var genreData : [Genre]? = [Genre]()
+    private var videoData : [VideoResults]? = [VideoResults]()
     
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         castCollectionView.dataSource = self
-        castCollectionView.delegate = self
+        trailerCollectionView.dataSource = self
         addGradient(viewTest: posterView)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         loadDetails()
+        loadVideos()
     }
     
     
@@ -106,18 +108,6 @@ class DetailViewController: UIViewController {
                 print(error)
             }
         }
-        //Update Trailer Video
-        movieManager.fetchYoutubeVideo(with: viewModel?.movieTitle ?? "" + " trailer") { result in
-            switch result{
-            case .success(let video):
-                
-                guard let url = URL(string: "https://www.youtube.com/embed/\(video.id.videoId)") else {return}
-                self.webView.load(URLRequest(url: url))
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
         //Fetch Casts
         movieManager.fetchCredits(movieID: viewModel?.id ?? 0) { results in
             switch results{
@@ -127,6 +117,20 @@ class DetailViewController: UIViewController {
                     self.castCollectionView.reloadData()
                 }
             case.failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    //Load Movie Videos
+    func loadVideos(){
+        movieManager.fetchVideos(movieID: viewModel?.id ?? 0) { results in
+            switch results {
+            case.success(let video):
+                DispatchQueue.main.async {
+                    self.videoData = video.results
+                    self.trailerCollectionView.reloadData()
+                }
+            case.failure( let error):
                 print(error.localizedDescription)
             }
         }
@@ -182,25 +186,39 @@ class DetailViewController: UIViewController {
 //MARK: - CollectionViewDataSource
 extension DetailViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.casts?.count ?? 0
+        if collectionView == castCollectionView{
+            return self.casts?.count ?? 0
+        }
+        else{
+            return self.videoData?.count ?? 0
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.castCell, for: indexPath) as? CreditsCollectionViewCell else {
-            return UICollectionViewCell()
+        if collectionView == castCollectionView{
+            guard let cell = castCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.castCell, for: indexPath) as? CreditsCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            cell.castName.text = self.casts?[indexPath.row].name ?? self.casts?[indexPath.row].original_name
+            cell.castImage.layer.cornerRadius = cell.castImage.frame.size.height * 0.1
+            
+            if let posterPath = self.casts?[indexPath.row].profile_path{
+                let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
+                cell.castImage.kf.setImage(with: downloadPosterImage)
+            }
+            return cell
+            
         }
         
-        cell.castName.text = self.casts?[indexPath.row].name ?? self.casts?[indexPath.row].original_name
-        cell.castImage.layer.cornerRadius = cell.castImage.frame.size.height * 0.1
-        
-        if let posterPath = self.casts?[indexPath.row].profile_path{
-            let downloadPosterImage = URL(string: "\(MovieConstants.baseImageURL)\(posterPath)")
-            cell.castImage.kf.setImage(with: downloadPosterImage)
+        else{
+            guard let cell = trailerCollectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewCells.trailerCell, for: indexPath) as? TrailerCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            guard let videoKey = self.videoData?[indexPath.row].key else {return UICollectionViewCell()}
+            guard let url = URL(string: "https://www.youtube.com/embed/\(videoKey)") else {return UICollectionViewCell()}
+            cell.trailerWebView.load(URLRequest(url: url))
+            return cell
         }
-        return cell
+        
     }
-}
-
-//MARK: - CollectionViewDelegate
-extension DetailViewController: UICollectionViewDelegate {
-    
 }
