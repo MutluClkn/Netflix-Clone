@@ -16,6 +16,7 @@ class SearchTableViewCell: UITableViewCell {
     @IBOutlet weak var posterImage: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    
 
     
     //MARK: - Lifecycle

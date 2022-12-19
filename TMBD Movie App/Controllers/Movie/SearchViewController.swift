@@ -88,7 +88,7 @@ extension SearchViewController: UITableViewDataSource{
         }
         
         if let voteAverage = movie?.vote_average, let voteCount = movie?.vote_count {
-            cell.scoreLabel.text = "Score: " + String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
+            cell.scoreLabel.text = String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
         }
         
         

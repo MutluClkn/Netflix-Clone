@@ -471,12 +471,6 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score 0.0 (Vote)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjW-AV-fvX">
-                                                    <rect key="frame" x="145" y="113.66666666666667" width="198" height="14"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Bfv-8j-Kcs">
                                                     <rect key="frame" x="358" y="82.666666666666671" width="25" height="23.666666666666671"/>
                                                     <constraints>
@@ -484,6 +478,29 @@
                                                         <constraint firstAttribute="height" constant="25" id="zRe-PZ-IGC"/>
                                                     </constraints>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oR7-5O-3pn">
+                                                    <rect key="frame" x="145" y="113.66666666666667" width="142.33333333333337" height="20.000000000000014"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="zC3-Fw-kOc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="20" id="IgB-Jt-NvK"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0.0 (Vote)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzA-5S-2Xc">
+                                                            <rect key="frame" x="27.999999999999993" y="0.0" width="114.33333333333331" height="20"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="zC3-Fw-kOc" firstAttribute="leading" secondItem="oR7-5O-3pn" secondAttribute="leading" id="11u-TH-7Aa"/>
+                                                        <constraint firstItem="zC3-Fw-kOc" firstAttribute="top" secondItem="oR7-5O-3pn" secondAttribute="top" id="cAn-42-qpI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="zC3-Fw-kOc" secondAttribute="bottom" id="k53-qb-AD3"/>
+                                                        <constraint firstAttribute="height" constant="20" id="pug-La-OvI"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vKB-rQ-E0J" firstAttribute="leading" secondItem="qLN-dq-TGF" secondAttribute="trailing" constant="20" id="0Ms-IE-fbV"/>
@@ -491,11 +508,10 @@
                                                 <constraint firstItem="qLN-dq-TGF" firstAttribute="bottom" secondItem="vZz-Kd-c2e" secondAttribute="bottomMargin" id="4mc-cr-qYJ"/>
                                                 <constraint firstItem="vKB-rQ-E0J" firstAttribute="centerY" secondItem="vZz-Kd-c2e" secondAttribute="centerY" id="73D-Ut-wu4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Bfv-8j-Kcs" secondAttribute="trailing" constant="10" id="9Sw-Cz-6KM"/>
+                                                <constraint firstItem="oR7-5O-3pn" firstAttribute="top" secondItem="vKB-rQ-E0J" secondAttribute="bottom" constant="10" id="CEi-mL-F6B"/>
                                                 <constraint firstItem="Bfv-8j-Kcs" firstAttribute="leading" secondItem="vKB-rQ-E0J" secondAttribute="trailing" constant="15" id="Fpa-fu-Xov"/>
+                                                <constraint firstItem="oR7-5O-3pn" firstAttribute="leading" secondItem="qLN-dq-TGF" secondAttribute="trailing" constant="20" id="K8A-gO-2Th"/>
                                                 <constraint firstItem="Bfv-8j-Kcs" firstAttribute="centerY" secondItem="vZz-Kd-c2e" secondAttribute="centerY" id="UQ8-pQ-OJG"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vjW-AV-fvX" secondAttribute="trailing" constant="30" id="e6S-Hf-2m6"/>
-                                                <constraint firstItem="vjW-AV-fvX" firstAttribute="top" secondItem="vKB-rQ-E0J" secondAttribute="bottom" constant="10" id="sIh-5b-XKs"/>
-                                                <constraint firstItem="vjW-AV-fvX" firstAttribute="leading" secondItem="qLN-dq-TGF" secondAttribute="trailing" constant="20" id="uye-Xe-puO"/>
                                                 <constraint firstItem="qLN-dq-TGF" firstAttribute="leading" secondItem="vZz-Kd-c2e" secondAttribute="leadingMargin" id="xyI-Ro-hPF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -503,7 +519,7 @@
                                         <connections>
                                             <outlet property="movieTitle" destination="vKB-rQ-E0J" id="vjf-VY-4zt"/>
                                             <outlet property="posterImage" destination="qLN-dq-TGF" id="Gnw-TF-X3V"/>
-                                            <outlet property="scoreLabel" destination="vjW-AV-fvX" id="xGf-mq-jyS"/>
+                                            <outlet property="scoreLabel" destination="QzA-5S-2Xc" id="DhP-zt-bND"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1633,7 +1649,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="tIb-GI-Nr8"/>
+        <segue reference="CDx-jT-jGO"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark" catalog="system" width="110" height="128"/>
