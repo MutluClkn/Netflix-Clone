@@ -29,7 +29,7 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         fetchDiscoverMovies()
         fetchGenreData()
-        closeKeyboard()
+        //closeKeyboard()
     }
     
     //MARK: - Methods
