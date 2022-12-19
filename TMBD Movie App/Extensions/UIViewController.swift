@@ -28,4 +28,24 @@ extension UIViewController{
             button.setImage(UIImage(systemName: "eye"), for: .normal)
         }
     }
+    
+    //MARK: - Hide Keyboard
+    func closeKeyboard(){
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(closeKeyboardPressed))
+        view.addGestureRecognizer(gestureRecognizer)
+    }
+    @objc func closeKeyboardPressed(){
+        view.endEditing(true)
+    }
+    
+    //MARK: - Gradient
+    func addGradient(viewTest: UIView){
+        let gradient = CAGradientLayer()
+        gradient.colors = [
+            UIColor.clear.cgColor,
+            UIColor.darkText.cgColor
+        ]
+        gradient.frame = viewTest.bounds
+        viewTest.layer.addSublayer(gradient)
+    }
 }

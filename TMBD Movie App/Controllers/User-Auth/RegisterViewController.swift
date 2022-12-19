@@ -25,6 +25,7 @@ class RegisterViewController: UIViewController {
     //viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        closeKeyboard()
     }
     
     

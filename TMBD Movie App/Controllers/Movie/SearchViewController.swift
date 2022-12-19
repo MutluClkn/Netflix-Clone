@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     private var movieArray : [Movie]?
     private var selectedMovie : Movie?
     private var genreData : [Genre]? = [Genre]()
-
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,7 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
         fetchDiscoverMovies()
         fetchGenreData()
+        closeKeyboard()
     }
     
     //MARK: - Methods
@@ -70,7 +71,7 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource{
     //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return self.movieArray?.count ?? 0
     }
     //MARK: - Cell For Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -89,6 +90,7 @@ extension SearchViewController: UITableViewDataSource{
         if let voteAverage = movie?.vote_average, let voteCount = movie?.vote_count {
             cell.scoreLabel.text = "Score: " + String(format:"%.1f", voteAverage) + " (\(String(voteCount)))"
         }
+        
         
         return cell
     }
