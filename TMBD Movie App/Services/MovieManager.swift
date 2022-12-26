@@ -8,188 +8,114 @@
 //MARK: - Frameworks
 import Foundation
 
+//MARK: - Enums
+//Selection of constant movie URL addresses
+enum MovieURL: String{
+    case nowPlaying
+    case popular
+    case topRated
+    case upcoming
+    case discover
+    case none
+}
+
+//Movie selection related to movie ID
+enum movieIDSelection{
+    case movieDetails
+    case credits
+    case videos
+    case none
+}
+
+//Errors
+enum NetworkingError: Error{
+    case invalidURL
+    case custom(error: Error)
+    case invalidData
+    case failedToDecode(error: Error)
+}
+
 //MARK: - MovieManager
-struct MovieManager {
-
+final class MovieManager {
+    
+    static let shared = MovieManager()
+    
+    private init() {}
+    
     //MARK: - Fetch Movie
-    func performRequest(url: String, completion: @escaping (Result<MovieData, Error>) -> Void){
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let movies = try decoder.decode(MovieData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(movies))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
-            }
-            task.resume()
-        }
-    }
-    
-    //MARK: - Fetch Search & Query
-    func fetchSearchQuery(with query: String, url: String, completion: @escaping (Result<MovieData, Error>) -> Void){
-        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+    func performRequest<T: Codable>(type: T.Type, query q: String, externalID exID: String, movieID mID: Int, movieIDSelection selection: movieIDSelection, movieURL: MovieURL, completion: @escaping (Result<T, Error>) -> Void){
         
-        if let urlString = URL(string: url + query) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let movies = try decoder.decode(MovieData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(movies))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
-            }
-            task.resume()
+        var url = ""
+        
+        switch movieURL{
+        case .nowPlaying:
+            url = URLAddress().urlNowPlaying
+        case .popular:
+            url = URLAddress().urlPopular
+        case .topRated:
+            url = URLAddress().urlTopRated
+        case .upcoming:
+            url = URLAddress().urlUpcoming
+        case .discover:
+            url = URLAddress().discoverURL
+        case .none:
+            url = ""
+        default:
+            break
         }
-    }
-    
-
-    //MARK: - Fetch a Specific Movie Details with External ID
-    func fetchSpecificMovie(with externalId: String, completion: @escaping (Result<ExternalIDMovieData, Error>) -> Void){
-        let url = "\(MovieConstants.baseURL)/find/\(externalId)?\(MovieConstants.apiKey)&language=en-US&external_source=imdb_id"
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let movies = try decoder.decode(ExternalIDMovieData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(movies))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
+        if mID != 0{
+            switch selection{
+            case .movieDetails:
+                url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(mID))?\(MovieConstants.apiKey)&language=en-US"
+            case .credits:
+                url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(mID))/credits?\(MovieConstants.apiKey)&language=en-US"
+            case .videos:
+                url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(mID))/videos?\(MovieConstants.apiKey)&language=en-US"
+            case .none:
+                url = ""
+            default:
+                break
             }
-            task.resume()
         }
-    }
-    
-    //MARK: - Fetch Movie Details
-    func fetchMovieDetails(movieID: Int, completion: @escaping (Result<MovieDetailsData, Error>) -> Void){
-        let url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(movieID))?\(MovieConstants.apiKey)&language=en-US"
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let movies = try decoder.decode(MovieDetailsData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(movies))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
+        
+        if q != "" {
+            guard let q = q.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else {return}
+            url = URLAddress().searchQueryURL + q
+        }
+        
+        if exID != "" {
+            url = "\(MovieConstants.baseURL)/find/\(exID)?\(MovieConstants.apiKey)&language=en-US&external_source=imdb_id"
+        }
+        
+        if type == GenreData.self {
+            url = URLAddress().genreData
+        }
+        
+        guard let urlString = URL(string: url) else {
+            completion(.failure(NetworkingError.invalidURL))
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: urlString) { data, _, error in
+            if let error {
+                completion(.failure(NetworkingError.custom(error: error)))
+                return
             }
-            task.resume()
-        }
-    }
-    
-    //MARK: - Fetch Genre Data
-    func fetchGenreData(completion: @escaping (Result<GenreData, Error>) -> Void){
-        if let urlString = URL(string: URLAddress().genreData) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let genres = try decoder.decode(GenreData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(genres))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
+            guard let data = data else {
+                completion(.failure(NetworkingError.invalidData))
+                return
             }
-            task.resume()
-        }
-    }
-    
-    //MARK: - Fetch Credits
-    func fetchCredits(movieID: Int, completion: @escaping (Result<CreditsData, Error>) -> Void){
-        let url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(movieID))/credits?\(MovieConstants.apiKey)&language=en-US"
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
+            do{
+                let decoder = JSONDecoder()
+                let res = try decoder.decode(T.self, from: data)
+                DispatchQueue.main.async {
+                    completion(.success(res))
                 }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let casts = try decoder.decode(CreditsData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(casts))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
+            }catch{
+                completion(.failure(NetworkingError.failedToDecode(error: error)))
             }
-            task.resume()
         }
-    }
-    
-    //MARK: - Fetch Movie Videos
-    func fetchVideos(movieID: Int, completion: @escaping (Result<VideoData, Error>) -> Void){
-        let url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(movieID))/videos?\(MovieConstants.apiKey)&language=en-US"
-        if let urlString = URL(string: url) {
-            let session = URLSession(configuration: .default)
-            let task = session.dataTask(with: urlString) { data, _, error in
-                if let error {
-                    print(error)
-                    return
-                }
-                if let data {
-                    do{
-                        let decoder = JSONDecoder()
-                        let videos = try decoder.decode(VideoData.self, from: data)
-                        DispatchQueue.main.async {
-                            completion(.success(videos))
-                        }
-                    }catch{
-                        completion(.failure(error))
-                    }
-                }
-            }
-            task.resume()
-        }
+        task.resume()
     }
 }

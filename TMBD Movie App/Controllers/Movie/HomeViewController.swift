@@ -25,7 +25,6 @@ class HomeViewController: UIViewController {
     //MARK: - Objects
     let sectionTitles = ["NOW PLAYING", "POPULAR", "TOP RATED", "UPCOMING"]
     var tableViewCell = MovieTableViewCell()
-    var movieManager = MovieManager()
     var viewModel : DetailMovieModel?
     private var genreData : [Genre]? = [Genre]()
     
@@ -45,14 +44,14 @@ class HomeViewController: UIViewController {
     //MARK: - Methods
     //Fetch Genre Data
     private func fetchGenreData(){
-        MovieManager().fetchGenreData { results in
+        MovieManager.shared.performRequest(type: GenreData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .none, completion: { results in
             switch results{
             case.success(let genres):
                 self.genreData = genres.genres
             case.failure(let error):
                 print(error.localizedDescription)
             }
-        }
+        })
     }
 }
 
@@ -75,7 +74,7 @@ extension HomeViewController: UITableViewDataSource {
         
         switch indexPath.section {
         case Sections.nowPlaying.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlNowPlaying) { results in
+            MovieManager.shared.performRequest(type: MovieData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .nowPlaying) { results in
                 switch results{
                 case.success(let movie):
                     cell.configure(with: movie.results)
@@ -84,7 +83,7 @@ extension HomeViewController: UITableViewDataSource {
                 }
             }
         case Sections.popular.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlPopular) { results in
+            MovieManager.shared.performRequest(type: MovieData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .popular) { results in
                 switch results{
                 case.success(let movie):
                     cell.configure(with: movie.results)
@@ -93,7 +92,7 @@ extension HomeViewController: UITableViewDataSource {
                 }
             }
         case Sections.topRated.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlTopRated) { results in
+            MovieManager.shared.performRequest(type: MovieData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .topRated) { results in
                 switch results{
                 case.success(let movie):
                     cell.configure(with: movie.results)
@@ -102,7 +101,7 @@ extension HomeViewController: UITableViewDataSource {
                 }
             }
         case Sections.upcoming.rawValue:
-            self.movieManager.performRequest(url: URLAddress().urlUpcoming) { results in
+            MovieManager.shared.performRequest(type: MovieData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .upcoming) { results in
                 switch results{
                 case.success(let movie):
                     cell.configure(with: movie.results)

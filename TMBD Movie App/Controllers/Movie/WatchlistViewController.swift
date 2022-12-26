@@ -19,7 +19,7 @@ class WatchlistViewController: UIViewController {
     @IBOutlet weak var watchlistTableView: UITableView!
     
     //MARK: - Objects
-    var movieManager = MovieManager()
+    //var movieManager = MovieManager()
     var loadedMovies = [FStoreMovieModel]()
     var viewModel : DetailMovieModel?
     private var movieArray : [Movie]? = [Movie]()
@@ -60,7 +60,7 @@ class WatchlistViewController: UIViewController {
     }
     //Fetch Genre Data
     private func fetchGenreData(){
-        MovieManager().fetchGenreData { results in
+        MovieManager.shared.performRequest(type: GenreData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .none) { results in
             switch results{
             case.success(let genres):
                 self.genreData = genres.genres
@@ -120,7 +120,7 @@ extension WatchlistViewController: UITableViewDelegate{
         let externalID = loadedMovies[indexPath.row].movieID
         print(loadedMovies[indexPath.row].uuid)
         
-        movieManager.fetchSpecificMovie(with: externalID) { result in
+        MovieManager.shared.performRequest(type: ExternalIDMovieData.self, query: "", externalID: externalID, movieID: 0, movieIDSelection: .none, movieURL: .none) { result in
             switch result{
             case .success(let movie):
                 DispatchQueue.main.async {

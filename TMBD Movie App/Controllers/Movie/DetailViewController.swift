@@ -27,7 +27,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var trailerCollectionView: UICollectionView!
     
     //MARK: - Objects
-    private var movieManager = MovieManager()
+    //private var movieManager = MovieManager()
     private var movieID : String?
     private var id : Int?
     private var posterString : String?
@@ -99,7 +99,7 @@ class DetailViewController: UIViewController {
         posterString = "\(MovieConstants.baseImageURL)" + (viewModel?.posterURL ?? "")
         
         //Get External ID
-        movieManager.fetchMovieDetails(movieID: viewModel?.id ?? 0) { results in
+        MovieManager.shared.performRequest(type: MovieDetailsData.self, query: "", externalID: "", movieID: viewModel?.id ?? 0, movieIDSelection: .movieDetails, movieURL: .none) { results in
             switch results{
             case .success(let details):
                 self.id = details.id
@@ -108,8 +108,9 @@ class DetailViewController: UIViewController {
                 print(error)
             }
         }
+        
         //Fetch Casts
-        movieManager.fetchCredits(movieID: viewModel?.id ?? 0) { results in
+        MovieManager.shared.performRequest(type: CreditsData.self, query: "", externalID: "", movieID: viewModel?.id ?? 0, movieIDSelection: .credits, movieURL: .none) { results in
             switch results{
             case.success(let cast):
                 DispatchQueue.main.async {
@@ -123,7 +124,7 @@ class DetailViewController: UIViewController {
     }
     //Load Movie Videos
     func loadVideos(){
-        movieManager.fetchVideos(movieID: viewModel?.id ?? 0) { results in
+        MovieManager.shared.performRequest(type: VideoData.self, query: "", externalID: "", movieID: viewModel?.id ?? 0, movieIDSelection: .videos, movieURL: .none) { results in
             switch results {
             case.success(let video):
                 DispatchQueue.main.async {

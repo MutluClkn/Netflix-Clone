@@ -35,7 +35,7 @@ class SearchViewController: UIViewController {
     //MARK: - Methods
     //Fetch Discovered Movie
     private func fetchDiscoverMovies(){
-        MovieManager().performRequest(url: URLAddress().discoverURL) { results in
+        MovieManager.shared.performRequest(type: MovieData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .discover) { results in
             DispatchQueue.main.async { [weak self] in
                 switch results{
                 case.success(let movie):
@@ -49,7 +49,7 @@ class SearchViewController: UIViewController {
     }
     //Fetch Genre Data
     private func fetchGenreData(){
-        MovieManager().fetchGenreData { results in
+        MovieManager.shared.performRequest(type: GenreData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .none) { results in
             switch results{
             case.success(let genres):
                 self.genreData = genres.genres
@@ -118,7 +118,7 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             let query = searchText
-            MovieManager().fetchSearchQuery(with: query, url: URLAddress().searchQueryURL) { results in
+            MovieManager.shared.performRequest(type: MovieData.self, query: query, externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .none) { results in
                 DispatchQueue.main.async { [weak self] in
                     switch results{
                     case.success(let movie):

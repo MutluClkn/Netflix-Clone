@@ -42,7 +42,7 @@ class MovieTableViewCell: UITableViewCell {
     }
     //Fetch Genre Data
     private func fetchGenreData(){
-        MovieManager().fetchGenreData { results in
+        MovieManager.shared.performRequest(type: GenreData.self, query: "", externalID: "", movieID: 0, movieIDSelection: .none, movieURL: .none) { results in
             switch results{
             case.success(let genres):
                 self.genreData = genres.genres
