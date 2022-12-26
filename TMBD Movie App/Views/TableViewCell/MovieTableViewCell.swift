@@ -57,7 +57,8 @@ class MovieTableViewCell: UITableViewCell {
 extension MovieTableViewCell: UICollectionViewDataSource {
     //MARK: - Number of Items in Section
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movieArray?.count ?? 0
+        guard let numberOfItems = self.movieArray?.count else { return 0}
+        return numberOfItems
     }
     //MARK: - Cell For Item at
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -71,7 +71,8 @@ class SearchViewController: UIViewController {
 extension SearchViewController: UITableViewDataSource{
     //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movieArray?.count ?? 0
+        guard let numberOfRows = self.movieArray?.count else { return 0}
+        return numberOfRows
     }
     //MARK: - Cell For Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,7 +101,7 @@ extension SearchViewController: UITableViewDataSource{
 extension SearchViewController: UITableViewDelegate {
     //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
+        return TableViewConstants.SearchAndWatchlist.heightForRowAt
     }
     //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -137,5 +138,6 @@ extension SearchViewController: UISearchBarDelegate{
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         self.fetchDiscoverMovies()
+        self.view.endEditing(true)
     }
 }

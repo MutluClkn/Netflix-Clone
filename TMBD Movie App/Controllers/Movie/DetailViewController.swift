@@ -187,10 +187,12 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == castCollectionView{
-            return self.casts?.count ?? 0
+            guard let numberOfItems = self.casts?.count else{return 0}
+            return numberOfItems
         }
         else{
-            return self.videoData?.count ?? 0
+            guard let numberOfItems = self.videoData?.count else{return 0}
+            return numberOfItems
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

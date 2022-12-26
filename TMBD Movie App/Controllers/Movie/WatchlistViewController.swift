@@ -112,7 +112,7 @@ extension WatchlistViewController: UITableViewDataSource{
 extension WatchlistViewController: UITableViewDelegate{
     //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
+        return TableViewConstants.SearchAndWatchlist.heightForRowAt
     }
     //MARK: - Did Select Row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

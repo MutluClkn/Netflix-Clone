@@ -1,0 +1,6 @@
+framework module Pods_TMBD_Movie_App {
+  umbrella header "Pods-TMBD Movie App-umbrella.h"
+
+  export *
+  module * { export * }
+}

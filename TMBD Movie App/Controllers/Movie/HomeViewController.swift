@@ -64,7 +64,7 @@ extension HomeViewController: UITableViewDataSource {
     }
     //MARK: - Number of Rows in Section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return TableViewConstants.HomeTableView.numberOfRowsInSection
     }
     //MARK: - Cell for Row at
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,7 +121,7 @@ extension HomeViewController: UITableViewDataSource {
 extension HomeViewController: UITableViewDelegate{
     //MARK: - Height For Row at
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 275
+        return TableViewConstants.HomeTableView.heightForRowAt
     }
     //MARK: - Title For Header in Section
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -129,7 +129,7 @@ extension HomeViewController: UITableViewDelegate{
     }
     //MARK: - Height For Header in Section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 19
+        return TableViewConstants.HomeTableView.heightForHeaderInSection
     }
     //MARK: - Will Display Header View
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
