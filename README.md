@@ -1,18 +1,24 @@
 # TMDB Movie App
 
-A movie app where users can access the latest movies. The source of the data is [themoviedb](https://www.themoviedb.org/).
+A movie app where users can access the latest movies. The source of the data is [themoviedb](https://www.themoviedb.org/). You can see the technologies and features used in the project below.
+
+<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/Detail1.png " width="222"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/Detail2.png " width="222">
 
 ## Technologies
 
-* URLSession,
+* URLSession
+* Generics
 * Firebase
 * Kingfisher
+* Responsive Design
+* OOP
+* MVC
 
 ## Features
 
 * Users can register to Firebase. In case the users forget their password, they can get a recovery email and reset the password via email address.
 
-<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/Simulator%20Screen%20Shot%20-%20iPhone%2014%20Pro%20-%202022-12-15%20at%2016.47.52.png " width="222"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/RegisterToFirebase.gif " width="250">
+<img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/ResetPassword.png " width="222"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/RegisterToFirebase.gif " width="250">
 
 ##
 
