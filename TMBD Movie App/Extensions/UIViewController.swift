@@ -45,7 +45,9 @@ extension UIViewController{
             UIColor.clear.cgColor,
             UIColor.darkText.cgColor
         ]
-        gradient.frame = viewTest.bounds
+        // gradient.frame = viewTest.bounds
+        gradient.frame.size.height = viewTest.frame.height
+        gradient.frame.size.width = viewTest.frame.width * 20
         viewTest.layer.addSublayer(gradient)
     }
 }

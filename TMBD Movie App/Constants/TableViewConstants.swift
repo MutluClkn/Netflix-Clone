@@ -14,6 +14,6 @@ struct TableViewConstants {
         static let numberOfRowsInSection = 1
     }
     struct SearchAndWatchlist {
-        static let heightForRowAt: CGFloat = 190
+        static let heightForRowAt: CGFloat = 172
     }
 }
