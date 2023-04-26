@@ -28,9 +28,11 @@ class ResetPasswordViewController: UIViewController {
         if let email = emailTextField.text{
             Auth.auth().sendPasswordReset(withEmail: email) { error in
                 if let error {
-                    self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
+                    self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription, completionHandler: nil)
                 }else {
-                    self.alertMessage(alertTitle: "Success", alertMesssage: "We sent you a recovery email. Check you mailbox!")
+                    self.alertMessage(alertTitle: "Success", alertMesssage: "We sent you a recovery email. Check your mailbox!"){
+                        self.dismiss(animated: true)
+                    }
                 }
             }
         }

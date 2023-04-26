@@ -44,16 +44,18 @@ class RegisterViewController: UIViewController {
             if password == confirmPass {
                 Auth.auth().createUser(withEmail: email, password: password){_, error in
                     if let error {
-                        self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
+                        self.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription, completionHandler: nil)
                     }else{
-                        self.alertMessage(alertTitle: "Success", alertMesssage: "Registration successed! You can return to the login screen by pressing the 'Sign In' button below.")
+                        self.alertMessage(alertTitle: "Success", alertMesssage: "You have successfully registered."){
+                            self.dismiss(animated: true)
+                        }
                     }
                 }
             }else{
-                alertMessage(alertTitle: "Error", alertMesssage: "Passwords are not match!")
+                alertMessage(alertTitle: "Error", alertMesssage: "Passwords are not match!", completionHandler: nil)
             }
         }else{
-            alertMessage(alertTitle: "Error", alertMesssage: "Please fill all the necessary parts!")
+            alertMessage(alertTitle: "Error", alertMesssage: "Please fill all the necessary parts!", completionHandler: nil)
         }
     }
     //Sign In Button

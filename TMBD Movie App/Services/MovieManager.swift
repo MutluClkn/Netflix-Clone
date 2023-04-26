@@ -60,8 +60,6 @@ final class MovieManager {
             url = URLAddress().discoverURL
         case .none:
             url = ""
-        default:
-            break
         }
         if mID != 0{
             switch selection{
@@ -73,8 +71,6 @@ final class MovieManager {
                 url = "\(MovieConstants.baseURL)/\(MovieConstants.type)/\(String(mID))/videos?\(MovieConstants.apiKey)&language=en-US"
             case .none:
                 url = ""
-            default:
-                break
             }
         }
         

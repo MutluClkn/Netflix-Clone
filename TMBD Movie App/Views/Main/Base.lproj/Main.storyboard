@@ -467,7 +467,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKB-rQ-E0J">
-                                                    <rect key="frame" x="135" y="77" width="245" height="18"/>
+                                                    <rect key="frame" x="135" y="78.333333333333329" width="245" height="15.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-SemiBold" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -480,7 +480,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oR7-5O-3pn">
-                                                    <rect key="frame" x="135" y="105" width="102.33333333333331" height="12"/>
+                                                    <rect key="frame" x="135" y="103.66666666666667" width="102.33333333333331" height="12"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="zC3-Fw-kOc">
                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>
@@ -1450,7 +1450,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AEC-fH-LOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-347.32824427480915" y="-538.02816901408448"/>
+            <point key="canvasLocation" x="-261" y="-538"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Adm-0C-gfa">
@@ -1502,7 +1502,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAw-8Q-20l">
-                                                    <rect key="frame" x="135" y="76" width="245" height="18"/>
+                                                    <rect key="frame" x="135" y="77.333333333333329" width="245" height="15.333333333333329"/>
                                                     <fontDescription key="fontDescription" name="NotoSans-SemiBold" family="Noto Sans" pointSize="13"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -1515,7 +1515,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FuA-8K-8Hb">
-                                                    <rect key="frame" x="135" y="104" width="102.33333333333331" height="12"/>
+                                                    <rect key="frame" x="135" y="102.66666666666667" width="102.33333333333331" height="12"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-OD-oAh">
                                                             <rect key="frame" x="0.0" y="0.0" width="12" height="12"/>

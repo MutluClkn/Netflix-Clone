@@ -24,7 +24,7 @@ class LoginViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkRememberMe()
+        checkRememberMe() //Remember Me buton activated.
         closeKeyboard()
     }
     
@@ -50,7 +50,7 @@ class LoginViewController: UIViewController {
                 guard let strongSelf = self else { return }
                 if let error {
                     alertController.dismiss(animated: true, completion: nil);
-                    strongSelf.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription)
+                    strongSelf.alertMessage(alertTitle: "Error", alertMesssage: error.localizedDescription, completionHandler: nil)
                 }else{
                     if strongSelf.rememberMe == true {
                         UserDefaults.standard.set("1", forKey: "RememberMe")

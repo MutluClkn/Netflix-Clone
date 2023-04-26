@@ -155,14 +155,14 @@ class DetailViewController: UIViewController {
                 print("Error getting documents: \(error)")
             }else{
                 if !snapshot!.documents.isEmpty {
-                    self.alertMessage(alertTitle: "", alertMesssage: "The movie is in your watchlist.")
+                    self.alertMessage(alertTitle: "", alertMesssage: "The movie is in your watchlist.", completionHandler: nil)
                     print("Movie saved in the database already.")
                 }else{
                     Firestore.firestore().collection(FirestoreConstants.collectionName).document(uuid).setData(docData){ error in
                         if let error {
                             print("Error writing document: \(error)")
                         } else {
-                            self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.")
+                            self.alertMessage(alertTitle: "Success", alertMesssage: "The movie saved in your watchlist.", completionHandler: nil)
                             print("Document successfully written!")
                         }
                     }

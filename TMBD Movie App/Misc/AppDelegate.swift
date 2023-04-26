@@ -5,6 +5,7 @@
 //  Created by Mutlu Çalkan on 1.12.2022.
 //
 
+// MARK: Libraries
 import UIKit
 import CoreData
 import FirebaseCore
@@ -14,10 +15,10 @@ import FirebaseFirestore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Firebase Configurations
         FirebaseApp.configure()
         Firestore.firestore()
         return true
