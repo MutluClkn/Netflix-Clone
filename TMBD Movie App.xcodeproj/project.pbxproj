@@ -31,6 +31,7 @@
 		FA866A40294CB2BF00FAF08D /* GenreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A3F294CB2BF00FAF08D /* GenreData.swift */; };
 		FA866A42294CC95300FAF08D /* VideoData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A41294CC95300FAF08D /* VideoData.swift */; };
 		FA866A44294CD90200FAF08D /* TrailerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA866A43294CD90200FAF08D /* TrailerCollectionViewCell.swift */; };
+		FA9AE51A2B50212400A8EF8F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA9AE5192B50212400A8EF8F /* GoogleService-Info.plist */; };
 		FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */; };
 		FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */; };
 		FAA4EF7C2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */; };
@@ -54,7 +55,6 @@
 		FAB91942294314C600E68A11 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91941294314C600E68A11 /* FirebaseFirestore */; };
 		FAB91944294314C600E68A11 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FAB91943294314C600E68A11 /* FirebaseStorage */; };
 		FAB919472943222500E68A11 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB919462943222500E68A11 /* UIViewController.swift */; };
-		FAB9197129437CAC00E68A11 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +83,7 @@
 		FA866A3F294CB2BF00FAF08D /* GenreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreData.swift; sourceTree = "<group>"; };
 		FA866A41294CC95300FAF08D /* VideoData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoData.swift; sourceTree = "<group>"; };
 		FA866A43294CD90200FAF08D /* TrailerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailerCollectionViewCell.swift; sourceTree = "<group>"; };
+		FA9AE5192B50212400A8EF8F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FAA4EF762939C7EB008650CE /* NotoSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		FAA4EF772939C7EB008650CE /* NotoSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSans-Bold.ttf"; sourceTree = "<group>"; };
 		FAA4EF7B2939C81E008650CE /* AnekDevanagari-VariableFont_wdth,wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AnekDevanagari-VariableFont_wdth,wght.ttf"; sourceTree = "<group>"; };
@@ -104,7 +105,6 @@
 		FAA669B22938B7F200E4CD73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAA669B42938B7F200E4CD73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB919462943222500E68A11 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
-		FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,7 +325,7 @@
 				FAA669BB2938B84100E4CD73 /* Controllers */,
 				FAA669BA2938B82F00E4CD73 /* Misc */,
 				FAA669B42938B7F200E4CD73 /* Info.plist */,
-				FAB9197029437CAC00E68A11 /* GoogleService-Info.plist */,
+				FA9AE5192B50212400A8EF8F /* GoogleService-Info.plist */,
 				FAA669AC2938B7EF00E4CD73 /* TMBD_Movie_App.xcdatamodeld */,
 			);
 			path = "TMBD Movie App";
@@ -440,7 +440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAA4EF792939C7EB008650CE /* NotoSans-Bold.ttf in Resources */,
-				FAB9197129437CAC00E68A11 /* GoogleService-Info.plist in Resources */,
+				FA9AE51A2B50212400A8EF8F /* GoogleService-Info.plist in Resources */,
 				FAA669B32938B7F200E4CD73 /* LaunchScreen.storyboard in Resources */,
 				FAA4EF782939C7EB008650CE /* NotoSans-SemiBold.ttf in Resources */,
 				FAA669B02938B7F200E4CD73 /* Assets.xcassets in Resources */,
