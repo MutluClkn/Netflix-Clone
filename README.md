@@ -16,7 +16,7 @@ A movie app where users can access the latest movies. The source of the data is 
 
 ## Features
 
-* Users can register to Firebase. In case the users forget their password, they can get a recovery email and reset the password via email address.
+* Users can register to Firebase. If users forget their password, they can get a recovery email to reset it.
 
 <img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/ResetPassword.png " width="222"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/RegisterToFirebase.gif " width="250">
 
@@ -28,18 +28,18 @@ A movie app where users can access the latest movies. The source of the data is 
 
 ## 
 
-* Users can access to latest, top-rated, popular, and upcoming movies.
+* Users can access the latest, top-rated, popular, and upcoming movies.
 
 <img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/HomeScreen.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/SaveToTheWatchlist.gif " width="250">
 
 ##
 
-* Users can add/delete the movies to/from their watchlist. Every movie can be added to the watchlist only once. Every user has a personal watchlist. Movies will be saved to the user's account.
+* Users can add/delete the movies to/from their watchlist. They can able to access their watchlist on another device.
 
 <img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/SaveAndDeleteMovie.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/CanNotSaveSameMovie.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/WatchlistForEachUser.gif " width="250">
 
 ##
 
-* Users can access the movie score, release date, genre, overview, cast and videos.
+* Users can access the movie score, release date, genre, overview, cast, and videos on the movie detail screen.
 
 <img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/DetailScreen.gif " width="250"><img src="https://github.com/MutluClkn/TMDB-Movie-App/blob/main/Documentation/DetailScreenn.gif " width="250">
